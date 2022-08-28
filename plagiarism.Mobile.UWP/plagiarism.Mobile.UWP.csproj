@@ -167,10 +167,6 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\plagiarism.Mobile\plagiarism.Mobile\plagiarism.Mobile.csproj">
-      <Project>{696efa44-65e4-4ba4-b33e-95c44b03fd56}</Project>
-      <Name>plagiarism.Mobile</Name>
-    </ProjectReference>
     <ProjectReference Include="..\plagiarismModel\plagiarismModel.csproj">
       <Project>{fe9f3917-1660-450a-a686-3e66db251495}</Project>
       <Name>plagiarismModel</Name>
