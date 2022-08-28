@@ -85,10 +85,6 @@ namespace plagiarism.Mobile.Views
         private bool validateRegistration()
         {
             bool valid = true;
-            if (validateFirstName() == false)
-                valid = false;
-            if (validateLastName() == false)
-                valid = false;
             if (validateEmail() == false)
                 valid = false;
             if (validateUserName() == false)
@@ -118,37 +114,6 @@ namespace plagiarism.Mobile.Views
             {
                 return true;
             };
-        }
-        private bool validateFirstName()
-        {
-            if (inputFirstName.Text == "")
-            {
-                firstNameError.Text = "Must insert name!";
-                firstNameError.IsVisible = true;
-                return false;
-            }
-            else
-            {
-                firstNameError.IsVisible = false;
-                firstNameError.Text = "";
-                return true;
-            }
-        }
-
-        private bool validateLastName()
-        {
-            if (inputLastName.Text == "")
-            {
-                lastNameError.Text = "Must insert last name!";
-                lastNameError.IsVisible = true;
-                return false;
-            }
-            else
-            {
-                lastNameError.IsVisible = false;
-                lastNameError.Text = "";
-                return true;
-            }
         }
         private bool validateTelephone()
         {
@@ -355,6 +320,29 @@ namespace plagiarism.Mobile.Views
             file.GetStream().CopyTo(memoryStream);
             file.Dispose();
             model.byteImage = memoryStream.ToArray();
+        }
+
+        private void CheckBox_CheckedChanged(object sender, CheckedChangedEventArgs e)
+        {
+            Boolean isUserChecked = isUser_Check.IsChecked;
+            if (isUserChecked)
+            {
+                officialNameVisible.IsVisible = false;
+                inputOfficialName.IsVisible = false;
+                firstNameVisible.IsVisible = true;
+                lastNameVisible.IsVisible = true;
+                inputLastName.IsVisible = true;
+                inputFirstName.IsVisible = true;
+            }
+            else
+            {
+                officialNameVisible.IsVisible = true;
+                inputOfficialName.IsVisible = true;
+                firstNameVisible.IsVisible = false;
+                lastNameVisible.IsVisible = false;
+                inputLastName.IsVisible = false;
+                inputFirstName.IsVisible = false;
+            }
         }
     }
 }

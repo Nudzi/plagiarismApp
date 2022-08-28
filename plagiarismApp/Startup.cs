@@ -10,7 +10,12 @@ using Microsoft.OpenApi.Models;
 using plagiarismApp.Database;
 using plagiarismApp.Security;
 using plagiarismApp.Services;
+using plagiarismModel.Requests.PackageTypes;
+using plagiarismModel.Requests.Results;
+using plagiarismModel.Requests.UserAddresses;
 using plagiarismModel.Requests.UserImages;
+using plagiarismModel.Requests.UsersPackageTypes;
+using plagiarismModel.Requests.UsersUserTypes;
 
 namespace plagiarismApp
 {
@@ -65,8 +70,14 @@ namespace plagiarismApp
 
             services.AddScoped<IUsersService, UsersService>();
             services.AddScoped<IUserTypesService, UserTypesService>();
+            //services.AddScoped<IService<plagiarismModel.PackageTypes, PackageTypesSearchRequest>>();
+
 
             services.AddScoped<ICRUDService<plagiarismModel.UserImages, UserImagesSearchRequest, UserImagesUpsertRequest, UserImagesUpsertRequest>, UserImagesService>();
+            services.AddScoped<ICRUDService<plagiarismModel.Results, ResultsSearchRequest, ResultsUpsertRequest, ResultsUpsertRequest>, ResultsService>();
+            services.AddScoped<ICRUDService<plagiarismModel.UserAddresses, UserAddressesSearchRequest, UserAddressesUpsertRequest, UserAddressesUpsertRequest>, UserAddressesService>();
+            services.AddScoped<ICRUDService<plagiarismModel.UsersPackageTypes, UsersPackageTypesSearchRequest, UsersPackageTypesUpsertRequest, UsersPackageTypesUpsertRequest>, UsersPackageTypesService>();
+            services.AddScoped<ICRUDService<plagiarismModel.UsersUserTypes, UsersUserTypesSearchRequest, UsersUserTypesUpsertRequest, UsersUserTypesUpsertRequest>, UsersUserTypesService>();
             var connection = Configuration.GetConnectionString("plagiarism");
             services.AddDbContext<plagiarismContext>(options => options.UseSqlServer(connection));
         }

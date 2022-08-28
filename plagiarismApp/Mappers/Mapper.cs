@@ -34,7 +34,7 @@ namespace plagiarismApp.Mappers
             CreateMap<Database.UsersPackageTypes, plagiarismModel.UsersPackageTypes>();
             CreateMap<Database.UsersPackageTypes, UsersPackageTypesUpsertRequest>().ReverseMap();
 
-            //Results
+            //UserAddresses
             CreateMap<Database.UserAddresses, plagiarismModel.UserAddresses>();
             CreateMap<Database.UserAddresses, UserAddressesUpsertRequest>().ReverseMap();
 

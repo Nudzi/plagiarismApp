@@ -29,6 +29,14 @@ namespace plagiarism.Mobile.ViewModels
             get { return _lastName; }
             set { SetProperty(ref _lastName, value); }
         }
+
+        string _officialName = string.Empty;
+        public string OfficialName
+        {
+            get { return _officialName; }
+            set { SetProperty(ref _officialName, value); }
+        }
+
         string _email = string.Empty;
         public string Email
         {
@@ -84,12 +92,22 @@ namespace plagiarism.Mobile.ViewModels
             set { SetProperty(ref _zipCode, value); }
         }
 
+        bool _isUser = true;
+        public bool IsUser
+        {
+            get { return _isUser; }
+            set { SetProperty(ref _isUser, value); }
+        }
+
         public async Task Register()
         {
             try
             {
                 List<int> userTypes = new List<int>();
-                userTypes.Add((int)plagiarismModel.Enums.UserTypes.User);
+                if (!IsUser) 
+                    userTypes.Add((int)plagiarismModel.Enums.UserTypes.Institution);
+                else
+                    userTypes.Add((int)plagiarismModel.Enums.UserTypes.User);
 
                 UserAddressesUpsertRequest userAddressesUpserRequest = new UserAddressesUpsertRequest
                 {
@@ -106,21 +124,19 @@ namespace plagiarism.Mobile.ViewModels
                     Email = Email,
                     FirstName = FirstName,
                     LastName = LastName,
+                    OfficialName = OfficialName,
                     Password = Password,
                     PasswordConfirmation = PasswordConf,
                     Status = true,
                     Telephone = Telephone,
                     UserName = UserName,
-                    UserTypes = userTypes
+                    UserTypes = userTypes,
+                    UserAddressId = address.Id
                 };
 
                 var user = await _service.Insert<Users>(request);
                 Global.LoggedUser = user;
 
-                UserImagesSearchRequest imagesSearchRequest = new UserImagesSearchRequest
-                {
-                    UserId = user.Id
-                };
                 UserImagesUpsertRequest userImagesUpsertRequest = new UserImagesUpsertRequest
                 {
                     Image = byteImage,
@@ -130,11 +146,11 @@ namespace plagiarism.Mobile.ViewModels
                 Application.Current.MainPage = new MainPage(user);
 
                 await _userImagesService.Insert<UserImages>(userImagesUpsertRequest);
-                await Application.Current.MainPage.DisplayAlert("Success", "Welcome new User!", "OK");
+                await Application.Current.MainPage.DisplayAlert("Success", "Welcome new User " + user.UserName, "OK");
             }
             catch
             {
-                await Application.Current.MainPage.DisplayAlert("Error", "Error", "OK");
+                await Application.Current.MainPage.DisplayAlert("Error", "Error creating new User! Try later.", "OK");
             }
         }
     }
