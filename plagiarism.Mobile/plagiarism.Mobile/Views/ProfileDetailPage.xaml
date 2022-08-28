@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:converters="clr-namespace:plagiarism.Mobile.Converters" 
+             xmlns:vm="clr-namespace:plagiarism.Mobile.ViewModels"
+             x:Class="plagiarism.Mobile.Views.ProfileDetailPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ImageConverter x:Key="imgConv"></converters:ImageConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.BindingContext>
+        <vm:ProfileViewModel></vm:ProfileViewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="CenterAndExpand">
+            <StackLayout Margin="16" Padding="5">
+                <Label Text="Welcome to Profile page!"
+                FontSize="25"
+                VerticalTextAlignment="Center" 
+                HorizontalTextAlignment="Center"
+                   Margin="10" Padding="10" />
+            </StackLayout>
+            <StackLayout Margin="16" Padding="5">
+                <StackLayout IsVisible="{Binding VisiblePic}" VerticalOptions="StartAndExpand" 
+                HorizontalOptions="StartAndExpand">
+                    <Image WidthRequest="200" HeightRequest="100" Source="{Binding Image, Converter={StaticResource imgConv}}"></Image>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                    <Label Text="UserName: "></Label>
+                    <Label Text="{Binding User.UserName}"></Label>
+                    <Label Text="{Binding User.Id}" IsVisible="false"></Label>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                    <Label Text="First Name: "></Label>
+                    <Label Text="{Binding User.FirstName}"></Label>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                    <Label Text="Last Name: "></Label>
+                    <Label Text="{Binding User.LastName}"></Label>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                    <Label Text="Telephone: "></Label>
+                    <Label Text="{Binding User.Telephone}"></Label>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                    <Label Text="Email: "></Label>
+                    <Label Text="{Binding User.Email}"></Label>
+                </StackLayout>
+            </StackLayout>
+            <Button Margin="16" Text="Edit Profile" Clicked="Button_Clicked"></Button>
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:converters="clr-namespace:plagiarism.Mobile.Converters"
+             x:Class="plagiarism.Mobile.Views.ItemsPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:InverseBoolConverter x:Key="inverter"></converters:InverseBoolConverter>
+            <converters:ImageConverter x:Key="imgConv"></converters:ImageConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout Padding="4" VerticalOptions="CenterAndExpand" StyleClass="BodyStyle">
+            <StackLayout Margin="30" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                <Label Text="Welcome:" WidthRequest="150" FontSize="20"></Label>
+                <Label Text="{Binding UserName}" WidthRequest="150" FontSize="20"></Label>
+            </StackLayout>
+            <Label Text="Scan Something New Today!" HorizontalOptions="CenterAndExpand"></Label>
+            <StackLayout>
+                <Button Text="Document" Clicked="Scan_Doc" Margin="15" BackgroundColor="PaleVioletRed"></Button>
+                <Label Text="or" HorizontalOptions="Center"></Label>
+                <Button Text="Text" Clicked="Scan_Text" Margin="15" BackgroundColor="OrangeRed"></Button>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

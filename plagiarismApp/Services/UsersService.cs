@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using plagiarismApp.Database;
 using plagiarismApp.Services;
 using plagiarismModel.Requests.Users;
@@ -21,7 +22,7 @@ namespace plagiarismApp.Services
         }
         public plagiarismModel.Users Authentication(string username, string pass)
         {
-            var user = _context.Users.FirstOrDefault(x => x.UserName == username);
+            var user = _context.Users.Include(m=> m.UserAddress).FirstOrDefault(x => x.UserName == username);
 
             if (user != null)
             {
@@ -60,7 +61,7 @@ namespace plagiarismApp.Services
         }
         public List<plagiarismModel.Users> Get(UsersSearchRequest request)
         {
-            var query = _context.Users.AsQueryable();
+            var query = _context.Users.Include(x => x.UserAddress).AsQueryable();
             if (!string.IsNullOrWhiteSpace(request?.FirstName))
             {
                 query = query.Where(x => x.FirstName.StartsWith(request.FirstName));
@@ -144,7 +145,6 @@ namespace plagiarismApp.Services
             _mapper.Map(request, entity);
             _context.SaveChanges();
 
-            _context.SaveChanges(); //save it
             return _mapper.Map<plagiarismModel.Users>(entity);//return our model, than go to controller
         }
 
