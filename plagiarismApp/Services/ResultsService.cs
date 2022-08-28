@@ -18,10 +18,6 @@ namespace plagiarismApp.Services
             {
                 query = query.Where(x => x.UserId == request.UserId);
             }
-            if (request?.InstitutionId.HasValue == true)
-            {
-                query = query.Where(x => x.InstitutionId == request.InstitutionId);
-            }
             var list = query.ToList();
 
             return _mapper.Map<List<plagiarismModel.Results>>(list);

@@ -11,7 +11,6 @@ namespace plagiarismApp.Database
     {
         public UserAddresses()
         {
-            Institutions = new HashSet<Institutions>();
             Users = new HashSet<Users>();
         }
 
@@ -21,7 +20,6 @@ namespace plagiarismApp.Database
         public string Street { get; set; }
         public string ZipCode { get; set; }
 
-        public virtual ICollection<Institutions> Institutions { get; set; }
         public virtual ICollection<Users> Users { get; set; }
     }
 }

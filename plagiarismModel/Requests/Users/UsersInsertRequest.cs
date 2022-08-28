@@ -7,12 +7,12 @@ namespace plagiarismModel.Requests.Users
     {
         [Required]
         public int Id { get; set; }
-        [Required]
         [MinLength(2)]
         public string FirstName { get; set; }
-        [Required]
         [MinLength(2)]
         public string LastName { get; set; }
+        [MinLength(2)]
+        public string OfficialName { get; set; }
         [EmailAddress]
         [Required]
         public string Email { get; set; }

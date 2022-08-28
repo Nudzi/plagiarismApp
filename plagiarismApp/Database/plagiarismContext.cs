@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
 
 // Code scaffolded by EF Core assumes nullable reference types (NRTs) are not used or disabled.
 // If you have enabled NRTs for your project, then un-comment the following line:
@@ -17,7 +19,6 @@ namespace plagiarismApp.Database
         {
         }
 
-        public virtual DbSet<Institutions> Institutions { get; set; }
         public virtual DbSet<PackageTypes> PackageTypes { get; set; }
         public virtual DbSet<Results> Results { get; set; }
         public virtual DbSet<UserAddresses> UserAddresses { get; set; }
@@ -38,45 +39,6 @@ namespace plagiarismApp.Database
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Institutions>(entity =>
-            {
-                entity.HasIndex(e => e.Email)
-                    .HasName("CSI_Email")
-                    .IsUnique();
-
-                entity.HasIndex(e => e.UserName)
-                    .HasName("CSI_UserName")
-                    .IsUnique();
-
-                entity.Property(e => e.Id).HasColumnName("ID");
-
-                entity.Property(e => e.Email).HasMaxLength(100);
-
-                entity.Property(e => e.Name)
-                    .IsRequired()
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.PasswordHash)
-                    .IsRequired()
-                    .HasMaxLength(500);
-
-                entity.Property(e => e.PasswordSalt).HasMaxLength(500);
-
-                entity.Property(e => e.Telephone).HasMaxLength(20);
-
-                entity.Property(e => e.UserAddressId).HasColumnName("UserAddressID");
-
-                entity.Property(e => e.UserName)
-                    .IsRequired()
-                    .HasMaxLength(50);
-
-                entity.HasOne(d => d.UserAddress)
-                    .WithMany(p => p.Institutions)
-                    .HasForeignKey(d => d.UserAddressId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Institutions_UserAddresses");
-            });
-
             modelBuilder.Entity<PackageTypes>(entity =>
             {
                 entity.Property(e => e.Id).HasColumnName("ID");
@@ -94,18 +56,11 @@ namespace plagiarismApp.Database
             {
                 entity.Property(e => e.Id).HasColumnName("ID");
 
-                entity.Property(e => e.InstitutionId).HasColumnName("InstitutionID");
-
                 entity.Property(e => e.Percentage).HasColumnType("decimal(5, 2)");
 
                 entity.Property(e => e.RunDate).HasColumnType("datetime");
 
                 entity.Property(e => e.UserId).HasColumnName("UserID");
-
-                entity.HasOne(d => d.Institution)
-                    .WithMany(p => p.Results)
-                    .HasForeignKey(d => d.InstitutionId)
-                    .HasConstraintName("FK_Results_Institutions");
 
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.Results)
@@ -170,15 +125,15 @@ namespace plagiarismApp.Database
 
                 entity.Property(e => e.Id).HasColumnName("ID");
 
-                entity.Property(e => e.Email).HasMaxLength(100);
-
-                entity.Property(e => e.FirstName)
+                entity.Property(e => e.Email)
                     .IsRequired()
-                    .HasMaxLength(50);
+                    .HasMaxLength(100);
 
-                entity.Property(e => e.LastName)
-                    .IsRequired()
-                    .HasMaxLength(50);
+                entity.Property(e => e.FirstName).HasMaxLength(50);
+
+                entity.Property(e => e.LastName).HasMaxLength(50);
+
+                entity.Property(e => e.OfficialName).HasMaxLength(150);
 
                 entity.Property(e => e.PasswordHash)
                     .IsRequired()
@@ -186,7 +141,9 @@ namespace plagiarismApp.Database
 
                 entity.Property(e => e.PasswordSalt).HasMaxLength(500);
 
-                entity.Property(e => e.Telephone).HasMaxLength(20);
+                entity.Property(e => e.Telephone)
+                    .IsRequired()
+                    .HasMaxLength(20);
 
                 entity.Property(e => e.UserAddressId).HasColumnName("UserAddressID");
 

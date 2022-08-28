@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 // Code scaffolded by EF Core assumes nullable reference types (NRTs) are not used or disabled.
 // If you have enabled NRTs for your project, then un-comment the following line:
@@ -20,6 +21,7 @@ namespace plagiarismApp.Database
         public int UserAddressId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public string OfficialName { get; set; }
         public string Email { get; set; }
         public string Telephone { get; set; }
         public string UserName { get; set; }

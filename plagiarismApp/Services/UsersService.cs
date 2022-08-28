@@ -78,6 +78,10 @@ namespace plagiarismApp.Services
             {
                 query = query.Where(x => x.UserName.StartsWith(request.UserName));
             }
+            if (!string.IsNullOrWhiteSpace(request?.OfficialName))
+            {
+                query = query.Where(x => x.OfficialName.StartsWith(request.OfficialName));
+            }
             var list = query.ToList();
             return _mapper.Map<List<plagiarismModel.Users>>(list);
         }

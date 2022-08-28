@@ -10,7 +10,6 @@ namespace plagiarismModel
         public string Street { get; set; }
         public string ZipCode { get; set; }
 
-        public List<Institutions> Institutions { get; set; }
         public List<Users> Users { get; set; }
     }
 }
