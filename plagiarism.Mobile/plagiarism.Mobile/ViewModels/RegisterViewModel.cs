@@ -4,6 +4,7 @@ using plagiarismModel;
 using plagiarismModel.Requests.UserAddresses;
 using plagiarismModel.Requests.UserImages;
 using plagiarismModel.Requests.Users;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -134,6 +135,16 @@ namespace plagiarism.Mobile.ViewModels
                     UserAddressId = address.Id
                 };
 
+                if (IsUser)
+                {
+                    request.OfficialName = "";
+                }
+                else
+                {
+                    request.FirstName = "";
+                    request.FirstName = "";
+                }
+
                 var user = await _service.Insert<Users>(request);
                 Global.LoggedUser = user;
 
@@ -148,9 +159,9 @@ namespace plagiarism.Mobile.ViewModels
                 await _userImagesService.Insert<UserImages>(userImagesUpsertRequest);
                 await Application.Current.MainPage.DisplayAlert("Success", "Welcome new User " + user.UserName, "OK");
             }
-            catch
+            catch (Exception ex)
             {
-                await Application.Current.MainPage.DisplayAlert("Error", "Error creating new User! Try later.", "OK");
+                await Application.Current.MainPage.DisplayAlert("Error", ex.Message, "OK");
             }
         }
     }

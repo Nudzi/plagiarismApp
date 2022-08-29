@@ -5,13 +5,9 @@ namespace plagiarismModel.Requests.Users
 {
     public class UsersInsertRequest
     {
-        [Required]
         public int Id { get; set; }
-        [MinLength(2)]
         public string FirstName { get; set; }
-        [MinLength(2)]
         public string LastName { get; set; }
-        [MinLength(2)]
         public string OfficialName { get; set; }
         [EmailAddress]
         [Required]
@@ -20,7 +16,7 @@ namespace plagiarismModel.Requests.Users
         [DataType(DataType.PhoneNumber)]
         public string Telephone { get; set; }
         [Required]
-        [MinLength(3)]
+        [MinLength(2)]
         public string UserName { get; set; }
         public bool Status { get; set; }
         [Required(AllowEmptyStrings = false)]

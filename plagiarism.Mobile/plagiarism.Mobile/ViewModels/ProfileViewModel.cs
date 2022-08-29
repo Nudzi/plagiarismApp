@@ -60,11 +60,18 @@ namespace plagiarism.Mobile.ViewModels
             set { SetProperty(ref _passwordConf, value); }
         }
 
-        Boolean _isVisiblePic = true;
-        public Boolean VisiblePic
+        bool _isVisiblePic = true;
+        public bool VisiblePic
         {
             get { return _isVisiblePic; }
             set { SetProperty(ref _isVisiblePic, value); }
+        }
+
+        bool _isUser = true;
+        public bool IsUser
+        {
+            get { return _isUser; }
+            set { SetProperty(ref _isUser, value); }
         }
 
         public async Task Init()
@@ -78,8 +85,17 @@ namespace plagiarism.Mobile.ViewModels
                     UserId = user.Id
                 };
                 var image = await _userImagesService.Get<List<UserImages>>(request);
-                Image = image[0].Image;
-                VisiblePic = Image.Length != 0;
+                if (image.Count == 0)
+                {
+                    VisiblePic = false;
+                }
+                else
+                {
+                    Image = image[0].Image;
+                    VisiblePic = Image.Length != 0;
+                }
+
+                IsUser = User.OfficialName.Length == 0;
             }
             catch
             {
@@ -105,6 +121,7 @@ namespace plagiarism.Mobile.ViewModels
                 UsersInsertRequest request = new UsersInsertRequest();
                 request.Id = gettedUser.Id;
                 request.Email = gettedUser.Email;
+                request.OfficialName = gettedUser.OfficialName;
                 request.Status = true;
                 request.FirstName = gettedUser.FirstName;
                 request.LastName = gettedUser.LastName;
@@ -126,6 +143,9 @@ namespace plagiarism.Mobile.ViewModels
                     if (!User.Telephone.Equals(""))
                         request.Telephone = User.Telephone;
 
+                    if (!User.OfficialName.Equals(""))
+                        request.OfficialName = User.OfficialName;
+
                     request.UserAddressId = Global.LoggedUser.UserAddressId;
                     await _usersService.Update<Users>(request.Id, request);
                     var glob = await _usersService.GetById<Users>(request.Id);
@@ -138,14 +158,22 @@ namespace plagiarism.Mobile.ViewModels
                             UserId = gettedUser.Id
                         };
                         var image = await _userImagesService.Get<List<UserImages>>(imagesSearchRequest);
+
                         UserImagesUpsertRequest userImagesUpsertRequest = new UserImagesUpsertRequest
                         {
-                            Id = image[0].Id,
                             Image = byteImage,
                             ImageThumb = byteImage,
                             UserId = gettedUser.Id
                         };
-                        await _userImagesService.Update<UserImages>(image[0].Id ,userImagesUpsertRequest);
+
+                        if (image.Count == 0)
+                        {
+                            await _userImagesService.Insert<UserImages>(userImagesUpsertRequest);
+                        } 
+                        else
+                        {
+                            await _userImagesService.Update<UserImages>(image[0].Id, userImagesUpsertRequest);
+                        }
                     }
                     await Application.Current.MainPage.DisplayAlert("Success", "Successfuly edited! ", "OK");
                 }

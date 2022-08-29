@@ -67,11 +67,11 @@ namespace plagiarism.Mobile.Services
             try
             {
                 var url = $"{ _apiUrl}/{_route}";
-                return await url.WithBasicAuth(userName, password).PostJsonAsync(request).ReceiveJson<T>();
+                return await url.PostJsonAsync(request).ReceiveJson<T>();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw new Exception("Error in adding!");
+                throw new Exception(ex.Message);
             }
         }
         public async Task<T> Update<T>(int id, object request)

@@ -1,8 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             xmlns:vm="clr-namespace:plagiarism.Mobile.ViewModels"
+             xmlns:vm="clr-namespace:plagiarism.Mobile.ViewModels" 
+             xmlns:converters="clr-namespace:plagiarism.Mobile.Converters"
              x:Class="plagiarism.Mobile.Views.EditProfilePage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:InverseBoolConverter x:Key="inverter"></converters:InverseBoolConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.BindingContext>
         <vm:ProfileViewModel></vm:ProfileViewModel>
     </ContentPage.BindingContext>
@@ -33,17 +39,24 @@
                         <Label Text="{Binding User.UserName}" WidthRequest = "200"></Label>
                         <Label Text="{Binding User.Id}" IsVisible="false" ></Label>
                     </StackLayout>
-                    <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                    <StackLayout IsVisible="{Binding IsUser}" Orientation="Horizontal" HorizontalOptions="StartAndExpand">
                         <Label WidthRequest="200" Text="First Name: "></Label>
                         <Entry Text="{Binding User.FirstName}"
                            Placeholder = "Enter First name"
                            WidthRequest = "200"
                            ></Entry>
                     </StackLayout>
-                    <StackLayout  Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                    <StackLayout IsVisible="{Binding IsUser}"  Orientation="Horizontal" HorizontalOptions="StartAndExpand">
                         <Label WidthRequest="200" Text="Last Name: "></Label>
                         <Entry Text="{Binding User.LastName}"
                            Placeholder = "Enter Last name"
+                           WidthRequest = "200"
+                           ></Entry>
+                    </StackLayout>
+                    <StackLayout IsVisible="{Binding IsUser, Converter={StaticResource inverter}}" Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                        <Label WidthRequest="200" Text="Official Institution Name: "></Label>
+                        <Entry Text="{Binding User.OfficialName}"
+                           Placeholder = "Enter name"
                            WidthRequest = "200"
                            ></Entry>
                     </StackLayout>
@@ -51,7 +64,6 @@
                         <Label WidthRequest="200" Text="Telephone:"></Label>
                         <Label Text="{Binding User.Telephone}" WidthRequest = "200"></Label>
                         <Label x:Name="telephoneError" TextColor="Red" IsVisible="True"></Label>
-
                     </StackLayout>
 
                     <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">

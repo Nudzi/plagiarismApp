@@ -53,7 +53,7 @@ namespace plagiarism.Mobile.ViewModels
                     }
                     Global.LoggedUser = userCheck;
 
-                    await Application.Current.MainPage.DisplayAlert("Success", "Welcome " + user.FirstName + " " + user.LastName, "OK");
+                    await Application.Current.MainPage.DisplayAlert("Success", "Welcome " + user.UserName, "OK");
                     Application.Current.MainPage = new MainPage(userCheck);
                 }
                 else

@@ -6,6 +6,5 @@
         public int UserId { get; set; }
         public byte[] Image { get; set; }
         public byte[] ImageThumb { get; set; }
-        public virtual Users User { get; set; }
     }
 }

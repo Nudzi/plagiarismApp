@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using plagiarismApp.Database;
-using plagiarismApp.Services;
 using plagiarismModel.Requests.Users;
 using System;
 using System.Collections.Generic;

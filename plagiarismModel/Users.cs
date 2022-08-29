@@ -17,9 +17,5 @@ namespace plagiarismModel
         public UserAddresses UserAddress { get; set; }
         
         public List<UsersUserTypes> UserTypes { get; set; }
-        public List<Results> Results { get; set; }
-        public List<UserImages> UserImages { get; set; }
-        public List<UsersPackageTypes> UsersPackageTypes { get; set; }
-        public List<UsersUserTypes> UsersUserTypes { get; set; }
     }
 }
