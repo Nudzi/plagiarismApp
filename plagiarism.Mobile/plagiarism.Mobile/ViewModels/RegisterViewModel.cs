@@ -11,7 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
-using System.Windows.Input;
+using System.Globalization;
 using Xamarin.Forms;
 
 namespace plagiarism.Mobile.ViewModels
@@ -26,6 +26,8 @@ namespace plagiarism.Mobile.ViewModels
         private readonly APIService _packageTypesService = new APIService("packageTypes");
 
         public ObservableCollection<PackageTypesRegistrationSearchRequest> PackageTypesList { get; set; } = new ObservableCollection<PackageTypesRegistrationSearchRequest>();
+
+        public ObservableCollection<string> CultureList { get; set; } = new ObservableCollection<string>();
 
         PackageTypesRegistrationSearchRequest _selectedPackageTypes = null;
         public Users User { get; set; }
@@ -122,6 +124,7 @@ namespace plagiarism.Mobile.ViewModels
         public async Task Init()
         {
             await addPackageTypes();
+            populateStates();
         }
         public async Task addPackageTypes()
         {
@@ -239,6 +242,20 @@ namespace plagiarism.Mobile.ViewModels
             catch (Exception ex)
             {
                 await Application.Current.MainPage.DisplayAlert("Error", ex.Message, "OK");
+            }
+        }
+        public void populateStates()
+        {
+            CultureInfo[] getCultureInfos = CultureInfo.GetCultures(CultureTypes.SpecificCultures);
+
+            foreach (var getCulture in getCultureInfos)
+            {
+                RegionInfo getRegionInfo = new RegionInfo(getCulture.LCID);
+
+                if (!(CultureList.Contains(getRegionInfo.EnglishName)))
+                {
+                    CultureList.Add(getRegionInfo.EnglishName);
+                }
             }
         }
     }

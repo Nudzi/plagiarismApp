@@ -1,13 +1,12 @@
 ﻿using plagiarism.Mobile.Services;
 using plagiarismModel;
-using plagiarismModel.Enums;
+using plagiarismModel.Requests.UserAddresses;
 using plagiarismModel.Requests.UserImages;
 using plagiarismModel.Requests.Users;
 using plagiarismModel.Requests.UsersPackageTypes;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace plagiarism.Mobile.ViewModels
@@ -33,6 +32,14 @@ namespace plagiarism.Mobile.ViewModels
             get { return _packageTypes; }
             set { SetProperty(ref _packageTypes, value); }
         }
+
+        public UserAddresses _userAddresses = new UserAddresses();
+        public UserAddresses UserAddresses
+        {
+            get { return _userAddresses; }
+            set { SetProperty(ref _userAddresses, value); }
+        }
+
         public Users _user = new Users();
         public byte[] byteImage { get; set; }
         public Users User
@@ -47,8 +54,6 @@ namespace plagiarism.Mobile.ViewModels
             get { return _image; }
             set { SetProperty(ref _image, value); }
         }
-
-        string _username = string.Empty;
 
         string _firstname = string.Empty;
         public string FirstName
@@ -122,12 +127,17 @@ namespace plagiarism.Mobile.ViewModels
                 var packageTypes = await _packageTypesService.GetById<PackageTypes>(usersPackageTypes[0].PackageTypeId);
                 PackageTypesName = packageTypes;
                 UsersPackageTypesName = usersPackageTypes[0];
+
+                var userAddress = await _userAddressesService.GetById<UserAddresses>(User.UserAddressId);
+
+                UserAddresses = userAddress;
             }
             catch
             {
                 await Application.Current.MainPage.DisplayAlert("Error", "Error", "OK");
             }
         }
+
         public async Task SaveUserProfil(Image resultImage)
         {
             try
@@ -201,6 +211,17 @@ namespace plagiarism.Mobile.ViewModels
                             await _userImagesService.Update<UserImages>(image[0].Id, userImagesUpsertRequest);
                         }
                     }
+
+                    var userAddresses = new UserAddressesUpsertRequest
+                    {
+                        Id = glob.UserAddressId,
+                        City = UserAddresses.City,
+                        State = UserAddresses.State,
+                        Street = UserAddresses.Street,
+                        ZipCode = UserAddresses.ZipCode
+                    };
+
+                    await _userAddressesService.Update<UserAddresses>((int)glob.UserAddressId, userAddresses);
                     await Application.Current.MainPage.DisplayAlert("Success", "Successfuly edited! ", "OK");
                 }
                 else

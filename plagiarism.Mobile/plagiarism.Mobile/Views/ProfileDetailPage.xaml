@@ -14,65 +14,70 @@
         <vm:ProfileViewModel></vm:ProfileViewModel>
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <StackLayout VerticalOptions="CenterAndExpand">
-            <StackLayout Margin="16" Padding="5">
-                <Label Text="Welcome to Profile page!"
+        <StackLayout>
+            <ScrollView>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <StackLayout Margin="16" Padding="5">
+                        <Label Text="Welcome to Profile page!"
                 FontSize="25"
                 VerticalTextAlignment="Center" 
                 HorizontalTextAlignment="Center"
                    Margin="10" Padding="10" />
-            </StackLayout>
-            <ScrollView>
-            <StackLayout Margin="16" Padding="5">
-                <StackLayout IsVisible="{Binding VisiblePic}" VerticalOptions="StartAndExpand" 
-                HorizontalOptions="StartAndExpand">
-                    <Image WidthRequest="200" HeightRequest="100" Source="{Binding Image, Converter={StaticResource imgConv}}"></Image>
-                </StackLayout>
-                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
-                    <Label Text="UserName: "></Label>
-                    <Label Text="{Binding User.UserName}"></Label>
-                    <Label Text="{Binding User.Id}" IsVisible="false"></Label>
-                </StackLayout>
-                <StackLayout IsVisible="{Binding IsUser}" Orientation="Horizontal" HorizontalOptions="StartAndExpand">
-                    <Label Text="First Name: "></Label>
-                    <Label Text="{Binding User.FirstName}"></Label>
-                </StackLayout>
-                <StackLayout IsVisible="{Binding IsUser}" Orientation="Horizontal" HorizontalOptions="StartAndExpand">
-                    <Label Text="Last Name: "></Label>
-                    <Label Text="{Binding User.LastName}"></Label>
-                </StackLayout>
-                <StackLayout IsVisible="{Binding IsUser, Converter={StaticResource inverter}}" Orientation="Horizontal" HorizontalOptions="StartAndExpand">
-                    <Label Text="Official Institution Name: "></Label>
-                    <Label Text="{Binding User.OfficialName}"></Label>
-                </StackLayout>
-                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
-                    <Label Text="Telephone: "></Label>
-                    <Label Text="{Binding User.Telephone}"></Label>
-                </StackLayout>
-                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
-                    <Label Text="Email: "></Label>
-                    <Label Text="{Binding User.Email}"></Label>
-                </StackLayout>
-                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
-                    <Label Text="Package Name: "></Label>
-                    <Label Text="{Binding PackageTypesName.Name}"></Label>
-                </StackLayout>
-                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
-                    <Label Text="Package Price: "></Label>
-                    <Label Text="{Binding PackageTypesName.Price}"></Label>
-                </StackLayout>
-                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
-                    <Label Text="Package Expiration Date: "></Label>
-                        <Label Text="{Binding UsersPackageTypesName.ExpiredDate}"></Label>
-                </StackLayout>
-                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
-                    <Label Text="Package Active status: "></Label>
-                        <Label Text="{Binding UsersPackageTypesName.IsActive}"></Label>
-                </StackLayout>
-            </StackLayout>
-            </ScrollView>
-            <Button Margin="16" Text="Edit Profile" Clicked="Button_Clicked"></Button>
-        </StackLayout>
+                    </StackLayout>
 
+                    <Label BackgroundColor="LavenderBlush" Text="Profile data " Grid.Row="2"  Grid.Column="1" VerticalTextAlignment="Center"></Label>
+                    <Label BackgroundColor="AliceBlue"  Text="Package data " Grid.Row="2"  Grid.Column="3" VerticalTextAlignment="Center"></Label>
+                    <Label BackgroundColor="LightYellow" Text="Address data " Grid.Row="2"  Grid.Column="5" VerticalTextAlignment="Center"></Label>
+
+                    <Image Grid.Row="1" WidthRequest="200" HeightRequest="100" Source="{Binding Image, Converter={StaticResource imgConv}}"></Image>
+
+                    <Label BackgroundColor="LavenderBlush" Text="User name: " Grid.Row="4" Grid.Column="1" IsVisible="True" VerticalTextAlignment="Center"></Label>
+                    <Label BackgroundColor="LavenderBlush" Grid.Row="4" Grid.Column="2" IsVisible="True" Text="{Binding User.UserName}"></Label>
+                    <Label Text="{Binding User.Id}" IsVisible="false"></Label>
+                    <Label BackgroundColor="AliceBlue" Text="Package Price: " Grid.Row="4" Grid.Column="3"  VerticalTextAlignment="Center"></Label>
+                    <Label BackgroundColor="AliceBlue"  Grid.Row="4" Grid.Column="4" Text="{Binding PackageTypesName.Price}"></Label>
+                    <Label BackgroundColor="LightYellow" Text="City: " Grid.Row="4" Grid.Column="5"  VerticalTextAlignment="Center"></Label>
+                    <Label BackgroundColor="LightYellow" Grid.Row="4" Grid.Column="6" Text="{Binding UserAddresses.City}"></Label>
+
+                    <Label BackgroundColor="LavenderBlush" IsVisible="{Binding IsUser}" Text="First name: " Grid.Row="5" Grid.Column="1" VerticalTextAlignment="Center"></Label>
+                    <Label BackgroundColor="LavenderBlush" IsVisible="{Binding IsUser}" Grid.Row="5" Grid.Column="2" VerticalTextAlignment="Center" Text="{Binding User.FirstName}"></Label>
+                    <Label BackgroundColor="AliceBlue" VerticalTextAlignment="Center" HeightRequest="50"  Text="Package Expiration: " Grid.Row="5" Grid.Column="3"></Label>
+                    <Label BackgroundColor="AliceBlue"  VerticalTextAlignment="Center" HeightRequest="50"  Grid.Row="5" Grid.Column="4" Text="{Binding UsersPackageTypesName.ExpiredDate}"></Label>
+                    <Label BackgroundColor="LightYellow" Text="Street: " Grid.Row="5" Grid.Column="5"  VerticalTextAlignment="Center"></Label>
+                    <Label BackgroundColor="LightYellow" Grid.Row="5" Grid.Column="6" VerticalTextAlignment="Center" Text="{Binding UserAddresses.Street}"></Label>
+
+                    <Label BackgroundColor="LavenderBlush" IsVisible="{Binding IsUser}"  VerticalTextAlignment="Center" HeightRequest="50" Text="Last name: " Grid.Row="6" Grid.Column="1"></Label>
+                    <Label BackgroundColor="LavenderBlush" IsVisible="{Binding IsUser}"  VerticalTextAlignment="Center" HeightRequest="50" Grid.Row="6" Grid.Column="2" Text="{Binding User.LastName}"></Label>
+                    <Label BackgroundColor="AliceBlue" VerticalTextAlignment="Center" HeightRequest="50" Text="Package Active Status: " Grid.Row="6" Grid.Column="3" ></Label>
+                    <Label BackgroundColor="AliceBlue" VerticalTextAlignment="Center" HeightRequest="50" Grid.Row="6" Grid.Column="4" Text="{Binding UsersPackageTypesName.IsActive}"></Label>
+                    <Label BackgroundColor="LightYellow" Text="ZipCode: " Grid.Row="6"  VerticalTextAlignment="Center" HeightRequest="50" Grid.Column="5"></Label>
+                    <Label BackgroundColor="LightYellow" Grid.Row="6" Grid.Column="6"  VerticalTextAlignment="Center" HeightRequest="50"  Text="{Binding UserAddresses.ZipCode}"></Label>
+
+                    <Label BackgroundColor="LavenderBlush" Grid.Column="1"  IsVisible="{Binding IsUser, Converter={StaticResource inverter}}" Text="Official Institution name: " Grid.Row="7"  VerticalTextAlignment="Center"></Label>
+                    <Label BackgroundColor="LavenderBlush" IsVisible="{Binding IsUser, Converter={StaticResource inverter}}" Grid.Row="7" Grid.Column="2" Text="{Binding User.OfficialName}"></Label>
+                    <Label BackgroundColor="AliceBlue" Text="Package: " Grid.Row="7" Grid.Column="3"  VerticalTextAlignment="Center"></Label>
+                    <Label BackgroundColor="AliceBlue" Grid.Row="7" Grid.Column="4" Text="{Binding PackageTypesName.Name}" VerticalTextAlignment="Center"></Label>
+                    <Label BackgroundColor="LightYellow" Text="State: " Grid.Row="7" Grid.Column="5"  VerticalTextAlignment="Center"></Label>
+                    <Label BackgroundColor="LightYellow" Grid.Row="7" Grid.Column="6" Text="{Binding UserAddresses.State}" VerticalTextAlignment="Center"></Label>
+
+                    <Label BackgroundColor="LavenderBlush" Text="Telephone: " Grid.Row="8" Grid.Column="1"  VerticalTextAlignment="Center"></Label>
+                    <Label BackgroundColor="LavenderBlush" Grid.Row="8" Grid.Column="2" Text="{Binding User.Telephone}" VerticalTextAlignment="Center"></Label>
+
+                    <Label BackgroundColor="LavenderBlush" Text="Email: " Grid.Row="9" Grid.Column="1"  VerticalTextAlignment="Center"></Label>
+                    <Label BackgroundColor="LavenderBlush" Grid.Row="9" Grid.Column="2" Text="{Binding User.Email}" VerticalTextAlignment="Center"></Label>
+
+                    <Button Grid.Row="10" Grid.Column="3" WidthRequest="100" Margin="16" Text="Edit Profile" Clicked="Button_Clicked"></Button>
+                </Grid>
+            </ScrollView>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

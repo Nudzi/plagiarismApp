@@ -73,9 +73,44 @@
                            Placeholder = "Enter Email"
                            WidthRequest = "200"
                            ></Entry>
-
                         <Label x:Name="emailError" TextColor="Red" IsVisible="True"></Label>
+                    </StackLayout>
 
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                        <Label WidthRequest="200" Text="State"></Label>
+                        <Entry Text="{Binding UserAddresses.State}"
+                           x:Name="inputState" 
+                           Placeholder = "Enter State"
+                           WidthRequest = "200"
+                           ></Entry>
+                        <Label x:Name="stateError" TextColor="Red" IsVisible="True"></Label>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                        <Label WidthRequest="200" Text="City"></Label>
+                        <Entry Text="{Binding UserAddresses.City}"
+                           x:Name="inputCity" 
+                           Placeholder = "Enter City"
+                           WidthRequest = "200"
+                           ></Entry>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                        <Label WidthRequest="200" Text="Street"></Label>
+                        <Entry Text="{Binding UserAddresses.Street}"
+                           x:Name="inputStreet" 
+                           Placeholder = "Enter Street"
+                           WidthRequest = "200"
+                           ></Entry>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                        <Label WidthRequest="200" Text="ZipCode"></Label>
+                        <Entry Text="{Binding UserAddresses.ZipCode}"
+                           x:Name="inputZipCode" 
+                           Placeholder = "Enter ZipCode"
+                           WidthRequest = "200"
+                           ></Entry>
                     </StackLayout>
 
                     <StackLayout BackgroundColor="PaleVioletRed"  Margin="16" Padding="5">

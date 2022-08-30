@@ -107,6 +107,10 @@
                             SelectedItem="{Binding SelectedPackageTypes}" 
                             ItemDisplayBinding="{Binding NameAndPrice}"></Picker>
 
+                    <!--<Label Text="Chose State: " Grid.Row="28" FontSize="18" VerticalTextAlignment="Center"></Label>-->
+                    <!--<Picker Grid.Row="28" Grid.Column="1" 
+                            ItemsSource="{Binding CultureList}"></Picker>-->
+
                     <Button x:Name="ButtonRegister" Grid.Row="28" Grid.ColumnSpan="2" Text="Register" BackgroundColor="Gray"
                        Clicked="ButtonRegister_Clicked"></Button>
                 </Grid>

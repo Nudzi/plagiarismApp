@@ -30,6 +30,10 @@ namespace plagiarismApp.Services
             {
                 query = query.Where(x => x.ZipCode.StartsWith(request.ZipCode));
             }
+            if (request?.Id.HasValue == true)
+            {
+                query = query.Where(x => x.Id == request.Id);
+            }
             var list = query.ToList();
 
             return _mapper.Map<List<plagiarismModel.UserAddresses>>(list);
