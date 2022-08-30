@@ -24,6 +24,12 @@ namespace plagiarism.Mobile.Views
             BindingContext = model = new RegisterViewModel();
         }
 
+        protected async override void OnAppearing()
+        {
+            base.OnAppearing();
+            await model.Init();
+        }
+
         private async void ButtonRegister_Clicked(object sender, EventArgs e)
         {
             bool doubleUserName = false;

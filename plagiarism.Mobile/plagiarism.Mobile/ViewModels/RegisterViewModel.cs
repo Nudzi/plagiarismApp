@@ -1,12 +1,17 @@
 ﻿using plagiarism.Mobile.Services;
 using plagiarism.Mobile.Views;
 using plagiarismModel;
+using plagiarismModel.Enums;
+using plagiarismModel.Requests.PackageTypes;
 using plagiarismModel.Requests.UserAddresses;
 using plagiarismModel.Requests.UserImages;
 using plagiarismModel.Requests.Users;
+using plagiarismModel.Requests.UsersPackageTypes;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace plagiarism.Mobile.ViewModels
@@ -17,6 +22,20 @@ namespace plagiarism.Mobile.ViewModels
         private readonly APIService _service = new APIService("users");
         private readonly APIService _addressesService = new APIService("userAddresses");
         private readonly APIService _userImagesService = new APIService("userImages");
+        private readonly APIService _usersPackageTypesService = new APIService("usersPackageTypes");
+        private readonly APIService _packageTypesService = new APIService("packageTypes");
+
+        public ObservableCollection<PackageTypesRegistrationSearchRequest> PackageTypesList { get; set; } = new ObservableCollection<PackageTypesRegistrationSearchRequest>();
+
+        PackageTypesRegistrationSearchRequest _selectedPackageTypes = null;
+        public Users User { get; set; }
+
+        public PackageTypesRegistrationSearchRequest SelectedPackageTypes
+        {
+            get { return _selectedPackageTypes; }
+            set { SetProperty(ref _selectedPackageTypes, value); }
+        }
+
         string _firstName = string.Empty;
         public byte[] byteImage { get; set; }
         public string FirstName
@@ -100,6 +119,49 @@ namespace plagiarism.Mobile.ViewModels
             set { SetProperty(ref _isUser, value); }
         }
 
+        public async Task Init()
+        {
+            await addPackageTypes();
+        }
+        public async Task addPackageTypes()
+        {
+            if (PackageTypesList.Count == 0)
+            {
+                var packageTypesListDB = await _packageTypesService.Get<List<PackageTypes>>(null);
+                foreach (var item in packageTypesListDB)
+                {
+                    PackageTypesList.Add(new PackageTypesRegistrationSearchRequest(item.Name, item.Price.ToString(),
+                        item.Id));
+                }
+                SelectedPackageTypes = PackageTypesList[0];
+            }
+        }
+
+        public decimal buildPackageDisc(string package)
+        {
+            if (PackageTypesTypes.Basic.ToString().Equals(package))
+            {
+                return (decimal)PackageTypesDisc.Basic;
+            }
+            if (PackageTypesTypes.Silver.ToString().Equals(package))
+            {
+                return (decimal)PackageTypesDisc.Silver;
+            }
+            else
+            {
+                return (decimal)PackageTypesDisc.Premium;
+            }
+        }
+
+        public DateTime buildPackageExpDate(string package)
+        {
+            if (PackageTypesExpDate.Basic.ToString().Equals(package))
+                return DateTime.Now.AddMonths((int)(PackageTypesExpDate.Basic));
+            if (PackageTypesExpDate.Silver.ToString().Equals(package))
+                return DateTime.Now.AddMonths((int)(PackageTypesExpDate.Silver));
+            else return DateTime.Now.AddMonths((int)(PackageTypesExpDate.Premium));
+        }
+
         public async Task Register()
         {
             try
@@ -154,9 +216,24 @@ namespace plagiarism.Mobile.ViewModels
                     ImageThumb = byteImage,
                     UserId = user.Id
                 };
-                Application.Current.MainPage = new MainPage(user);
 
                 await _userImagesService.Insert<UserImages>(userImagesUpsertRequest);
+                
+                UsersPackageTypesUpsertRequest usersPackageTypesUpsertRequest = new UsersPackageTypesUpsertRequest
+                {
+                    UserId = user.Id,
+                    IsActive = true,
+                    PackageTypeId = SelectedPackageTypes.PackageTypeId,
+                    Discount = buildPackageDisc(SelectedPackageTypes.Name),
+                    ExpiredDate = buildPackageExpDate(SelectedPackageTypes.Name),
+                    CreatedDate = DateTime.Now
+                };
+
+
+                Application.Current.MainPage = new MainPage(user);
+
+                await _usersPackageTypesService.Insert<UsersPackageTypes>(usersPackageTypesUpsertRequest);
+
                 await Application.Current.MainPage.DisplayAlert("Success", "Welcome new User " + user.UserName, "OK");
             }
             catch (Exception ex)

@@ -22,6 +22,7 @@
                 HorizontalTextAlignment="Center"
                    Margin="10" Padding="10" />
             </StackLayout>
+            <ScrollView>
             <StackLayout Margin="16" Padding="5">
                 <StackLayout IsVisible="{Binding VisiblePic}" VerticalOptions="StartAndExpand" 
                 HorizontalOptions="StartAndExpand">
@@ -52,7 +53,24 @@
                     <Label Text="Email: "></Label>
                     <Label Text="{Binding User.Email}"></Label>
                 </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                    <Label Text="Package Name: "></Label>
+                    <Label Text="{Binding PackageTypesName.Name}"></Label>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                    <Label Text="Package Price: "></Label>
+                    <Label Text="{Binding PackageTypesName.Price}"></Label>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                    <Label Text="Package Expiration Date: "></Label>
+                        <Label Text="{Binding UsersPackageTypesName.ExpiredDate}"></Label>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                    <Label Text="Package Active status: "></Label>
+                        <Label Text="{Binding UsersPackageTypesName.IsActive}"></Label>
+                </StackLayout>
             </StackLayout>
+            </ScrollView>
             <Button Margin="16" Text="Edit Profile" Clicked="Button_Clicked"></Button>
         </StackLayout>
 

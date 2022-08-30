@@ -70,7 +70,7 @@ namespace plagiarismApp
 
             services.AddScoped<IUsersService, UsersService>();
             services.AddScoped<IUserTypesService, UserTypesService>();
-            //services.AddScoped<IService<plagiarismModel.PackageTypes, PackageTypesSearchRequest>>();
+            services.AddScoped<IService<plagiarismModel.PackageTypes, PackageTypesSearchRequest>, PackageTypesService>();
 
 
             services.AddScoped<ICRUDService<plagiarismModel.UserImages, UserImagesSearchRequest, UserImagesUpsertRequest, UserImagesUpsertRequest>, UserImagesService>();

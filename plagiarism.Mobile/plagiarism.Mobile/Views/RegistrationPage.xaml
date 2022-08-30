@@ -100,7 +100,14 @@
                     <Button Grid.Row="25" Grid.Column="1" Text="-" Clicked="Remove_Picture" FontSize="18"></Button>
 
                     <Label Grid.Row="26" x:Name="imageError" TextColor="Red" IsVisible="True"></Label>
-                    <Button x:Name="ButtonRegister" Grid.Row="26" Grid.ColumnSpan="2" Text="Register" BackgroundColor="Gray"
+
+                    <Label Text="Chose Package Type: " Grid.Row="27" FontSize="18" VerticalTextAlignment="Center"></Label>
+                    <Picker Grid.Row="27" Grid.Column="1" 
+                            ItemsSource="{Binding PackageTypesList}" 
+                            SelectedItem="{Binding SelectedPackageTypes}" 
+                            ItemDisplayBinding="{Binding NameAndPrice}"></Picker>
+
+                    <Button x:Name="ButtonRegister" Grid.Row="28" Grid.ColumnSpan="2" Text="Register" BackgroundColor="Gray"
                        Clicked="ButtonRegister_Clicked"></Button>
                 </Grid>
             </ScrollView>

@@ -1,7 +1,9 @@
 ﻿using plagiarism.Mobile.Services;
 using plagiarismModel;
+using plagiarismModel.Enums;
 using plagiarismModel.Requests.UserImages;
 using plagiarismModel.Requests.Users;
+using plagiarismModel.Requests.UsersPackageTypes;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -13,10 +15,23 @@ namespace plagiarism.Mobile.ViewModels
     public class ProfileViewModel : BaseViewModel
     {
         private readonly APIService _usersService = new APIService("users");
+        private readonly APIService _userAddressesService = new APIService("userAddresses");
+        private readonly APIService _packageTypesService = new APIService("packageTypes");
+        private readonly APIService _usersPackageTypesService = new APIService("usersPackageTypes");
         private readonly APIService _userImagesService = new APIService("userImages");
 
-        public ProfileViewModel()
+        public UsersPackageTypes _usersPackageTypes = new UsersPackageTypes();
+        public UsersPackageTypes UsersPackageTypesName
         {
+            get { return _usersPackageTypes; }
+            set { SetProperty(ref _usersPackageTypes, value); }
+        }
+
+        public PackageTypes _packageTypes = new PackageTypes();
+        public PackageTypes PackageTypesName
+        {
+            get { return _packageTypes; }
+            set { SetProperty(ref _packageTypes, value); }
         }
         public Users _user = new Users();
         public byte[] byteImage { get; set; }
@@ -80,6 +95,7 @@ namespace plagiarism.Mobile.ViewModels
             {
                 User = Global.LoggedUser;
                 var user = await _usersService.GetById<Users>(User.Id);
+                
                 UserImagesSearchRequest request = new UserImagesSearchRequest
                 {
                     UserId = user.Id
@@ -96,6 +112,16 @@ namespace plagiarism.Mobile.ViewModels
                 }
 
                 IsUser = User.OfficialName.Length == 0;
+
+                var usersPackageTypesSearchRequest = new UsersPackageTypesSearchRequest
+                {
+                    UserId = user.Id
+                };
+                var usersPackageTypes = await _usersPackageTypesService.Get<List<UsersPackageTypes>>(usersPackageTypesSearchRequest);
+
+                var packageTypes = await _packageTypesService.GetById<PackageTypes>(usersPackageTypes[0].PackageTypeId);
+                PackageTypesName = packageTypes;
+                UsersPackageTypesName = usersPackageTypes[0];
             }
             catch
             {

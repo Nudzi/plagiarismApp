@@ -8,6 +8,7 @@ namespace plagiarismModel.Requests.UsersPackageTypes
         public int UserId { get; set; }
         public int PackageTypeId { get; set; }
         public DateTime ExpiredDate { get; set; }
+        public DateTime CreatedDate { get; set; }
         public decimal Discount { get; set; }
         public bool IsActive { get; set; }
     }
