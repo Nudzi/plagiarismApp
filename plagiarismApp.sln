@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "plagiarism.Mobile.Android",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "plagiarism.Mobile.iOS", "plagiarism.Mobile\plagiarism.Mobile.iOS\plagiarism.Mobile.iOS.csproj", "{FD08CE7D-7884-43C1-92DE-68AFBE43C144}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "plagiarism.Mobile", "plagiarism.Mobile\plagiarism.Mobile\plagiarism.Mobile.csproj", "{8926A828-DF98-4056-8CC4-FBD3BB7336A5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "plagiarism.Mobile", "plagiarism.Mobile\plagiarism.Mobile\plagiarism.Mobile.csproj", "{8926A828-DF98-4056-8CC4-FBD3BB7336A5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -92,6 +92,7 @@ Global
 		{FE9F3917-1660-450A-A686-3E66DB251495}.Release|x86.ActiveCfg = Release|Any CPU
 		{FE9F3917-1660-450A-A686-3E66DB251495}.Release|x86.Build.0 = Release|Any CPU
 		{28316B94-C957-4076-AED3-6893206BFF65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28316B94-C957-4076-AED3-6893206BFF65}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{28316B94-C957-4076-AED3-6893206BFF65}.Debug|ARM.ActiveCfg = Debug|Any CPU
 		{28316B94-C957-4076-AED3-6893206BFF65}.Debug|ARM.Build.0 = Debug|Any CPU
 		{28316B94-C957-4076-AED3-6893206BFF65}.Debug|ARM64.ActiveCfg = Debug|Any CPU

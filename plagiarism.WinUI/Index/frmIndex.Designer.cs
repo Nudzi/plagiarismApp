@@ -1,7 +1,7 @@
 ﻿
-namespace plagiarism.WinUI
+namespace plagiarism.WinUI.Index
 {
-    partial class Form1
+    partial class frmIndex
     {
         /// <summary>
         /// Required designer variable.
@@ -32,10 +32,9 @@ namespace plagiarism.WinUI
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            this.Text = "frmIndex";
         }
 
         #endregion
     }
 }
-

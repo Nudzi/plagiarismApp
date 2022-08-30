@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace plagiarism.WinUI
+namespace plagiarism.WinUI.Index
 {
-    public partial class Form1 : Form
+    public partial class frmIndex : Form
     {
-        public Form1()
+        public frmIndex()
         {
             InitializeComponent();
         }
