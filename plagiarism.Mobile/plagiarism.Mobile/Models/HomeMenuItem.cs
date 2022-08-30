@@ -5,6 +5,7 @@
         Menu,
         Profile,
         AboutUs,
+        Card,
         Logout
     }
     public class HomeMenuItem

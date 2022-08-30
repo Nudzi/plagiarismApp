@@ -36,6 +36,9 @@ namespace plagiarism.Mobile.Views
                     case (int)MenuItemType.AboutUs:
                         MenuPages.Add(id, new NavigationPage(new AboutPage(user)));
                         break;
+                    case (int)MenuItemType.Card:
+                        MenuPages.Add(id, new NavigationPage(new CardPage()));
+                        break;
                     case (int)MenuItemType.Logout:
                         MenuPages.Add(id, new NavigationPage(new LoginPage()));
                         break;

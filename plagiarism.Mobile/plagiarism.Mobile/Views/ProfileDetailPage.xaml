@@ -38,7 +38,9 @@
                     <Label BackgroundColor="AliceBlue"  Text="Package data " Grid.Row="2"  Grid.Column="3" VerticalTextAlignment="Center"></Label>
                     <Label BackgroundColor="LightYellow" Text="Address data " Grid.Row="2"  Grid.Column="5" VerticalTextAlignment="Center"></Label>
 
-                    <Image Grid.Row="1" WidthRequest="200" HeightRequest="100" Source="{Binding Image, Converter={StaticResource imgConv}}"></Image>
+                    <Image Grid.Row="1" WidthRequest="200" 
+                           HeightRequest="100" 
+                           Source="{Binding Image, Converter={StaticResource imgConv}}"></Image>
 
                     <Label BackgroundColor="LavenderBlush" Text="User name: " Grid.Row="4" Grid.Column="1" IsVisible="True" VerticalTextAlignment="Center"></Label>
                     <Label BackgroundColor="LavenderBlush" Grid.Row="4" Grid.Column="2" IsVisible="True" Text="{Binding User.UserName}"></Label>
