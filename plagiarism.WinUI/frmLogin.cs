@@ -29,25 +29,20 @@ namespace plagiarism.WinUI
 
                 else
                 {
-                    Users user = await _service.Authentication<Users>(textBoxUserName.Text, textBoxPass.Text);
-
+                    plagiarismModel.Users user = await _service.Authentication<plagiarismModel.Users>(textBoxUserName.Text, textBoxPass.Text);
                     checkUserType(user);
-                    MessageBox.Show("Welcome:\n " + user.FirstName + " " + user.LastName);
-                    DialogResult = DialogResult.OK;
-                    this.Hide();
+                    
                     if (Global.Admin)
                     {
+                        MessageBox.Show("Welcome:\n " + user.FirstName + " " + user.LastName);
+                        DialogResult = DialogResult.OK;
+                        this.Hide();
                         frmIndex frm = new frmIndex();
                         frm.Show();
                     }
-                    if (Global.User || Global.Institution)
+                    else
                     {
                         MessageBox.Show("Wrong username or password", "You do not have permissions!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    if (Global.Employee)
-                    {
-                        //frmIndexEmployee frm = new frmIndexEmployee(user);
-                        //frm.Show();
                     }
                 }
             }
@@ -57,7 +52,7 @@ namespace plagiarism.WinUI
 
             }
         }
-        private async void checkUserType(Users user)
+        private async void checkUserType(plagiarismModel.Users user)
         {
             int userTypeFirst = 0;
             if (user != null)
@@ -68,16 +63,17 @@ namespace plagiarism.WinUI
                 {
                     if (item.IsActive)
                         userTypeFirst = item.UserTypeId;
+
+                    role = await _userTypesService.GetById<UserTypes>(userTypeFirst);
+                    if (role.Id == (int)plagiarismModel.Enums.UserTypes.Admin)
+                        Global.Admin = true;
+                    //if (role.Id == (int)UserTypes.Client)
+                    //    Global.Client = true;
+                    if (role.Id == (int)plagiarismModel.Enums.UserTypes.Employee)
+                        Global.Employee = true;
+                    if (role.Id == (int)plagiarismModel.Enums.UserTypes.User)
+                        Global.User = true;
                 }
-                role = await _userTypesService.GetById<UserTypes>(userTypeFirst);
-                if (role.Id == (int)plagiarismModel.Enums.UserTypes.Admin)
-                    Global.Admin = true;
-                //if (role.Id == (int)UserTypes.Client)
-                //    Global.Client = true;
-                if (role.Id == (int)plagiarismModel.Enums.UserTypes.Employee)
-                    Global.Employee = true;
-                if (role.Id == (int)plagiarismModel.Enums.UserTypes.User)
-                    Global.User = true;
             }
         }
     }

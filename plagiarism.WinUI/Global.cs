@@ -4,7 +4,7 @@ namespace plagiarism.WinUI
 {
     public class Global
     {
-        public static Users LoggedUser { get; set; }
+        public static plagiarismModel.Users LoggedUser { get; set; }
         public static bool Admin { get; set; }
         public static bool Institution { get; set; }
         public static bool User { get; set; }

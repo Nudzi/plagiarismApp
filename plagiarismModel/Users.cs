@@ -15,7 +15,6 @@ namespace plagiarismModel
         public int? UserAddressId { get; set; }
 
         public UserAddresses UserAddress { get; set; }
-        
         public List<UsersUserTypes> UserTypes { get; set; }
     }
 }

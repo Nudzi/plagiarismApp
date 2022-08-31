@@ -32,10 +32,9 @@ namespace plagiarismApp.Services
                     var userTypes = _context.UsersUserTypes.Where(x => x.UserId == user.Id);
                     plagiarismModel.Users newUser = new plagiarismModel.Users();
 
+                    newUser.UserTypes = new List<plagiarismModel.UsersUserTypes>();
                     foreach (var item in userTypes)
                     {
-
-                        newUser.UserTypes = new List<plagiarismModel.UsersUserTypes>();
                         newUser.UserTypes.Add(new plagiarismModel.UsersUserTypes
                         {
                             IsActive = true,
@@ -45,6 +44,7 @@ namespace plagiarismApp.Services
                         });
                     }
                     newUser.FirstName = user.FirstName;
+                    newUser.OfficialName = user.OfficialName;
                     newUser.LastName = user.LastName;
                     newUser.UserName = user.UserName;
                     newUser.Email = user.Email;
