@@ -43,10 +43,13 @@ namespace plagiarism.WinUI.Users
             if (ValidateChildren())
             {
                 List<int> usertypes = new List<int>();
-                if (_token)
-                    usertypes.Add((int)UserTypes.User);
-                else
+                if (txtOfficialName.Text != "")
+                {
+                    usertypes.Add((int)UserTypes.Institution);
+                } else 
+                {
                     usertypes = cblUserTypes.CheckedItems.Cast<plagiarismModel.UserTypes>().Select(x => x.Id).ToList();
+                }
 
                 var request = new UsersInsertRequest()
                 {
@@ -199,7 +202,9 @@ namespace plagiarism.WinUI.Users
                     lblOfficialName.Visible = false;
                     cbkIsUser.Checked = true;
                     cbkIsUser.Enabled = false;
-                } else
+                    gbUserTypes.Visible = true;
+                }
+                else
                 {
                     cbkIsUser.Checked = false;
                     cbkIsUser.Enabled = false;
@@ -207,6 +212,7 @@ namespace plagiarism.WinUI.Users
                     lblFirstName.Visible = false;
                     txtLastName.Visible = false;
                     lblLastName.Visible = false;
+                    gbUserTypes.Visible = false;
                 }
             } else
             {
@@ -221,6 +227,7 @@ namespace plagiarism.WinUI.Users
         private async Task LoadUserTypes()
         {
             var userTypes = await _userTypesService.Get<List<plagiarismModel.UserTypes>>(null);
+            userTypes.RemoveAt(3);
             cblUserTypes.DataSource = userTypes;
             cblUserTypes.DisplayMember = "Name";
         }
@@ -309,6 +316,7 @@ namespace plagiarism.WinUI.Users
                 lblFirstName.Visible = true;
                 txtLastName.Visible = true;
                 lblLastName.Visible = true;
+                gbUserTypes.Visible = true;
             } else
             {
                 txtOfficialName.Visible = true;
@@ -317,6 +325,7 @@ namespace plagiarism.WinUI.Users
                 lblFirstName.Visible = false;
                 txtLastName.Visible = false;
                 lblLastName.Visible = false;
+                gbUserTypes.Visible = false;
             }
         }
 

@@ -25,7 +25,7 @@ namespace plagiarism.WinUI.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:52143/api")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:53627/api")]
         public string APIUrl {
             get {
                 return ((string)(this["APIUrl"]));

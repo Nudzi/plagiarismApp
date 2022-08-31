@@ -38,9 +38,9 @@ namespace plagiarism.WinUI
                 var url = $"{ Properties.Settings.Default.APIUrl}/{_route}";
                 return await url.WithBasicAuth(userName, password).PostJsonAsync(request).ReceiveJson<T>();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw new Exception("Error in adding!");
+                throw new Exception("Error in adding!" + ex.Message);
             }
         }
         public async Task<T> Update<T>(int id, object request)
