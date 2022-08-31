@@ -1,7 +1,7 @@
 ﻿
-namespace plagiarism.WinUI.Users
+namespace plagiarism.WinUI.InstitutionsForms
 {
-    partial class frmUsers
+    partial class frmInstitutions
     {
         /// <summary>
         /// Required designer variable.
@@ -29,58 +29,58 @@ namespace plagiarism.WinUI.Users
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtSearch = new System.Windows.Forms.TextBox();
-            this.btnShow = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnOfficial = new System.Windows.Forms.Button();
+            this.txtOfficial = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvUsers = new System.Windows.Forms.DataGridView();
             this.UserID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OfficialName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Edit = new System.Windows.Forms.DataGridViewLinkColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // label2
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 65);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(210, 20);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Search User by User Name: ";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(37, 111);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(224, 20);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "Search User by Official Name: ";
             // 
-            // txtSearch
+            // btnOfficial
             // 
-            this.txtSearch.Location = new System.Drawing.Point(25, 100);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(416, 26);
-            this.txtSearch.TabIndex = 8;
+            this.btnOfficial.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnOfficial.Location = new System.Drawing.Point(477, 127);
+            this.btnOfficial.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnOfficial.Name = "btnOfficial";
+            this.btnOfficial.Size = new System.Drawing.Size(112, 35);
+            this.btnOfficial.TabIndex = 15;
+            this.btnOfficial.Text = "Show";
+            this.btnOfficial.UseVisualStyleBackColor = false;
+            this.btnOfficial.Click += new System.EventHandler(this.btnOfficial_Click);
             // 
-            // btnShow
+            // txtOfficial
             // 
-            this.btnShow.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnShow.Location = new System.Drawing.Point(461, 96);
-            this.btnShow.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnShow.Name = "btnShow";
-            this.btnShow.Size = new System.Drawing.Size(112, 35);
-            this.btnShow.TabIndex = 7;
-            this.btnShow.Text = "Show";
-            this.btnShow.UseVisualStyleBackColor = false;
-            this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
+            this.txtOfficial.Location = new System.Drawing.Point(41, 136);
+            this.txtOfficial.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtOfficial.Name = "txtOfficial";
+            this.txtOfficial.Size = new System.Drawing.Size(416, 26);
+            this.txtOfficial.TabIndex = 14;
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.dgvUsers);
-            this.groupBox1.Location = new System.Drawing.Point(21, 152);
+            this.groupBox1.Location = new System.Drawing.Point(37, 210);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Size = new System.Drawing.Size(832, 288);
-            this.groupBox1.TabIndex = 6;
+            this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Users";
             // 
@@ -92,7 +92,7 @@ namespace plagiarism.WinUI.Users
             this.dgvUsers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.UserID,
             this.UserName,
-            this.FirstName,
+            this.OfficialName,
             this.Status,
             this.Edit});
             this.dgvUsers.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -126,14 +126,14 @@ namespace plagiarism.WinUI.Users
             this.UserName.ReadOnly = true;
             this.UserName.Width = 150;
             // 
-            // FirstName
+            // OfficialName
             // 
-            this.FirstName.DataPropertyName = "FirstName";
-            this.FirstName.HeaderText = "First Name";
-            this.FirstName.MinimumWidth = 8;
-            this.FirstName.Name = "FirstName";
-            this.FirstName.ReadOnly = true;
-            this.FirstName.Width = 150;
+            this.OfficialName.DataPropertyName = "OfficialName";
+            this.OfficialName.HeaderText = "Official Name";
+            this.OfficialName.MinimumWidth = 8;
+            this.OfficialName.Name = "OfficialName";
+            this.OfficialName.ReadOnly = true;
+            this.OfficialName.Width = 150;
             // 
             // Status
             // 
@@ -156,17 +156,17 @@ namespace plagiarism.WinUI.Users
             this.Edit.UseColumnTextForLinkValue = true;
             this.Edit.Width = 150;
             // 
-            // frmUsers
+            // frmInstitutions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(892, 482);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtSearch);
-            this.Controls.Add(this.btnShow);
+            this.ClientSize = new System.Drawing.Size(907, 539);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.btnOfficial);
+            this.Controls.Add(this.txtOfficial);
             this.Controls.Add(this.groupBox1);
-            this.Name = "frmUsers";
-            this.Text = "frmUsers";
+            this.Name = "frmInstitutions";
+            this.Text = "frmInstitutions";
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
             this.ResumeLayout(false);
@@ -175,14 +175,15 @@ namespace plagiarism.WinUI.Users
         }
 
         #endregion
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtSearch;
-        private System.Windows.Forms.Button btnShow;
+
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnOfficial;
+        private System.Windows.Forms.TextBox txtOfficial;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dgvUsers;
         private System.Windows.Forms.DataGridViewTextBoxColumn UserID;
         private System.Windows.Forms.DataGridViewTextBoxColumn UserName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FirstName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OfficialName;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Status;
         private System.Windows.Forms.DataGridViewLinkColumn Edit;
     }

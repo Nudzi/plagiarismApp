@@ -1,34 +1,42 @@
-﻿using plagiarismModel.Requests.Users;
+﻿using plagiarism.WinUI.Users;
+using plagiarismModel.Requests.Users;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace plagiarism.WinUI.Users
+namespace plagiarism.WinUI.InstitutionsForms
 {
-    public partial class frmUsers : Form
+    public partial class frmInstitutions : Form
     {
         private readonly APIService _apiService = new APIService("users");
-        public frmUsers()
+
+        public frmInstitutions()
         {
             InitializeComponent();
         }
 
-        private async void btnShow_Click(object sender, System.EventArgs e)
+        private async void btnOfficial_Click(object sender, EventArgs e)
         {
             var search = new UsersSearchRequest()
             {
-                UserName = txtSearch.Text
+                OfficialName = txtOfficial.Text
             };
             var result = await _apiService.Get<List<plagiarismModel.Users>>(search);
 
             var results = new List<plagiarismModel.Users>();
             foreach (var item in result)
             {
-                if (item.OfficialName == "" && item.FirstName != "" && item.LastName != "")
+                if (item.OfficialName != "" && item.FirstName == "" && item.LastName == "")
                 {
                     results.Add(item);
                 }
             }
-
             dgvUsers.AutoGenerateColumns = false;
             dgvUsers.DataSource = results;
         }
@@ -62,6 +70,5 @@ namespace plagiarism.WinUI.Users
                 MessageBox.Show("Nothing selected", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
     }
 }
