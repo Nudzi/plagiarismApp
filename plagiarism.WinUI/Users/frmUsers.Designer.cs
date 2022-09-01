@@ -31,7 +31,6 @@ namespace plagiarism.WinUI.Users
         {
             this.label1 = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
-            this.btnShow = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvUsers = new System.Windows.Forms.DataGridView();
             this.UserID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -39,6 +38,7 @@ namespace plagiarism.WinUI.Users
             this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Edit = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.btnShow = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             this.SuspendLayout();
@@ -59,18 +59,6 @@ namespace plagiarism.WinUI.Users
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(416, 26);
             this.txtSearch.TabIndex = 8;
-            // 
-            // btnShow
-            // 
-            this.btnShow.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnShow.Location = new System.Drawing.Point(461, 96);
-            this.btnShow.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnShow.Name = "btnShow";
-            this.btnShow.Size = new System.Drawing.Size(112, 35);
-            this.btnShow.TabIndex = 7;
-            this.btnShow.Text = "Show";
-            this.btnShow.UseVisualStyleBackColor = false;
-            this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
             // 
             // groupBox1
             // 
@@ -156,6 +144,18 @@ namespace plagiarism.WinUI.Users
             this.Edit.UseColumnTextForLinkValue = true;
             this.Edit.Width = 150;
             // 
+            // btnShow
+            // 
+            this.btnShow.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnShow.Location = new System.Drawing.Point(461, 96);
+            this.btnShow.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnShow.Name = "btnShow";
+            this.btnShow.Size = new System.Drawing.Size(112, 35);
+            this.btnShow.TabIndex = 7;
+            this.btnShow.Text = "Show";
+            this.btnShow.UseVisualStyleBackColor = false;
+            this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
+            // 
             // frmUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -177,7 +177,6 @@ namespace plagiarism.WinUI.Users
         #endregion
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtSearch;
-        private System.Windows.Forms.Button btnShow;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dgvUsers;
         private System.Windows.Forms.DataGridViewTextBoxColumn UserID;
@@ -185,5 +184,6 @@ namespace plagiarism.WinUI.Users
         private System.Windows.Forms.DataGridViewTextBoxColumn FirstName;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Status;
         private System.Windows.Forms.DataGridViewLinkColumn Edit;
+        private System.Windows.Forms.Button btnShow;
     }
 }

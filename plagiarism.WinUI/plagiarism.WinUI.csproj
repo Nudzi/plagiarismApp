@@ -99,6 +99,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="APIService.cs" />
+    <Compile Include="DocumentsForms\frmDocumentDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DocumentsForms\frmDocumentDetails.Designer.cs">
+      <DependentUpon>frmDocumentDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentsForms\frmDocuments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DocumentsForms\frmDocuments.Designer.cs">
+      <DependentUpon>frmDocuments.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,6 +150,12 @@
     <Compile Include="Users\frmUsers.Designer.cs">
       <DependentUpon>frmUsers.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="DocumentsForms\frmDocumentDetails.resx">
+      <DependentUpon>frmDocumentDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DocumentsForms\frmDocuments.resx">
+      <DependentUpon>frmDocuments.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>

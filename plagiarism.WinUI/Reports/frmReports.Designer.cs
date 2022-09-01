@@ -44,6 +44,7 @@ namespace plagiarism.WinUI.Reports
             this.btnFromDisable = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.txtSum = new System.Windows.Forms.TextBox();
+            this.btnDoc = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResults)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,9 +62,9 @@ namespace plagiarism.WinUI.Reports
             // btnPrint
             // 
             this.btnPrint.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnPrint.Location = new System.Drawing.Point(12, 395);
+            this.btnPrint.Location = new System.Drawing.Point(27, 395);
             this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(244, 58);
+            this.btnPrint.Size = new System.Drawing.Size(229, 58);
             this.btnPrint.TabIndex = 20;
             this.btnPrint.Text = "Print";
             this.btnPrint.UseVisualStyleBackColor = false;
@@ -105,7 +106,7 @@ namespace plagiarism.WinUI.Reports
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 38F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(31, 26);
+            this.label1.Location = new System.Drawing.Point(12, 23);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(302, 86);
             this.label1.TabIndex = 16;
@@ -183,11 +184,22 @@ namespace plagiarism.WinUI.Reports
             this.txtSum.Text = "0$";
             this.txtSum.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
+            // btnDoc
+            // 
+            this.btnDoc.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnDoc.Location = new System.Drawing.Point(27, 241);
+            this.btnDoc.Name = "btnDoc";
+            this.btnDoc.Size = new System.Drawing.Size(101, 60);
+            this.btnDoc.TabIndex = 29;
+            this.btnDoc.Text = "Documents";
+            this.btnDoc.UseVisualStyleBackColor = false;
+            // 
             // frmReports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1237, 545);
+            this.ClientSize = new System.Drawing.Size(1133, 545);
+            this.Controls.Add(this.btnDoc);
             this.Controls.Add(this.txtSum);
             this.Controls.Add(this.btnPaymants);
             this.Controls.Add(this.btnPrint);
@@ -223,5 +235,6 @@ namespace plagiarism.WinUI.Reports
         private System.Windows.Forms.Button btnFromDisable;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtSum;
+        private System.Windows.Forms.Button btnDoc;
     }
 }
