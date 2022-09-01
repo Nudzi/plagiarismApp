@@ -1,4 +1,5 @@
 ﻿using plagiarism.WinUI.InstitutionsForms;
+using plagiarism.WinUI.Reports;
 using plagiarism.WinUI.Users;
 using System;
 using System.Windows.Forms;
@@ -108,6 +109,14 @@ namespace plagiarism.WinUI.Index
         private void viewAllToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             frmInstitutions frm = new frmInstitutions();
+            frm.MdiParent = this;
+            frm.WindowState = FormWindowState.Maximized;
+            frm.Show();
+        }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReports frm = new frmReports();
             frm.MdiParent = this;
             frm.WindowState = FormWindowState.Maximized;
             frm.Show();

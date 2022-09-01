@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using plagiarismApp.Database;
 using plagiarismModel.Requests.UsersPackageTypes;
 using System.Collections.Generic;
@@ -13,7 +14,7 @@ namespace plagiarismApp.Services
         }
         public override IList<plagiarismModel.UsersPackageTypes> Get(UsersPackageTypesSearchRequest request)
         {
-            var query = _context.Set<UsersPackageTypes>().AsQueryable();
+            var query = _context.Set<UsersPackageTypes>().Include(x=> x.PackageType).AsQueryable();
             if (request?.UserId.HasValue == true)
             {
                 query = query.Where(x => x.UserId == request.UserId);

@@ -30,9 +30,7 @@ namespace plagiarism.WinUI.Reports
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmReports));
-            this.btnOutputs = new System.Windows.Forms.Button();
-            this.btnInputs = new System.Windows.Forms.Button();
-            this.btnOrders = new System.Windows.Forms.Button();
+            this.btnPaymants = new System.Windows.Forms.Button();
             this.btnPrint = new System.Windows.Forms.Button();
             this.dgvResults = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
@@ -45,48 +43,31 @@ namespace plagiarism.WinUI.Reports
             this.btnToDisable = new System.Windows.Forms.Button();
             this.btnFromDisable = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
+            this.txtSum = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResults)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnOutputs
+            // btnPaymants
             // 
-            this.btnOutputs.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnOutputs.Location = new System.Drawing.Point(27, 273);
-            this.btnOutputs.Name = "btnOutputs";
-            this.btnOutputs.Size = new System.Drawing.Size(101, 60);
-            this.btnOutputs.TabIndex = 23;
-            this.btnOutputs.Text = "Outputs";
-            this.btnOutputs.UseVisualStyleBackColor = false;
-            // 
-            // btnInputs
-            // 
-            this.btnInputs.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnInputs.Location = new System.Drawing.Point(27, 208);
-            this.btnInputs.Name = "btnInputs";
-            this.btnInputs.Size = new System.Drawing.Size(101, 59);
-            this.btnInputs.TabIndex = 22;
-            this.btnInputs.Text = "Inputs";
-            this.btnInputs.UseVisualStyleBackColor = false;
-            // 
-            // btnOrders
-            // 
-            this.btnOrders.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnOrders.Location = new System.Drawing.Point(27, 142);
-            this.btnOrders.Name = "btnOrders";
-            this.btnOrders.Size = new System.Drawing.Size(101, 60);
-            this.btnOrders.TabIndex = 21;
-            this.btnOrders.Text = "Orders";
-            this.btnOrders.UseVisualStyleBackColor = false;
+            this.btnPaymants.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnPaymants.Location = new System.Drawing.Point(27, 142);
+            this.btnPaymants.Name = "btnPaymants";
+            this.btnPaymants.Size = new System.Drawing.Size(101, 60);
+            this.btnPaymants.TabIndex = 21;
+            this.btnPaymants.Text = "Payments";
+            this.btnPaymants.UseVisualStyleBackColor = false;
+            this.btnPaymants.Click += new System.EventHandler(this.btnPaymants_Click);
             // 
             // btnPrint
             // 
             this.btnPrint.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnPrint.Location = new System.Drawing.Point(27, 395);
+            this.btnPrint.Location = new System.Drawing.Point(12, 395);
             this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(216, 58);
+            this.btnPrint.Size = new System.Drawing.Size(244, 58);
             this.btnPrint.TabIndex = 20;
             this.btnPrint.Text = "Print";
             this.btnPrint.UseVisualStyleBackColor = false;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // dgvResults
             // 
@@ -94,18 +75,18 @@ namespace plagiarism.WinUI.Reports
             this.dgvResults.AllowUserToDeleteRows = false;
             this.dgvResults.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvResults.Location = new System.Drawing.Point(296, 142);
+            this.dgvResults.Location = new System.Drawing.Point(262, 142);
             this.dgvResults.Name = "dgvResults";
             this.dgvResults.ReadOnly = true;
             this.dgvResults.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgvResults.RowTemplate.Height = 28;
-            this.dgvResults.Size = new System.Drawing.Size(633, 311);
+            this.dgvResults.Size = new System.Drawing.Size(843, 311);
             this.dgvResults.TabIndex = 19;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(494, 83);
+            this.label3.Location = new System.Drawing.Point(670, 87);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(67, 20);
             this.label3.TabIndex = 18;
@@ -114,7 +95,7 @@ namespace plagiarism.WinUI.Reports
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(494, 42);
+            this.label2.Location = new System.Drawing.Point(670, 42);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(86, 20);
             this.label2.TabIndex = 17;
@@ -124,7 +105,7 @@ namespace plagiarism.WinUI.Reports
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 38F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 28);
+            this.label1.Location = new System.Drawing.Point(31, 26);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(302, 86);
             this.label1.TabIndex = 16;
@@ -133,7 +114,7 @@ namespace plagiarism.WinUI.Reports
             // dtpTo
             // 
             this.dtpTo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpTo.Location = new System.Drawing.Point(615, 77);
+            this.dtpTo.Location = new System.Drawing.Point(791, 83);
             this.dtpTo.Name = "dtpTo";
             this.dtpTo.Size = new System.Drawing.Size(200, 26);
             this.dtpTo.TabIndex = 14;
@@ -141,10 +122,14 @@ namespace plagiarism.WinUI.Reports
             // dtpFrom
             // 
             this.dtpFrom.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFrom.Location = new System.Drawing.Point(615, 36);
+            this.dtpFrom.Location = new System.Drawing.Point(791, 36);
             this.dtpFrom.Name = "dtpFrom";
             this.dtpFrom.Size = new System.Drawing.Size(200, 26);
             this.dtpFrom.TabIndex = 15;
+            // 
+            // printDocument1
+            // 
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
             // 
             // printPreviewDialog1
             // 
@@ -160,40 +145,51 @@ namespace plagiarism.WinUI.Reports
             // btnToDisable
             // 
             this.btnToDisable.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnToDisable.Location = new System.Drawing.Point(838, 75);
+            this.btnToDisable.Location = new System.Drawing.Point(1014, 75);
             this.btnToDisable.Name = "btnToDisable";
             this.btnToDisable.Size = new System.Drawing.Size(91, 37);
             this.btnToDisable.TabIndex = 26;
             this.btnToDisable.Text = "Disable";
             this.btnToDisable.UseVisualStyleBackColor = false;
+            this.btnToDisable.Click += new System.EventHandler(this.btnToDisable_Click);
             // 
             // btnFromDisable
             // 
             this.btnFromDisable.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnFromDisable.Location = new System.Drawing.Point(838, 32);
+            this.btnFromDisable.Location = new System.Drawing.Point(1014, 32);
             this.btnFromDisable.Name = "btnFromDisable";
             this.btnFromDisable.Size = new System.Drawing.Size(91, 35);
             this.btnFromDisable.TabIndex = 25;
             this.btnFromDisable.Text = "Disable";
             this.btnFromDisable.UseVisualStyleBackColor = false;
+            this.btnFromDisable.Click += new System.EventHandler(this.btnFromDisable_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(292, 114);
+            this.label4.Location = new System.Drawing.Point(258, 119);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(120, 20);
             this.label4.TabIndex = 24;
             this.label4.Text = "Results to print:";
             // 
+            // txtSum
+            // 
+            this.txtSum.Location = new System.Drawing.Point(855, 485);
+            this.txtSum.Name = "txtSum";
+            this.txtSum.ReadOnly = true;
+            this.txtSum.Size = new System.Drawing.Size(250, 26);
+            this.txtSum.TabIndex = 28;
+            this.txtSum.Text = "0$";
+            this.txtSum.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // frmReports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(962, 494);
-            this.Controls.Add(this.btnOutputs);
-            this.Controls.Add(this.btnInputs);
-            this.Controls.Add(this.btnOrders);
+            this.ClientSize = new System.Drawing.Size(1237, 545);
+            this.Controls.Add(this.txtSum);
+            this.Controls.Add(this.btnPaymants);
             this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.dgvResults);
             this.Controls.Add(this.label3);
@@ -213,10 +209,7 @@ namespace plagiarism.WinUI.Reports
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnOutputs;
-        private System.Windows.Forms.Button btnInputs;
-        private System.Windows.Forms.Button btnOrders;
+        private System.Windows.Forms.Button btnPaymants;
         private System.Windows.Forms.Button btnPrint;
         private System.Windows.Forms.DataGridView dgvResults;
         private System.Windows.Forms.Label label3;
@@ -229,5 +222,6 @@ namespace plagiarism.WinUI.Reports
         private System.Windows.Forms.Button btnToDisable;
         private System.Windows.Forms.Button btnFromDisable;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtSum;
     }
 }

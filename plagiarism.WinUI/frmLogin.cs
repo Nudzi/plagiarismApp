@@ -30,9 +30,8 @@ namespace plagiarism.WinUI
                 else
                 {
                     plagiarismModel.Users user = await _service.Authentication<plagiarismModel.Users>(textBoxUserName.Text, textBoxPass.Text);
-                    checkUserType(user);
                     
-                    if (Global.Admin)
+                    if (checkUserType(user))
                     {
                         MessageBox.Show("Welcome:\n " + user.FirstName + " " + user.LastName);
                         DialogResult = DialogResult.OK;
@@ -52,29 +51,22 @@ namespace plagiarism.WinUI
 
             }
         }
-        private async void checkUserType(plagiarismModel.Users user)
+        private bool checkUserType(plagiarismModel.Users user)
         {
-            int userTypeFirst = 0;
             if (user != null)
             {
                 Global.LoggedUser = user;
 
                 foreach (var item in Global.LoggedUser.UserTypes)
                 {
-                    if (item.IsActive)
-                        userTypeFirst = item.UserTypeId;
-
-                    role = await _userTypesService.GetById<UserTypes>(userTypeFirst);
-                    if (role.Id == (int)plagiarismModel.Enums.UserTypes.Admin)
+                    if (item.IsActive && item.UserTypeId == (int)plagiarismModel.Enums.UserTypes.Admin)
+                    {
                         Global.Admin = true;
-                    //if (role.Id == (int)UserTypes.Client)
-                    //    Global.Client = true;
-                    if (role.Id == (int)plagiarismModel.Enums.UserTypes.Employee)
-                        Global.Employee = true;
-                    if (role.Id == (int)plagiarismModel.Enums.UserTypes.User)
-                        Global.User = true;
+                        return true;
+                    }
                 }
             }
+            return false;
         }
     }
 }
