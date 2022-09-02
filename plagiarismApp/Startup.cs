@@ -10,6 +10,7 @@ using Microsoft.OpenApi.Models;
 using plagiarismApp.Database;
 using plagiarismApp.Security;
 using plagiarismApp.Services;
+using plagiarismModel.Requests.Documents;
 using plagiarismModel.Requests.PackageTypes;
 using plagiarismModel.Requests.Results;
 using plagiarismModel.Requests.UserAddresses;
@@ -78,6 +79,7 @@ namespace plagiarismApp
             services.AddScoped<ICRUDService<plagiarismModel.UserAddresses, UserAddressesSearchRequest, UserAddressesUpsertRequest, UserAddressesUpsertRequest>, UserAddressesService>();
             services.AddScoped<ICRUDService<plagiarismModel.UsersPackageTypes, UsersPackageTypesSearchRequest, UsersPackageTypesUpsertRequest, UsersPackageTypesUpsertRequest>, UsersPackageTypesService>();
             services.AddScoped<ICRUDService<plagiarismModel.UsersUserTypes, UsersUserTypesSearchRequest, UsersUserTypesUpsertRequest, UsersUserTypesUpsertRequest>, UsersUserTypesService>();
+            services.AddScoped<ICRUDService<plagiarismModel.Documents, DocumentsSearchRequest, DocumentsUpsertRequest, DocumentsUpsertRequest>, DocumentsService>();
             var connection = Configuration.GetConnectionString("plagiarism");
             services.AddDbContext<plagiarismContext>(options => options.UseSqlServer(connection));
         }

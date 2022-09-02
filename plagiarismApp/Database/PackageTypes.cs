@@ -11,6 +11,7 @@ namespace plagiarismApp.Database
     {
         public PackageTypes()
         {
+            Documents = new HashSet<Documents>();
             UsersPackageTypes = new HashSet<UsersPackageTypes>();
         }
 
@@ -21,6 +22,7 @@ namespace plagiarismApp.Database
         public byte[] Image { get; set; }
         public byte[] ImageThumb { get; set; }
 
+        public virtual ICollection<Documents> Documents { get; set; }
         public virtual ICollection<UsersPackageTypes> UsersPackageTypes { get; set; }
     }
 }

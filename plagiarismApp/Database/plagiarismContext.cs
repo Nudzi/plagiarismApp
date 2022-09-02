@@ -19,6 +19,7 @@ namespace plagiarismApp.Database
         {
         }
 
+        public virtual DbSet<Documents> Documents { get; set; }
         public virtual DbSet<PackageTypes> PackageTypes { get; set; }
         public virtual DbSet<Results> Results { get; set; }
         public virtual DbSet<UserAddresses> UserAddresses { get; set; }
@@ -39,6 +40,35 @@ namespace plagiarismApp.Database
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Documents>(entity =>
+            {
+                entity.Property(e => e.Id).HasColumnName("ID");
+
+                entity.Property(e => e.Author)
+                    .IsRequired()
+                    .HasMaxLength(255);
+
+                entity.Property(e => e.Extension).HasMaxLength(255);
+
+                entity.Property(e => e.PackageTypeId).HasColumnName("PackageTypeID");
+
+                entity.Property(e => e.Publisher)
+                    .IsRequired()
+                    .HasMaxLength(255);
+
+                entity.Property(e => e.Title)
+                    .IsRequired()
+                    .HasMaxLength(255);
+
+                entity.Property(e => e.Type).HasMaxLength(255);
+
+                entity.HasOne(d => d.PackageType)
+                    .WithMany(p => p.Documents)
+                    .HasForeignKey(d => d.PackageTypeId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Documents_PackageTypes");
+            });
+
             modelBuilder.Entity<PackageTypes>(entity =>
             {
                 entity.Property(e => e.Id).HasColumnName("ID");

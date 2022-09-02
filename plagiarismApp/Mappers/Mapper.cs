@@ -4,6 +4,7 @@ using plagiarismModel.Requests.Results;
 using plagiarismModel.Requests.UsersPackageTypes;
 using plagiarismModel.Requests.UserAddresses;
 using plagiarismModel.Requests.UsersUserTypes;
+using plagiarismModel.Requests.Documents;
 
 namespace plagiarismApp.Mappers
 {
@@ -41,6 +42,10 @@ namespace plagiarismApp.Mappers
             //UsersUserTypes
             CreateMap<Database.UsersUserTypes, plagiarismModel.UsersUserTypes>();
             CreateMap<Database.UsersUserTypes, UsersUserTypesUpsertRequest>().ReverseMap();
+
+            //Doucuments
+            CreateMap<Database.Documents, plagiarismModel.Documents>();
+            CreateMap<Database.Documents, DocumentsUpsertRequest>().ReverseMap();
         }
     }
 }
