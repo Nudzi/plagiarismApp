@@ -49,6 +49,7 @@ namespace plagiarism.WinUI.DocumentsForms
             this.cbExt = new System.Windows.Forms.ComboBox();
             this.cbPackageType = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.cbNewPackage = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // lblOfficialName
@@ -237,11 +238,22 @@ namespace plagiarism.WinUI.DocumentsForms
             this.label6.TabIndex = 66;
             this.label6.Text = "Package Type";
             // 
+            // cbNewPackage
+            // 
+            this.cbNewPackage.AutoSize = true;
+            this.cbNewPackage.Location = new System.Drawing.Point(606, 168);
+            this.cbNewPackage.Name = "cbNewPackage";
+            this.cbNewPackage.Size = new System.Drawing.Size(166, 24);
+            this.cbNewPackage.TabIndex = 68;
+            this.cbNewPackage.Text = "Change Package?";
+            this.cbNewPackage.UseVisualStyleBackColor = true;
+            // 
             // frmDocumentDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(932, 392);
+            this.Controls.Add(this.cbNewPackage);
             this.Controls.Add(this.cbPackageType);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.cbExt);
@@ -292,5 +304,6 @@ namespace plagiarism.WinUI.DocumentsForms
         private System.Windows.Forms.ComboBox cbExt;
         private System.Windows.Forms.ComboBox cbPackageType;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.CheckBox cbNewPackage;
     }
 }
