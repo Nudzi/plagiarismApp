@@ -53,7 +53,7 @@ namespace plagiarism.WinUI.Reports
             this.btnPaymants.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnPaymants.Location = new System.Drawing.Point(27, 142);
             this.btnPaymants.Name = "btnPaymants";
-            this.btnPaymants.Size = new System.Drawing.Size(101, 60);
+            this.btnPaymants.Size = new System.Drawing.Size(138, 60);
             this.btnPaymants.TabIndex = 21;
             this.btnPaymants.Text = "Payments";
             this.btnPaymants.UseVisualStyleBackColor = false;
@@ -189,10 +189,11 @@ namespace plagiarism.WinUI.Reports
             this.btnDoc.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnDoc.Location = new System.Drawing.Point(27, 241);
             this.btnDoc.Name = "btnDoc";
-            this.btnDoc.Size = new System.Drawing.Size(101, 60);
+            this.btnDoc.Size = new System.Drawing.Size(138, 60);
             this.btnDoc.TabIndex = 29;
             this.btnDoc.Text = "Documents";
             this.btnDoc.UseVisualStyleBackColor = false;
+            this.btnDoc.Click += new System.EventHandler(this.btnDoc_Click);
             // 
             // frmReports
             // 

@@ -1,4 +1,5 @@
-﻿using plagiarismModel.Requests.UsersPackageTypes;
+﻿using plagiarismModel.Requests.Documents;
+using plagiarismModel.Requests.UsersPackageTypes;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -10,6 +11,7 @@ namespace plagiarism.WinUI.Reports
     {
         private readonly APIService _usersPackageTypesService = new APIService("usersPackageTypes");
         private readonly APIService _packageTypesService = new APIService("packageTypes");
+        private readonly APIService _documentsService = new APIService("documents");
         private string Enable = "Enable";
         private string Disable = "Disable";
         private decimal Summarize = 0;
@@ -102,6 +104,36 @@ namespace plagiarism.WinUI.Reports
                 dtpTo.Value = DateTime.Now;
                 return;
             }
+        }
+
+        private async void btnDoc_Click(object sender, EventArgs e)
+        {
+            Summarize = 0;
+            var doc = await _documentsService.Get<List<plagiarismModel.Documents>>(null);
+            var pacTypes = await _packageTypesService.Get<List<plagiarismModel.PackageTypes>>(null);
+
+
+            var reportList = new List<DocumentsReportRequest>();
+            foreach (var item in doc)
+            {
+                reportList.Add(new DocumentsReportRequest
+                {
+                    Author = item.Author,
+                    Extension = item.Extension,
+                    Publisher = item.Publisher,
+                    Title = item.Title,
+                    TimeUsed = (int)item.TimeUsed,
+                    Type = item.Type,
+                    PackageName = pacTypes.Find(x => x.Id == item.PackageTypeId).Name
+                });
+            }
+
+            dgvResults.DataSource = reportList;
+
+            for (int i = 0; i < dgvResults.Columns.Count; i++)
+                dgvResults.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+
+            txtSum.Text = Summarize.ToString() + " $";
         }
     }
 }
