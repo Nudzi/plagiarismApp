@@ -10,7 +10,7 @@
         public string Extension { get; set; }
         public string Text { get; set; }
         public string Link { get; set; }
-        public int? TimeUsed { get; set; }
+        public int TimeUsed { get; set; }
         public int PackageTypeId { get; set; }
         public byte[] Image { get; set; }
         public byte[] ImageThumb { get; set; }

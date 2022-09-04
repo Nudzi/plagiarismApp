@@ -34,13 +34,13 @@ namespace plagiarism.WinUI.DocumentsForms
             this.btnShow = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvDocs = new System.Windows.Forms.DataGridView();
+            this.Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Author = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Publisher = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtAuthor = new System.Windows.Forms.TextBox();
             this.txtPublisher = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Author = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Publisher = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDocs)).BeginInit();
             this.SuspendLayout();
@@ -104,6 +104,34 @@ namespace plagiarism.WinUI.DocumentsForms
             this.dgvDocs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDocs.Size = new System.Drawing.Size(824, 259);
             this.dgvDocs.TabIndex = 0;
+            this.dgvDocs.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDocs_CellContentClick);
+            // 
+            // Title
+            // 
+            this.Title.DataPropertyName = "Title";
+            this.Title.HeaderText = "Title";
+            this.Title.MinimumWidth = 8;
+            this.Title.Name = "Title";
+            this.Title.ReadOnly = true;
+            this.Title.Width = 150;
+            // 
+            // Author
+            // 
+            this.Author.DataPropertyName = "Author";
+            this.Author.HeaderText = "Author";
+            this.Author.MinimumWidth = 8;
+            this.Author.Name = "Author";
+            this.Author.ReadOnly = true;
+            this.Author.Width = 150;
+            // 
+            // Publisher
+            // 
+            this.Publisher.DataPropertyName = "Publisher";
+            this.Publisher.HeaderText = "Publisher";
+            this.Publisher.MinimumWidth = 8;
+            this.Publisher.Name = "Publisher";
+            this.Publisher.ReadOnly = true;
+            this.Publisher.Width = 150;
             // 
             // txtAuthor
             // 
@@ -138,33 +166,6 @@ namespace plagiarism.WinUI.DocumentsForms
             this.label3.Size = new System.Drawing.Size(140, 20);
             this.label3.TabIndex = 17;
             this.label3.Text = "Search by Author: ";
-            // 
-            // Title
-            // 
-            this.Title.DataPropertyName = "Title";
-            this.Title.HeaderText = "Title";
-            this.Title.MinimumWidth = 8;
-            this.Title.Name = "Title";
-            this.Title.ReadOnly = true;
-            this.Title.Width = 150;
-            // 
-            // Author
-            // 
-            this.Author.DataPropertyName = "Author";
-            this.Author.HeaderText = "Author";
-            this.Author.MinimumWidth = 8;
-            this.Author.Name = "Author";
-            this.Author.ReadOnly = true;
-            this.Author.Width = 150;
-            // 
-            // Publisher
-            // 
-            this.Publisher.DataPropertyName = "Publisher";
-            this.Publisher.HeaderText = "Publisher";
-            this.Publisher.MinimumWidth = 8;
-            this.Publisher.Name = "Publisher";
-            this.Publisher.ReadOnly = true;
-            this.Publisher.Width = 150;
             // 
             // frmDocuments
             // 

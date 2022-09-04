@@ -26,5 +26,20 @@ namespace plagiarism.WinUI.DocumentsForms
             dgvDocs.AutoGenerateColumns = false;
             dgvDocs.DataSource = results;
         }
+
+        private void dgvDocs_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                var id = dgvDocs.SelectedRows[0].DataBoundItem;
+                Global.shouldEditRoles = false;
+                frmDocumentDetails frm = new frmDocumentDetails(id as plagiarismModel.Documents);
+                frm.ShowDialog();
+            }
+            catch
+            {
+                MessageBox.Show("Nothing selected", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
     }
 }

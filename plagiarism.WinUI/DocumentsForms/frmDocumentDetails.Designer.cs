@@ -29,8 +29,8 @@ namespace plagiarism.WinUI.DocumentsForms
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblOfficialName = new System.Windows.Forms.Label();
-            this.txtTimesUsed = new System.Windows.Forms.TextBox();
             this.lblLastName = new System.Windows.Forms.Label();
             this.txtAuthor = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -50,6 +50,14 @@ namespace plagiarism.WinUI.DocumentsForms
             this.cbPackageType = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.cbNewPackage = new System.Windows.Forms.CheckBox();
+            this.txtExtension = new System.Windows.Forms.TextBox();
+            this.txtPackageType = new System.Windows.Forms.TextBox();
+            this.txtDocType = new System.Windows.Forms.TextBox();
+            this.txtTimesUsed = new System.Windows.Forms.TextBox();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.txtContentText = new System.Windows.Forms.RichTextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // lblOfficialName
@@ -61,15 +69,6 @@ namespace plagiarism.WinUI.DocumentsForms
             this.lblOfficialName.Size = new System.Drawing.Size(90, 20);
             this.lblOfficialName.TabIndex = 57;
             this.lblOfficialName.Text = "Times used";
-            // 
-            // txtTimesUsed
-            // 
-            this.txtTimesUsed.Location = new System.Drawing.Point(148, 206);
-            this.txtTimesUsed.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtTimesUsed.Name = "txtTimesUsed";
-            this.txtTimesUsed.ReadOnly = true;
-            this.txtTimesUsed.Size = new System.Drawing.Size(288, 26);
-            this.txtTimesUsed.TabIndex = 56;
             // 
             // lblLastName
             // 
@@ -88,6 +87,7 @@ namespace plagiarism.WinUI.DocumentsForms
             this.txtAuthor.Name = "txtAuthor";
             this.txtAuthor.Size = new System.Drawing.Size(288, 26);
             this.txtAuthor.TabIndex = 45;
+            this.txtAuthor.Validating += new System.ComponentModel.CancelEventHandler(this.txtAuthor_Validating);
             // 
             // label3
             // 
@@ -106,6 +106,7 @@ namespace plagiarism.WinUI.DocumentsForms
             this.txtPublisher.Name = "txtPublisher";
             this.txtPublisher.Size = new System.Drawing.Size(288, 26);
             this.txtPublisher.TabIndex = 43;
+            this.txtPublisher.Validating += new System.ComponentModel.CancelEventHandler(this.txtPublisher_Validating);
             // 
             // label2
             // 
@@ -142,6 +143,7 @@ namespace plagiarism.WinUI.DocumentsForms
             this.txtTitle.Name = "txtTitle";
             this.txtTitle.Size = new System.Drawing.Size(288, 26);
             this.txtTitle.TabIndex = 39;
+            this.txtTitle.Validating += new System.ComponentModel.CancelEventHandler(this.txtTitle_Validating);
             // 
             // label1
             // 
@@ -171,6 +173,7 @@ namespace plagiarism.WinUI.DocumentsForms
             this.btnSave.TabIndex = 60;
             this.btnSave.Text = "SAVE";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnCancel
             // 
@@ -201,6 +204,7 @@ namespace plagiarism.WinUI.DocumentsForms
             this.cbType.Name = "cbType";
             this.cbType.Size = new System.Drawing.Size(288, 28);
             this.cbType.TabIndex = 63;
+            this.cbType.SelectedIndexChanged += new System.EventHandler(this.cbType_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -247,12 +251,74 @@ namespace plagiarism.WinUI.DocumentsForms
             this.cbNewPackage.TabIndex = 68;
             this.cbNewPackage.Text = "Change Package?";
             this.cbNewPackage.UseVisualStyleBackColor = true;
+            this.cbNewPackage.CheckedChanged += new System.EventHandler(this.cbNewPackage_CheckedChanged);
+            // 
+            // txtExtension
+            // 
+            this.txtExtension.Location = new System.Drawing.Point(607, 84);
+            this.txtExtension.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtExtension.Name = "txtExtension";
+            this.txtExtension.Size = new System.Drawing.Size(288, 26);
+            this.txtExtension.TabIndex = 70;
+            // 
+            // txtPackageType
+            // 
+            this.txtPackageType.Location = new System.Drawing.Point(606, 125);
+            this.txtPackageType.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtPackageType.Name = "txtPackageType";
+            this.txtPackageType.Size = new System.Drawing.Size(288, 26);
+            this.txtPackageType.TabIndex = 69;
+            // 
+            // txtDocType
+            // 
+            this.txtDocType.Location = new System.Drawing.Point(606, 45);
+            this.txtDocType.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtDocType.Name = "txtDocType";
+            this.txtDocType.Size = new System.Drawing.Size(288, 26);
+            this.txtDocType.TabIndex = 71;
+            // 
+            // txtTimesUsed
+            // 
+            this.txtTimesUsed.Location = new System.Drawing.Point(148, 207);
+            this.txtTimesUsed.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtTimesUsed.Name = "txtTimesUsed";
+            this.txtTimesUsed.ReadOnly = true;
+            this.txtTimesUsed.Size = new System.Drawing.Size(288, 26);
+            this.txtTimesUsed.TabIndex = 72;
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
+            // 
+            // txtContentText
+            // 
+            this.txtContentText.Location = new System.Drawing.Point(606, 209);
+            this.txtContentText.Name = "txtContentText";
+            this.txtContentText.Size = new System.Drawing.Size(289, 317);
+            this.txtContentText.TabIndex = 73;
+            this.txtContentText.Text = "none";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(479, 213);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(39, 20);
+            this.label7.TabIndex = 74;
+            this.label7.Text = "Text";
             // 
             // frmDocumentDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(932, 392);
+            this.ClientSize = new System.Drawing.Size(933, 538);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.txtContentText);
+            this.Controls.Add(this.txtTimesUsed);
+            this.Controls.Add(this.txtDocType);
+            this.Controls.Add(this.txtExtension);
+            this.Controls.Add(this.txtPackageType);
             this.Controls.Add(this.cbNewPackage);
             this.Controls.Add(this.cbPackageType);
             this.Controls.Add(this.label6);
@@ -265,7 +331,6 @@ namespace plagiarism.WinUI.DocumentsForms
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtLink);
             this.Controls.Add(this.lblOfficialName);
-            this.Controls.Add(this.txtTimesUsed);
             this.Controls.Add(this.lblLastName);
             this.Controls.Add(this.txtAuthor);
             this.Controls.Add(this.label3);
@@ -277,6 +342,7 @@ namespace plagiarism.WinUI.DocumentsForms
             this.Name = "frmDocumentDetails";
             this.Text = "frmDocumentDetails";
             this.Load += new System.EventHandler(this.frmDocumentDetails_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -285,7 +351,6 @@ namespace plagiarism.WinUI.DocumentsForms
         #endregion
 
         private System.Windows.Forms.Label lblOfficialName;
-        private System.Windows.Forms.TextBox txtTimesUsed;
         private System.Windows.Forms.Label lblLastName;
         private System.Windows.Forms.TextBox txtAuthor;
         private System.Windows.Forms.Label label3;
@@ -305,5 +370,12 @@ namespace plagiarism.WinUI.DocumentsForms
         private System.Windows.Forms.ComboBox cbPackageType;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.CheckBox cbNewPackage;
+        private System.Windows.Forms.TextBox txtExtension;
+        private System.Windows.Forms.TextBox txtPackageType;
+        private System.Windows.Forms.TextBox txtDocType;
+        private System.Windows.Forms.TextBox txtTimesUsed;
+        private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.RichTextBox txtContentText;
     }
 }
