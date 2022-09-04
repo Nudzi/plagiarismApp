@@ -138,6 +138,18 @@
     <Compile Include="Reports\frmReports.Designer.cs">
       <DependentUpon>frmReports.cs</DependentUpon>
     </Compile>
+    <Compile Include="RequestsForm\frmRequestDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RequestsForm\frmRequestDetails.Designer.cs">
+      <DependentUpon>frmRequestDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RequestsForm\frmRequests.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RequestsForm\frmRequests.Designer.cs">
+      <DependentUpon>frmRequests.cs</DependentUpon>
+    </Compile>
     <Compile Include="Users\frmUserDetails.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,6 +189,12 @@
     </Compile>
     <EmbeddedResource Include="Reports\frmReports.resx">
       <DependentUpon>frmReports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RequestsForm\frmRequestDetails.resx">
+      <DependentUpon>frmRequestDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RequestsForm\frmRequests.resx">
+      <DependentUpon>frmRequests.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Users\frmUserDetails.resx">
       <DependentUpon>frmUserDetails.cs</DependentUpon>

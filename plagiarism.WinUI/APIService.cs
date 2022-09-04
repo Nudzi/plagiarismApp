@@ -77,9 +77,9 @@ namespace plagiarism.WinUI
 
                 return await url.DeleteAsync().ReceiveJson<T>();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw new Exception("Error in delete!");
+                throw new Exception("Error in delete! Cause: " + ex.Message);
             }
         }
     }

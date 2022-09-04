@@ -48,9 +48,9 @@ namespace plagiarism.WinUI.InstitutionsForms
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(37, 111);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(224, 20);
+            this.label2.Size = new System.Drawing.Size(260, 20);
             this.label2.TabIndex = 16;
-            this.label2.Text = "Search User by Official Name: ";
+            this.label2.Text = "Search Institution by Official Name: ";
             // 
             // btnOfficial
             // 
@@ -75,14 +75,14 @@ namespace plagiarism.WinUI.InstitutionsForms
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.dgvUsers);
-            this.groupBox1.Location = new System.Drawing.Point(37, 210);
+            this.groupBox1.Location = new System.Drawing.Point(41, 210);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Size = new System.Drawing.Size(832, 288);
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Users";
+            this.groupBox1.Text = "Institutions";
             // 
             // dgvUsers
             // 

@@ -63,5 +63,14 @@ namespace plagiarism.WinUI.Users
             }
         }
 
+        private void txtSearch_TextChanged(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, System.EventArgs e)
+        {
+
+        }
     }
 }

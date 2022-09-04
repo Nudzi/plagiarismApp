@@ -70,6 +70,7 @@ namespace plagiarismApp
                .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
 
             services.AddScoped<IUsersService, UsersService>();
+            services.AddScoped<IRequestsService, RequestsService>();
             services.AddScoped<IUserTypesService, UserTypesService>();
             services.AddScoped<IService<plagiarismModel.PackageTypes, PackageTypesSearchRequest>, PackageTypesService>();
 

@@ -51,6 +51,7 @@ namespace plagiarism.WinUI.Users
             this.label1.Size = new System.Drawing.Size(210, 20);
             this.label1.TabIndex = 9;
             this.label1.Text = "Search User by User Name: ";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // txtSearch
             // 
@@ -59,6 +60,7 @@ namespace plagiarism.WinUI.Users
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(416, 26);
             this.txtSearch.TabIndex = 8;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // groupBox1
             // 
