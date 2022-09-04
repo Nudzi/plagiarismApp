@@ -21,6 +21,7 @@ namespace plagiarismApp.Database
 
         public virtual DbSet<Documents> Documents { get; set; }
         public virtual DbSet<PackageTypes> PackageTypes { get; set; }
+        public virtual DbSet<Requests> Requests { get; set; }
         public virtual DbSet<Results> Results { get; set; }
         public virtual DbSet<UserAddresses> UserAddresses { get; set; }
         public virtual DbSet<UserImages> UserImages { get; set; }
@@ -80,6 +81,39 @@ namespace plagiarismApp.Database
                     .HasMaxLength(50);
 
                 entity.Property(e => e.Price).HasColumnType("decimal(18, 2)");
+            });
+
+            modelBuilder.Entity<Requests>(entity =>
+            {
+                entity.Property(e => e.Id).HasColumnName("ID");
+
+                entity.Property(e => e.Author)
+                    .IsRequired()
+                    .HasMaxLength(255);
+
+                entity.Property(e => e.Description)
+                    .IsRequired()
+                    .HasMaxLength(255);
+
+                entity.Property(e => e.Link).HasMaxLength(255);
+
+                entity.Property(e => e.Publisher)
+                    .IsRequired()
+                    .HasMaxLength(255);
+
+                entity.Property(e => e.Text).HasMaxLength(255);
+
+                entity.Property(e => e.Title)
+                    .IsRequired()
+                    .HasMaxLength(255);
+
+                entity.Property(e => e.UserId).HasColumnName("UserID");
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.Requests)
+                    .HasForeignKey(d => d.UserId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Requests_Users");
             });
 
             modelBuilder.Entity<Results>(entity =>

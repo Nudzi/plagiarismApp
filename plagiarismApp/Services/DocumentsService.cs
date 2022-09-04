@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using plagiarismApp.Database;
-using plagiarismModel.Requests.Documents;
+using plagiarismModel.TableRequests.Documents;
 using System.Collections.Generic;
 using System.Linq;
 

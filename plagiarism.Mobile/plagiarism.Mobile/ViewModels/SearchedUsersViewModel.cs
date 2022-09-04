@@ -1,9 +1,9 @@
 ﻿using System.Threading.Tasks;
 
 using plagiarismModel;
-using plagiarismModel.Requests.UserImages;
+using plagiarismModel.TableRequests.UserImages;
 using System.Collections.Generic;
-using plagiarismModel.Requests.Users;
+using plagiarismModel.TableRequests.Users;
 using plagiarism.Mobile.Services;
 using System.Collections.ObjectModel;
 using System;

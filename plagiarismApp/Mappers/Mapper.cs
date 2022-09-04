@@ -1,10 +1,11 @@
 ﻿using AutoMapper;
-using plagiarismModel.Requests.UserImages;
-using plagiarismModel.Requests.Results;
-using plagiarismModel.Requests.UsersPackageTypes;
-using plagiarismModel.Requests.UserAddresses;
-using plagiarismModel.Requests.UsersUserTypes;
-using plagiarismModel.Requests.Documents;
+using plagiarismModel.TableRequests.UserImages;
+using plagiarismModel.TableRequests.Results;
+using plagiarismModel.TableRequests.UsersPackageTypes;
+using plagiarismModel.TableRequests.UserAddresses;
+using plagiarismModel.TableRequests.UsersUserTypes;
+using plagiarismModel.TableRequests.Documents;
+using plagiarismModel.TableRequests.Requests;
 
 namespace plagiarismApp.Mappers
 {
@@ -14,7 +15,7 @@ namespace plagiarismApp.Mappers
         {
             //users
             CreateMap<Database.Users, plagiarismModel.Users>();
-            CreateMap<Database.Users, plagiarismModel.Requests.Users.UsersInsertRequest>().ReverseMap();
+            CreateMap<Database.Users, plagiarismModel.TableRequests.Users.UsersInsertRequest>().ReverseMap();
 
             //userTypes
             CreateMap<Database.UserTypes, plagiarismModel.UserTypes>();
@@ -46,6 +47,10 @@ namespace plagiarismApp.Mappers
             //Doucuments
             CreateMap<Database.Documents, plagiarismModel.Documents>();
             CreateMap<Database.Documents, DocumentsUpsertRequest>().ReverseMap();
+
+            //Doucuments
+            CreateMap<Database.Requests, plagiarismModel.Requests>();
+            CreateMap<Database.Requests, RequestsUpsertRequest>().ReverseMap();
         }
     }
 }

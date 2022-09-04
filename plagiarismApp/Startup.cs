@@ -10,13 +10,13 @@ using Microsoft.OpenApi.Models;
 using plagiarismApp.Database;
 using plagiarismApp.Security;
 using plagiarismApp.Services;
-using plagiarismModel.Requests.Documents;
-using plagiarismModel.Requests.PackageTypes;
-using plagiarismModel.Requests.Results;
-using plagiarismModel.Requests.UserAddresses;
-using plagiarismModel.Requests.UserImages;
-using plagiarismModel.Requests.UsersPackageTypes;
-using plagiarismModel.Requests.UsersUserTypes;
+using plagiarismModel.TableRequests.Documents;
+using plagiarismModel.TableRequests.PackageTypes;
+using plagiarismModel.TableRequests.Results;
+using plagiarismModel.TableRequests.UserAddresses;
+using plagiarismModel.TableRequests.UserImages;
+using plagiarismModel.TableRequests.UsersPackageTypes;
+using plagiarismModel.TableRequests.UsersUserTypes;
 
 namespace plagiarismApp
 {

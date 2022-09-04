@@ -1,7 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using plagiarism.Mobile.Services;
-using plagiarismModel.Requests.Users;
+using plagiarismModel.TableRequests.Users;
 
 namespace plagiarism.Mobile.ViewModels
 {

@@ -1,7 +1,7 @@
 ﻿using plagiarism.Mobile.Services;
 using plagiarism.Mobile.Views;
 using plagiarismModel;
-using plagiarismModel.Requests.UserAddresses;
+using plagiarismModel.TableRequests.UserAddresses;
 using System;
 using System.Threading.Tasks;
 using System.Windows.Input;

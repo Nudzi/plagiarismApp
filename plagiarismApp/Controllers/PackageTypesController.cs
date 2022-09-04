@@ -1,6 +1,6 @@
 ﻿using plagiarismApp.Services;
 using plagiarismModel;
-using plagiarismModel.Requests.PackageTypes;
+using plagiarismModel.TableRequests.PackageTypes;
 
 namespace plagiarismApp.Controllers
 {

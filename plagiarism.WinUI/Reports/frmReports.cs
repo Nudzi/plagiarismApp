@@ -1,5 +1,5 @@
-﻿using plagiarismModel.Requests.Documents;
-using plagiarismModel.Requests.UsersPackageTypes;
+﻿using plagiarismModel.TableRequests.Documents;
+using plagiarismModel.TableRequests.UsersPackageTypes;
 using System;
 using System.Collections.Generic;
 using System.Drawing;

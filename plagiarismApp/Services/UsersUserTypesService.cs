@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using plagiarismApp.Database;
-using plagiarismModel.Requests.UsersUserTypes;
+using plagiarismModel.TableRequests.UsersUserTypes;
 using System.Collections.Generic;
 using System.Linq;
 

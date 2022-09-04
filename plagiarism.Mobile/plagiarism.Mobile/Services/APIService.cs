@@ -12,7 +12,7 @@ namespace plagiarism.Mobile.Services
         public static string password { get; set; }
 
 #if DEBUG
-        private string _apiUrl = "http://localhost:52143/api";
+        private string _apiUrl = "http://localhost:53627/api";
 #endif
 #if RELEASE
                 private string _apiUrl = "https://chat";

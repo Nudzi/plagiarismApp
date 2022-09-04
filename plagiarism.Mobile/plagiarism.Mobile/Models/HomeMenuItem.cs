@@ -5,6 +5,7 @@
         Menu,
         Profile,
         AboutUs,
+        Documents,
         Card,
         Logout
     }

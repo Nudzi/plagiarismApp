@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using plagiarismApp.Database;
-using plagiarismModel.Requests.UserImages;
+using plagiarismModel.TableRequests.UserImages;
 using System.Collections.Generic;
 using System.Linq;
 

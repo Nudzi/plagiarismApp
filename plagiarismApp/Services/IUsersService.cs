@@ -1,4 +1,4 @@
-﻿using plagiarismModel.Requests.Users;
+﻿using plagiarismModel.TableRequests.Users;
 using System.Collections.Generic;
 
 namespace plagiarismApp.Services

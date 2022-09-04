@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:converters="clr-namespace:plagiarism.Mobile.Converters" 
+             xmlns:vm="clr-namespace:plagiarism.Mobile.ViewModels"
+             x:Class="plagiarism.Mobile.Views.DocumentsPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ImageConverter x:Key="imgConv"></converters:ImageConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.BindingContext>
+        <vm:DocumentsViewModel></vm:DocumentsViewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout Margin="5" Padding="0,0,3,0" StyleClass="BodyStyle">
+            <Label Text="Documents"
+                FontSize="25"
+                VerticalTextAlignment="Center" 
+                HorizontalTextAlignment="Center"
+                   Margin="10" Padding="10" />
+            <StackLayout Orientation="Vertical">
+                <StackLayout Margin="10" Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+                    <Label Text="Welcome "></Label>
+                    <Label Text="{Binding User.UserName}"></Label>
+                    <Label Text="{Binding User.Id}" IsVisible="false"></Label>
+                </StackLayout>
+                <StackLayout Margin="10" Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+                    <Label Text="Upload New document/text: "></Label>
+                    <Button Text="Add new!" Clicked="Button_Clicked" />
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal"   HorizontalOptions="CenterAndExpand">
+                <StackLayout WidthRequest="300">
+                    <Label Text="Search to filter by Title:"></Label>
+                    <SearchBar Placeholder="Enter Title..." 
+                       x:Name="searchBarTitle"
+                       SearchButtonPressed="searchBarTitle_SearchButtonPressed"/>
+                </StackLayout>
+                <StackLayout WidthRequest="300">
+                    <Label Text="Search to filter by Author:"></Label>
+                    <SearchBar Placeholder="Enter Author name..." 
+                       x:Name="searchBarAuthor"
+                       SearchButtonPressed="searchBarAuthor_SearchButtonPressed"/>
+                </StackLayout>
+            </StackLayout>
+
+            <ListView ItemsSource="{Binding DocList}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10" Orientation="Vertical">
+                                <StackLayout VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand">
+                                    <Image WidthRequest="200" HeightRequest="100" 
+                                           Source="{Binding Image, Converter={StaticResource imgConv}}"></Image>
+                                </StackLayout>
+                                <StackLayout Margin="5" Orientation="Vertical" VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand">
+
+                                    <StackLayout Grid.Row="1" Orientation="Horizontal" Spacing="0">
+                                        <Label Text="Title:  " FontSize="16"></Label>
+                                        <Label Text="{Binding Title}"
+                                       LineBreakMode="NoWrap"
+                                       FontSize="16"></Label>
+                                    </StackLayout>
+                                    <StackLayout Grid.Row="1" Orientation="Horizontal" Spacing="0">
+                                        <Label Text="Author:  " FontSize="16"></Label>
+                                        <Label Text="{Binding Author}"
+                                       LineBreakMode="NoWrap"
+                                       FontSize="16"></Label>
+                                    </StackLayout>
+                                    <StackLayout Grid.Row="1" Orientation="Horizontal" Spacing="0">
+                                        <Label Text="Publisher: " FontSize="16"></Label>
+                                        <Label Text="{Binding Publisher}"
+                                       LineBreakMode="NoWrap"
+                                       FontSize="16"></Label>
+                                    </StackLayout>
+                                    <StackLayout Grid.Row="1" Orientation="Horizontal" Spacing="0">
+                                        <Label Text="Text: " FontSize="16"></Label>
+                                        <Label Text="{Binding Text}"
+                                       LineBreakMode="NoWrap"
+                                       FontSize="16"></Label>
+                                    </StackLayout>
+                                    <StackLayout Grid.Row="1" Orientation="Horizontal" Spacing="0">
+                                        <Label Text="Link: " FontSize="16"></Label>
+                                        <Label Text="{Binding Link}"
+                                       LineBreakMode="NoWrap"
+                                       FontSize="16"></Label>
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

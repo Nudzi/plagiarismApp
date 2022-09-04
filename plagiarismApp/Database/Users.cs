@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-// Code scaffolded by EF Core assumes nullable reference types (NRTs) are not used or disabled.
-// If you have enabled NRTs for your project, then un-comment the following line:
-// #nullable disable
+﻿using System.Collections.Generic;
 
 namespace plagiarismApp.Database
 {
@@ -11,6 +6,7 @@ namespace plagiarismApp.Database
     {
         public Users()
         {
+            Requests = new HashSet<Requests>();
             Results = new HashSet<Results>();
             UserImages = new HashSet<UserImages>();
             UsersPackageTypes = new HashSet<UsersPackageTypes>();
@@ -30,6 +26,7 @@ namespace plagiarismApp.Database
         public bool Status { get; set; }
 
         public virtual UserAddresses UserAddress { get; set; }
+        public virtual ICollection<Requests> Requests { get; set; }
         public virtual ICollection<Results> Results { get; set; }
         public virtual ICollection<UserImages> UserImages { get; set; }
         public virtual ICollection<UsersPackageTypes> UsersPackageTypes { get; set; }

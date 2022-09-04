@@ -1,4 +1,4 @@
-﻿using plagiarismModel.Requests.Documents;
+﻿using plagiarismModel.TableRequests.Documents;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
