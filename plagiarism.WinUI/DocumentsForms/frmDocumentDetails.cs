@@ -3,6 +3,8 @@ using plagiarismModel.Enums;
 using plagiarismModel.TableRequests.Documents;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -50,6 +52,11 @@ namespace plagiarism.WinUI.DocumentsForms
             {
                 new DocumentExtensionsRequest
                 {
+                    Id = 0,
+                    Name = "-"
+                },
+                new DocumentExtensionsRequest
+                {
                     Id = 1,
                     Name = "Text"
                 },
@@ -79,6 +86,12 @@ namespace plagiarism.WinUI.DocumentsForms
             await LoadPackages();
             if (_documents != null)
             {
+                // cannot edit existing doc's image
+                txtImageInput.Visible = false;
+                lblImage.Visible = false;
+                pbUpload.Visible = false;
+                btnAdd.Visible = false;
+
                 var newDoc = await _packageTypesService.GetById<PackageTypes>(_documents.PackageTypeId);
                 _documents.PackageType = newDoc;
 
@@ -135,19 +148,18 @@ namespace plagiarism.WinUI.DocumentsForms
             }
         }
 
+        DocumentsUpsertRequest request = new DocumentsUpsertRequest();
+
         private async void btnSave_Click(object sender, EventArgs e)
         {
             if (ValidateChildren())
             {
-                var request = new DocumentsUpsertRequest
-                {
-                    Author = txtAuthor.Text,
-                    Publisher = txtPublisher.Text,
-                    Link = txtLink.Text,
-                    Title = txtTitle.Text,
-                    Text = txtContentText.Text,
-                    TimeUsed = 0
-                };
+                request.Author = txtAuthor.Text;
+                request.Publisher = txtPublisher.Text;
+                request.Link = txtLink.Text;
+                request.Title = txtTitle.Text;
+                request.Text = txtContentText.Text;
+                request.TimeUsed = 0;
 
                 try
                 {
@@ -157,6 +169,8 @@ namespace plagiarism.WinUI.DocumentsForms
                         request.Extension = txtExtension.Text;
                         request.Type = txtDocType.Text;
                         request.Id = _documents.Id;
+                        request.Image = _documents.Image;
+                        request.ImageThumb = _documents.ImageThumb;
 
                         // package
                         if (cbNewPackage.Checked)
@@ -199,6 +213,17 @@ namespace plagiarism.WinUI.DocumentsForms
                         if (idObjVPTy.Id == 1)
                         {
                             request.Extension = "doc";
+                        }
+
+                        if (txtImageInput.Text == "")
+                        {
+                            var filename = "";
+                            var file = File.ReadAllBytes(filename);//to get bytes from our filename
+                            request.Image = file;
+                            request.ImageThumb = file;
+                            txtImageInput.Text = filename;
+                            Image img = Image.FromFile(filename);
+                            pbUpload.Image = img;
                         }
 
                         await _documentsService.Insert<Documents>(request);
@@ -268,6 +293,27 @@ namespace plagiarism.WinUI.DocumentsForms
                     cbExt.Visible = true;
                 }
             }
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            var result = openFileDialog.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                var filename = openFileDialog.FileName;
+                var file = File.ReadAllBytes(filename);//to get bytes from our filename
+                request.Image = file;
+                request.ImageThumb = file;
+                txtImageInput.Text = filename;
+                Image img = Image.FromFile(filename);
+                pbUpload.Image = img;
+            }
+        }
+
+        private void txtContentText_TextChanged(object sender, EventArgs e)
+        {
+            txtTextLenght.Text = txtContentText.Text.Length.ToString();
         }
     }
 }

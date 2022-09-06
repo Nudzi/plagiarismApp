@@ -57,7 +57,13 @@ namespace plagiarism.WinUI.DocumentsForms
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.txtContentText = new System.Windows.Forms.RichTextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.pbUpload = new System.Windows.Forms.PictureBox();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.lblImage = new System.Windows.Forms.Label();
+            this.txtImageInput = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbUpload)).BeginInit();
             this.SuspendLayout();
             // 
             // lblOfficialName
@@ -123,8 +129,10 @@ namespace plagiarism.WinUI.DocumentsForms
             this.txtTextLenght.Location = new System.Drawing.Point(148, 164);
             this.txtTextLenght.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtTextLenght.Name = "txtTextLenght";
+            this.txtTextLenght.ReadOnly = true;
             this.txtTextLenght.Size = new System.Drawing.Size(288, 26);
             this.txtTextLenght.TabIndex = 41;
+            this.txtTextLenght.Text = "4";
             // 
             // lblFirstName
             // 
@@ -167,7 +175,7 @@ namespace plagiarism.WinUI.DocumentsForms
             // 
             this.btnSave.BackColor = System.Drawing.Color.Green;
             this.btnSave.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnSave.Location = new System.Drawing.Point(161, 299);
+            this.btnSave.Location = new System.Drawing.Point(618, 510);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(100, 50);
             this.btnSave.TabIndex = 60;
@@ -179,7 +187,7 @@ namespace plagiarism.WinUI.DocumentsForms
             // 
             this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnCancel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnCancel.Location = new System.Drawing.Point(324, 299);
+            this.btnCancel.Location = new System.Drawing.Point(781, 510);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(100, 50);
             this.btnCancel.TabIndex = 61;
@@ -266,6 +274,7 @@ namespace plagiarism.WinUI.DocumentsForms
             this.txtPackageType.Location = new System.Drawing.Point(606, 125);
             this.txtPackageType.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtPackageType.Name = "txtPackageType";
+            this.txtPackageType.ReadOnly = true;
             this.txtPackageType.Size = new System.Drawing.Size(288, 26);
             this.txtPackageType.TabIndex = 69;
             // 
@@ -285,6 +294,7 @@ namespace plagiarism.WinUI.DocumentsForms
             this.txtTimesUsed.ReadOnly = true;
             this.txtTimesUsed.Size = new System.Drawing.Size(288, 26);
             this.txtTimesUsed.TabIndex = 72;
+            this.txtTimesUsed.Text = "0";
             // 
             // errorProvider
             // 
@@ -294,9 +304,10 @@ namespace plagiarism.WinUI.DocumentsForms
             // 
             this.txtContentText.Location = new System.Drawing.Point(606, 209);
             this.txtContentText.Name = "txtContentText";
-            this.txtContentText.Size = new System.Drawing.Size(289, 317);
+            this.txtContentText.Size = new System.Drawing.Size(289, 257);
             this.txtContentText.TabIndex = 73;
             this.txtContentText.Text = "none";
+            this.txtContentText.TextChanged += new System.EventHandler(this.txtContentText_TextChanged);
             // 
             // label7
             // 
@@ -308,11 +319,59 @@ namespace plagiarism.WinUI.DocumentsForms
             this.label7.TabIndex = 74;
             this.label7.Text = "Text";
             // 
+            // btnAdd
+            // 
+            this.btnAdd.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnAdd.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnAdd.Location = new System.Drawing.Point(456, 310);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(83, 36);
+            this.btnAdd.TabIndex = 75;
+            this.btnAdd.Text = "Add";
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // pbUpload
+            // 
+            this.pbUpload.Location = new System.Drawing.Point(148, 351);
+            this.pbUpload.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pbUpload.Name = "pbUpload";
+            this.pbUpload.Size = new System.Drawing.Size(288, 207);
+            this.pbUpload.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbUpload.TabIndex = 76;
+            this.pbUpload.TabStop = false;
+            // 
+            // openFileDialog
+            // 
+            this.openFileDialog.FileName = "openFileDialog";
+            // 
+            // lblImage
+            // 
+            this.lblImage.AutoSize = true;
+            this.lblImage.Location = new System.Drawing.Point(23, 315);
+            this.lblImage.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblImage.Name = "lblImage";
+            this.lblImage.Size = new System.Drawing.Size(54, 20);
+            this.lblImage.TabIndex = 78;
+            this.lblImage.Text = "Image";
+            // 
+            // txtImageInput
+            // 
+            this.txtImageInput.Location = new System.Drawing.Point(148, 315);
+            this.txtImageInput.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtImageInput.Name = "txtImageInput";
+            this.txtImageInput.Size = new System.Drawing.Size(288, 26);
+            this.txtImageInput.TabIndex = 77;
+            // 
             // frmDocumentDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(933, 538);
+            this.ClientSize = new System.Drawing.Size(933, 572);
+            this.Controls.Add(this.lblImage);
+            this.Controls.Add(this.txtImageInput);
+            this.Controls.Add(this.pbUpload);
+            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtContentText);
             this.Controls.Add(this.txtTimesUsed);
@@ -343,6 +402,7 @@ namespace plagiarism.WinUI.DocumentsForms
             this.Text = "frmDocumentDetails";
             this.Load += new System.EventHandler(this.frmDocumentDetails_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbUpload)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -377,5 +437,10 @@ namespace plagiarism.WinUI.DocumentsForms
         private System.Windows.Forms.ErrorProvider errorProvider;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.RichTextBox txtContentText;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.PictureBox pbUpload;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.Label lblImage;
+        private System.Windows.Forms.TextBox txtImageInput;
     }
 }

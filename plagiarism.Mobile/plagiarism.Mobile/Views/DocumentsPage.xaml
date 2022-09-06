@@ -27,7 +27,7 @@
                 </StackLayout>
                 <StackLayout Margin="10" Orientation="Horizontal" HorizontalOptions="EndAndExpand">
                     <Label Padding="3" TextColor="DarkRed" Text="Upload New document/text: "></Label>
-                    <Button Text="Add new!" Clicked="Button_Clicked" />
+                    <Button Padding="3" Text="Add new!" Clicked="Button_Clicked" />
                 </StackLayout>
             </StackLayout>
 
