@@ -11,15 +11,18 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout Padding="4" VerticalOptions="CenterAndExpand" StyleClass="BodyStyle">
-            <StackLayout Margin="30" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+            <StackLayout Margin="10" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                 <Label Text="Welcome:" WidthRequest="150" FontSize="20"></Label>
                 <Label Text="{Binding UserName}" WidthRequest="150" FontSize="20"></Label>
             </StackLayout>
             <Label Text="Scan Something New Today!" HorizontalOptions="CenterAndExpand"></Label>
             <StackLayout>
-                <Button Text="Document" Clicked="Scan_Doc" Margin="15" BackgroundColor="PaleVioletRed"></Button>
-                <Label Text="or" HorizontalOptions="Center"></Label>
-                <Button Text="Text" Clicked="Scan_Text" Margin="15" BackgroundColor="OrangeRed"></Button>
+                <Button  Text="Text" Clicked="Scan_Text" Margin="15" BackgroundColor="OrangeRed"></Button>
+
+                <Label IsEnabled="{Binding IsPremimum}" Text="or" HorizontalOptions="Center"></Label>
+                <Button IsEnabled="{Binding IsPremimum}" Text="Document" Clicked="Scan_Doc" Margin="15" BackgroundColor="PaleVioletRed"></Button>
+                <Label IsVisible="{Binding IsPremimum, Converter={StaticResource inverter}}" Text="Try Upgrading to Premium for Document Scan!" HorizontalOptions="Center"></Label>
+
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:vm="clr-namespace:plagiarism.Mobile.ViewModels"
+             x:Class="plagiarism.Mobile.Views.ScanDocPage">
+    <ContentPage.BindingContext>
+        <vm:ScanViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Welcome to Scan Document!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" 
+                   HeightRequest="100"/>
+
+            <StackLayout Margin="15" HeightRequest="200">
+
+                <Label Padding="10" Text="Insert you document to be scanned!"></Label>
+                <Button Clicked="Button_Clicked" Text="Upload"></Button>
+
+                <StackLayout Padding="8" VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" BackgroundColor="LightGoldenrodYellow">
+                    <Label HorizontalTextAlignment="Center" Text=" Uploaded document:"></Label>
+                    <Label x:Name="SupportingDocument" TextColor="Red"></Label>
+                </StackLayout>
+                
+                <Button WidthRequest="100" Padding="10" Text="SCAN" BackgroundColor="DarkRed"></Button>
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

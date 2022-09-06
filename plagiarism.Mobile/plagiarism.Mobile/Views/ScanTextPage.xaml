@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:vm="clr-namespace:plagiarism.Mobile.ViewModels"
+             x:Class="plagiarism.Mobile.Views.ScanTextPage">
+    <ContentPage.BindingContext>
+        <vm:ScanViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Welcome to Scan Text!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+
+            <StackLayout Padding="5">
+                
+                <Label Text="Insert you text to be scanned!"></Label>
+                <Editor Keyboard="Plain" AutoSize="TextChanges"
+                        Placeholder="Lore ipsum..." Text="{Binding Text}" />
+                <Label x:Name="textError" TextColor="Red" IsVisible="False" Text="{Binding TextError}"></Label>
+
+                <Button Text="SCAN" BackgroundColor="DarkRed" Clicked="Button_Clicked"></Button>
+            </StackLayout>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

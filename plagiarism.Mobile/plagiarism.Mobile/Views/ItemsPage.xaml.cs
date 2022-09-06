@@ -23,12 +23,12 @@ namespace plagiarism.Mobile.Views
 
         private async void Scan_Doc(object sender, EventArgs e)
         {
-            await Application.Current.MainPage.DisplayAlert("Success", "You scaned doc.", "OK");
+            await Navigation.PushAsync(new ScanDocPage());
         }
 
         private async void Scan_Text(object sender, EventArgs e)
         {
-            await Application.Current.MainPage.DisplayAlert("Success", "You scaned Text.", "OK");
+            await Navigation.PushAsync(new ScanTextPage());
         }
     }
 }
