@@ -1,7 +1,7 @@
-﻿using plagiarismApp.Services;
-using Microsoft.AspNetCore.Authentication;
+﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using plagiarismApp.Services;
 using System;
 using System.Collections.Generic;
 using System.Net.Http.Headers;

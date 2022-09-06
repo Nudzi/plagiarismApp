@@ -14,9 +14,6 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout Padding="5">
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
             <Label Text="Submit Text or New Document"></Label>
             <Label Text="Is this Text?"></Label>
             <CheckBox x:Name="isTextChecked" CheckedChanged="CheckBox_CheckedChanged" IsChecked="{Binding IsText}"></CheckBox>
@@ -31,14 +28,14 @@
             <Entry Placeholder="Publisher..." Text="{Binding Publisher}"></Entry>
             
             <Label x:Name="textText" IsVisible="{Binding IsText}" Text="Text: "></Label>
-            <Entry x:Name="entryText" Text="{Binding Text}"></Entry>
+            <Entry x:Name="entryText" Text="{Binding Text}" Placeholder="Content of the new text..."></Entry>
             
             <Label x:Name="textDocument" IsVisible="False" Text="Document: "></Label>
             <Entry x:Name="entryDoc" Placeholder="Insert Link..." Text="{Binding Link}"></Entry>
 
             <Label Text="Description: "></Label>
             <Entry x:Name="entryDesc" Text="{Binding Desc}"
-                   Placeholder="Insert Description why should this be reviewed..."></Entry>
+                   Placeholder="Insert Description..."></Entry>
             <Button Padding="5" Text="ADD" Clicked="Button_Clicked" />
         </StackLayout>
     </ContentPage.Content>

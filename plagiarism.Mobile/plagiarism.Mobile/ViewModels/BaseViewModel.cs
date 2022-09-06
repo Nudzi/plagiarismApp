@@ -1,12 +1,11 @@
-﻿using plagiarism.Mobile.Services;
-using plagiarism.Mobile.Models;
+﻿using plagiarism.Mobile.Models;
+using plagiarism.Mobile.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-
-using Xamarin.Forms;
-using System;
 using System.Text.RegularExpressions;
+using Xamarin.Forms;
 
 namespace plagiarism.Mobile.ViewModels
 {

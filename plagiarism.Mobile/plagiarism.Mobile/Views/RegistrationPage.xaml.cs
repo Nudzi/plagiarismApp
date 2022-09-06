@@ -1,5 +1,5 @@
-﻿using plagiarism.Mobile.ViewModels;
-using plagiarism.Mobile.Services;
+﻿using plagiarism.Mobile.Services;
+using plagiarism.Mobile.ViewModels;
 using plagiarismModel;
 using Plugin.Media;
 using System;
@@ -7,7 +7,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net.Mail;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 

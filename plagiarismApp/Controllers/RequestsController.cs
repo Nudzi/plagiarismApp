@@ -1,6 +1,6 @@
-﻿using plagiarismApp.Services;
+﻿using Microsoft.AspNetCore.Mvc;
+using plagiarismApp.Services;
 using plagiarismModel.TableRequests.Requests;
-using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
 namespace plagiarismApp.Controllers
@@ -31,9 +31,9 @@ namespace plagiarismApp.Controllers
             return _service.Insert(request);
         }
         [HttpPut("{id}")]
-        public void Update(int id, [FromBody]RequestsUpsertRequest request)
+        public void Update(int id, [FromBody] RequestsUpsertRequest request)
         {
-             _service.Update(id, request);
+            _service.Update(id, request);
         }
         [HttpDelete("{id}")]
         public plagiarismModel.Requests Delete(int id)

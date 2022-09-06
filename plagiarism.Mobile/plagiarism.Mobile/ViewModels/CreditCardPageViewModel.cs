@@ -1,5 +1,4 @@
-﻿using plagiarism.Mobile.Converters;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -16,7 +15,8 @@ namespace plagiarism.Mobile.ViewModels
         public string CardNumber
         {
             get { return _cardNumber; }
-            set {
+            set
+            {
                 SetProperty(ref _cardNumber, value);
                 if (value != null)
                 {
@@ -54,9 +54,9 @@ namespace plagiarism.Mobile.ViewModels
             var number = value.ToString();
             var numberNormalized = number.Replace("-", string.Empty);
 
-            if (visaRegex.IsMatch(numberNormalized))  CardName = "Visa";
+            if (visaRegex.IsMatch(numberNormalized)) CardName = "Visa";
 
-            if (amexRegex.IsMatch(numberNormalized))  CardName = "Amex";
+            if (amexRegex.IsMatch(numberNormalized)) CardName = "Amex";
 
             if (masterRegex.IsMatch(numberNormalized)) CardName = " MasterCard";
 

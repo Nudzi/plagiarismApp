@@ -10,8 +10,8 @@ using plagiarismModel.TableRequests.UsersPackageTypes;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Threading.Tasks;
 using System.Globalization;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace plagiarism.Mobile.ViewModels
@@ -170,7 +170,7 @@ namespace plagiarism.Mobile.ViewModels
             try
             {
                 List<int> userTypes = new List<int>();
-                if (!IsUser) 
+                if (!IsUser)
                     userTypes.Add((int)plagiarismModel.Enums.UserTypes.Institution);
                 else
                     userTypes.Add((int)plagiarismModel.Enums.UserTypes.User);
@@ -221,7 +221,7 @@ namespace plagiarism.Mobile.ViewModels
                 };
 
                 await _userImagesService.Insert<UserImages>(userImagesUpsertRequest);
-                
+
                 UsersPackageTypesUpsertRequest usersPackageTypesUpsertRequest = new UsersPackageTypesUpsertRequest
                 {
                     UserId = user.Id,

@@ -1,11 +1,11 @@
 ﻿using AutoMapper;
-using plagiarismModel.TableRequests.UserImages;
-using plagiarismModel.TableRequests.Results;
-using plagiarismModel.TableRequests.UsersPackageTypes;
-using plagiarismModel.TableRequests.UserAddresses;
-using plagiarismModel.TableRequests.UsersUserTypes;
 using plagiarismModel.TableRequests.Documents;
 using plagiarismModel.TableRequests.Requests;
+using plagiarismModel.TableRequests.Results;
+using plagiarismModel.TableRequests.UserAddresses;
+using plagiarismModel.TableRequests.UserImages;
+using plagiarismModel.TableRequests.UsersPackageTypes;
+using plagiarismModel.TableRequests.UsersUserTypes;
 
 namespace plagiarismApp.Mappers
 {

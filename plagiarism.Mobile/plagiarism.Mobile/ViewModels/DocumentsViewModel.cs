@@ -1,10 +1,13 @@
 ﻿using plagiarism.Mobile.Services;
+using plagiarism.Mobile.Views;
 using plagiarismModel;
 using plagiarismModel.TableRequests.Documents;
+using plagiarismModel.TableRequests.Requests;
 using plagiarismModel.TableRequests.UsersPackageTypes;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace plagiarism.Mobile.ViewModels
 {
@@ -12,6 +15,7 @@ namespace plagiarism.Mobile.ViewModels
     {
         private readonly APIService _documentsService = new APIService("documents");
         private readonly APIService _usersPackageTypesService = new APIService("usersPackageTypes");
+        private readonly APIService _requestsTypesService = new APIService("requests");
         public ObservableCollection<Documents> DocList { get; set; } = new ObservableCollection<Documents>();
 
         public int pkcgUs = new int();
@@ -67,6 +71,13 @@ namespace plagiarism.Mobile.ViewModels
         {
             get { return _text; }
             set { SetProperty(ref _text, value); }
+        }
+
+        string _desc = string.Empty;
+        public string Desc
+        {
+            get { return _desc; }
+            set { SetProperty(ref _desc, value); }
         }
 
         public async Task Init()
@@ -127,9 +138,29 @@ namespace plagiarism.Mobile.ViewModels
             }
         }
 
-        public async Task SaveProposal()
+        public async Task SaveRequest()
         {
+            var request = new RequestsUpsertRequest
+            {
+                Author = Author,
+                Link = Link,
+                Publisher = Publisher,
+                Text = Text,
+                Title = DocTitle,
+                UserId = Global.LoggedUser.Id,
+                Description = Desc
+            };
 
+            try
+            {
+                await _requestsTypesService.Insert<Requests>(request);
+                await Application.Current.MainPage.DisplayAlert("Success", "Request sent!", "OK");
+                Application.Current.MainPage = new MainPage(Global.LoggedUser);
+            }
+            catch
+            {
+                await Application.Current.MainPage.DisplayAlert("Error", "Cannot do this action right now, try later!", "OK");
+            }
         }
     }
 }

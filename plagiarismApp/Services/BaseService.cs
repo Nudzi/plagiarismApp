@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace plagiarismApp.Services
 {
-    public class BaseService<T, TSearch, TDb> : IService<T, TSearch> where TDb:class
+    public class BaseService<T, TSearch, TDb> : IService<T, TSearch> where TDb : class
     {
         protected plagiarismContext _context;
         protected IMapper _mapper;

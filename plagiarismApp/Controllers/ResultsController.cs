@@ -1,5 +1,5 @@
-﻿using plagiarismModel;
-using plagiarismApp.Services;
+﻿using plagiarismApp.Services;
+using plagiarismModel;
 using plagiarismModel.TableRequests.Results;
 
 namespace plagiarismApp.Controllers

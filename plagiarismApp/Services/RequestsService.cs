@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using plagiarismApp.Database;
 using plagiarismModel.TableRequests.Requests;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -25,7 +24,8 @@ namespace plagiarismApp.Services
                 _context.Requests.Remove(entity);
                 _context.SaveChanges();
                 return _mapper.Map<plagiarismModel.Requests>(entity);
-            } else
+            }
+            else
             {
                 return null;
             }

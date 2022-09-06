@@ -1,5 +1,5 @@
-﻿using plagiarismApp.Services;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using plagiarismApp.Services;
 
 namespace plagiarismApp.Controllers
 {
@@ -25,7 +25,7 @@ namespace plagiarismApp.Controllers
             return _service.Insert(request);
         }
         [HttpPut("{id}")]
-        public virtual T Update(int id, [FromBody]TUpdate request)
+        public virtual T Update(int id, [FromBody] TUpdate request)
         {
             return _service.Update(id, request);
         }

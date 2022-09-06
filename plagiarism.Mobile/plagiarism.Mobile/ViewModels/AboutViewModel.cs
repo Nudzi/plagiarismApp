@@ -3,7 +3,6 @@ using System.Windows.Input;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
-
 namespace plagiarism.Mobile.ViewModels
 {
     public class AboutViewModel : BaseViewModel

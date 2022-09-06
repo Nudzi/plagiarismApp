@@ -46,7 +46,8 @@ namespace plagiarism.WinUI.Users
                 if (txtOfficialName.Text != "")
                 {
                     usertypes.Add((int)UserTypes.Institution);
-                } else 
+                }
+                else
                 {
                     usertypes = cblUserTypes.CheckedItems.Cast<plagiarismModel.UserTypes>().Select(x => x.Id).ToList();
                 }
@@ -114,7 +115,7 @@ namespace plagiarism.WinUI.Users
                 else
                 {
                     request.Id = _user.Id;
-                    request.UserAddressId = _user.UserAddressId;    
+                    request.UserAddressId = _user.UserAddressId;
                     try
                     {
                         // address
@@ -214,7 +215,8 @@ namespace plagiarism.WinUI.Users
                     lblLastName.Visible = false;
                     gbUserTypes.Visible = false;
                 }
-            } else
+            }
+            else
             {
                 cbkIsUser.Checked = true;
                 txtOfficialName.Visible = false;
@@ -317,7 +319,8 @@ namespace plagiarism.WinUI.Users
                 txtLastName.Visible = true;
                 lblLastName.Visible = true;
                 gbUserTypes.Visible = true;
-            } else
+            }
+            else
             {
                 txtOfficialName.Visible = true;
                 lblOfficialName.Visible = true;
@@ -424,7 +427,8 @@ namespace plagiarism.WinUI.Users
             {
                 txtPackage.Visible = false;
                 cbPackage.Visible = true;
-            } else
+            }
+            else
             {
                 txtPackage.Visible = true;
                 cbPackage.Visible = false;

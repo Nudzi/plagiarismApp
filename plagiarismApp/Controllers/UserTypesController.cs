@@ -1,5 +1,5 @@
-﻿using plagiarismApp.Services;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using plagiarismApp.Services;
 using System.Collections.Generic;
 
 namespace plagiarismApp.Controllers

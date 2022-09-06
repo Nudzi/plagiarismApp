@@ -14,7 +14,7 @@ namespace plagiarismApp.Services
         }
         public override IList<plagiarismModel.UsersPackageTypes> Get(UsersPackageTypesSearchRequest request)
         {
-            var query = _context.Set<UsersPackageTypes>().Include(x=> x.PackageType).AsQueryable();
+            var query = _context.Set<UsersPackageTypes>().Include(x => x.PackageType).AsQueryable();
             if (request?.UserId.HasValue == true)
             {
                 query = query.Where(x => x.UserId == request.UserId);

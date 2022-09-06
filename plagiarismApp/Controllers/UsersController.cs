@@ -1,6 +1,6 @@
-﻿using plagiarismApp.Services;
+﻿using Microsoft.AspNetCore.Mvc;
+using plagiarismApp.Services;
 using plagiarismModel.TableRequests.Users;
-using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
 namespace plagiarismApp.Controllers
@@ -31,9 +31,9 @@ namespace plagiarismApp.Controllers
             return _service.Insert(request);
         }
         [HttpPut("{id}")]
-        public void Update(int id, [FromBody]UsersInsertRequest request)
+        public void Update(int id, [FromBody] UsersInsertRequest request)
         {
-             _service.Update(id, request);
+            _service.Update(id, request);
         }
         [HttpGet]
         [Route("Authentication/{username},{password}")]

@@ -1,8 +1,8 @@
-﻿using System;
+﻿using plagiarism.Mobile.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using plagiarism.Mobile.Models;
 
 namespace plagiarism.Mobile.Services
 {

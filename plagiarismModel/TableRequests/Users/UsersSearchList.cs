@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace plagiarismModel.TableRequests.Users
+﻿namespace plagiarismModel.TableRequests.Users
 {
     public class UsersSearchList
     {

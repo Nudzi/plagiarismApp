@@ -100,7 +100,7 @@ namespace plagiarism.Mobile.ViewModels
             {
                 User = Global.LoggedUser;
                 var user = await _usersService.GetById<Users>(User.Id);
-                
+
                 UserImagesSearchRequest request = new UserImagesSearchRequest
                 {
                     UserId = user.Id
@@ -170,7 +170,7 @@ namespace plagiarism.Mobile.ViewModels
 
                 if (request != null)
                 {
-                    if(!User.FirstName.Equals(""))
+                    if (!User.FirstName.Equals(""))
                         request.FirstName = User.FirstName;
 
                     if (!User.LastName.Equals(""))
@@ -205,7 +205,7 @@ namespace plagiarism.Mobile.ViewModels
                         if (image.Count == 0)
                         {
                             await _userImagesService.Insert<UserImages>(userImagesUpsertRequest);
-                        } 
+                        }
                         else
                         {
                             await _userImagesService.Update<UserImages>(image[0].Id, userImagesUpsertRequest);

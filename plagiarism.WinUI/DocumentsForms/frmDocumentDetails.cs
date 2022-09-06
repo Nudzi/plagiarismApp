@@ -106,7 +106,9 @@ namespace plagiarism.WinUI.DocumentsForms
                 txtExtension.Visible = true;
                 txtDocType.Visible = true;
 
-            } else {
+            }
+            else
+            {
                 cbNewPackage.Visible = false;
 
                 cbPackageType.Visible = true;
@@ -125,7 +127,8 @@ namespace plagiarism.WinUI.DocumentsForms
             {
                 cbPackageType.Visible = true;
                 txtPackageType.Visible = false;
-            } else
+            }
+            else
             {
                 cbPackageType.Visible = false;
                 txtPackageType.Visible = true;
@@ -258,7 +261,8 @@ namespace plagiarism.WinUI.DocumentsForms
                 {
                     txtContentText.ReadOnly = false;
                     cbExt.Visible = false;
-                } else
+                }
+                else
                 {
                     txtContentText.ReadOnly = true;
                     cbExt.Visible = true;

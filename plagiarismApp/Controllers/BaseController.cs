@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.AspNetCore.Mvc;
 using plagiarismApp.Services;
-using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 
 namespace plagiarismApp.Controllers
 {
@@ -13,9 +13,9 @@ namespace plagiarismApp.Controllers
         public BaseController(IService<T, TSearch> service)
         {
             _service = service;
-        } 
+        }
         [HttpGet]
-        public virtual IList<T> Get([FromQuery]TSearch request = default)//from query  
+        public virtual IList<T> Get([FromQuery] TSearch request = default)//from query  
         {
             return _service.Get(request);
         }

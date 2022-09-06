@@ -1,7 +1,7 @@
-﻿using plagiarismModel;
+﻿using plagiarism.WinUI.Index;
+using plagiarismModel;
 using System;
 using System.Windows.Forms;
-using plagiarism.WinUI.Index;
 
 namespace plagiarism.WinUI
 {
@@ -30,7 +30,7 @@ namespace plagiarism.WinUI
                 else
                 {
                     plagiarismModel.Users user = await _service.Authentication<plagiarismModel.Users>(textBoxUserName.Text, textBoxPass.Text);
-                    
+
                     if (checkUserType(user))
                     {
                         MessageBox.Show("Welcome:\n " + user.FirstName + " " + user.LastName);

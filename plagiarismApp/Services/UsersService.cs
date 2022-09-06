@@ -21,7 +21,7 @@ namespace plagiarismApp.Services
         }
         public plagiarismModel.Users Authentication(string username, string pass)
         {
-            var user = _context.Users.Include(m=> m.UserAddress).FirstOrDefault(x => x.UserName == username);
+            var user = _context.Users.Include(m => m.UserAddress).FirstOrDefault(x => x.UserName == username);
 
             if (user != null)
             {

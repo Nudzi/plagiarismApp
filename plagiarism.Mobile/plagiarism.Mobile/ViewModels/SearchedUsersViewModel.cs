@@ -1,12 +1,10 @@
-﻿using System.Threading.Tasks;
-
+﻿using plagiarism.Mobile.Services;
 using plagiarismModel;
 using plagiarismModel.TableRequests.UserImages;
-using System.Collections.Generic;
 using plagiarismModel.TableRequests.Users;
-using plagiarism.Mobile.Services;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System;
+using System.Threading.Tasks;
 
 namespace plagiarism.Mobile.ViewModels
 {
@@ -27,7 +25,7 @@ namespace plagiarism.Mobile.ViewModels
             {
                 PhoneNumber = SearchPhone
             };
-            
+
             UsersSearchedList.Clear();
             var users = await _usersService.Get<List<Users>>(usersSearchRequest);
 

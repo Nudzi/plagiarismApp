@@ -37,7 +37,7 @@ namespace plagiarism.Mobile.Views
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
-            await model.SaveProposal();
+            await model.SaveRequest();
         }
     }
 }
