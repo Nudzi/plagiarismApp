@@ -1,6 +1,7 @@
 ﻿using plagiarism.Mobile.Services;
 using plagiarismModel;
 using plagiarismModel.Enums;
+using plagiarismModel.TableRequests.Documents;
 using plagiarismModel.TableRequests.UsersPackageTypes;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -10,6 +11,9 @@ namespace plagiarism.Mobile.ViewModels
     public class ScanViewModel : BaseViewModel
     {
         private readonly APIService _usersPackageTypesService = new APIService("usersPackageTypes");
+        private readonly APIService _documentsService = new APIService("documents");
+
+        int pckgUsr = 0;
 
         string _text = string.Empty;
         public string Text
@@ -41,8 +45,8 @@ namespace plagiarism.Mobile.ViewModels
             };
             var usersPackageTypes = await _usersPackageTypesService.Get<List<UsersPackageTypes>>(usersPackageTypesSearchRequest);
 
-            var pkcgUs = usersPackageTypes[0].PackageTypeId;
-            var maxTextSize = generateMaxTextSizeByPackage(pkcgUs);
+            pckgUsr = usersPackageTypes[0].PackageTypeId;
+            var maxTextSize = generateMaxTextSizeByPackage(pckgUsr);
             TextError = "Your maximum Text size is: " + maxTextSize + ", but you inserted: " + Text.Length;
             return Text.Length > maxTextSize;
         }
@@ -54,6 +58,17 @@ namespace plagiarism.Mobile.ViewModels
             if (packageTypeId.Equals((int)PackageTypesTypes.Silver))
                 return 2500;
             else return 80000;
+        }
+
+
+        internal async Task CheckPlagiarism()
+        {
+            var docReq = new DocumentsSearchRequest
+            {
+                Text = Text
+            };
+
+            var matchedTexts = await _documentsService.Plagiarism<List<Documents>>(docReq);
         }
     }
 }

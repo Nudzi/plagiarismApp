@@ -22,13 +22,6 @@ namespace plagiarism.Mobile.Services
         {
             _route = route;
         }
-        //recommednation
-        public async Task<T> GetAlikeProducts<T>(int id)
-        {
-            var url = $"{_apiUrl}/{_route}/GetAlikeProducts/{id}";
-
-            return await url.GetJsonAsync<T>();
-        }
 
         public async Task<T> Get<T>(object search)
         {
@@ -98,6 +91,18 @@ namespace plagiarism.Mobile.Services
             var url = $"{_apiUrl}/{_route}/Authentication/{username},{password}";
 
             return await url.GetJsonAsync<T>();
+        }
+
+        public async Task<T> Plagiarism<T>(object search)
+        {
+            var url = $"{_apiUrl}/{_route}/plagiarism";
+            if (search != null)
+            {
+                url += "?";
+                url += await search.ToQueryString();
+            }
+            return await url.GetJsonAsync<T>();
+
         }
     }
 }

@@ -10,7 +10,6 @@ using Microsoft.OpenApi.Models;
 using plagiarismApp.Database;
 using plagiarismApp.Security;
 using plagiarismApp.Services;
-using plagiarismModel.TableRequests.Documents;
 using plagiarismModel.TableRequests.PackageTypes;
 using plagiarismModel.TableRequests.Results;
 using plagiarismModel.TableRequests.UserAddresses;
@@ -70,6 +69,7 @@ namespace plagiarismApp
                .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
 
             services.AddScoped<IUsersService, UsersService>();
+            services.AddScoped<IDocumentsService, DocumentsService>();
             services.AddScoped<IRequestsService, RequestsService>();
             services.AddScoped<IUserTypesService, UserTypesService>();
             services.AddScoped<IService<plagiarismModel.PackageTypes, PackageTypesSearchRequest>, PackageTypesService>();
@@ -80,7 +80,6 @@ namespace plagiarismApp
             services.AddScoped<ICRUDService<plagiarismModel.UserAddresses, UserAddressesSearchRequest, UserAddressesUpsertRequest, UserAddressesUpsertRequest>, UserAddressesService>();
             services.AddScoped<ICRUDService<plagiarismModel.UsersPackageTypes, UsersPackageTypesSearchRequest, UsersPackageTypesUpsertRequest, UsersPackageTypesUpsertRequest>, UsersPackageTypesService>();
             services.AddScoped<ICRUDService<plagiarismModel.UsersUserTypes, UsersUserTypesSearchRequest, UsersUserTypesUpsertRequest, UsersUserTypesUpsertRequest>, UsersUserTypesService>();
-            services.AddScoped<ICRUDService<plagiarismModel.Documents, DocumentsSearchRequest, DocumentsUpsertRequest, DocumentsUpsertRequest>, DocumentsService>();
             var connection = Configuration.GetConnectionString("plagiarism");
             services.AddDbContext<plagiarismContext>(options => options.UseSqlServer(connection));
         }
