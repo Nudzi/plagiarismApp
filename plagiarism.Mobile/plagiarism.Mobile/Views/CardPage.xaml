@@ -77,6 +77,7 @@
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="5*"/>
                 <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
 
             <local:CreditCardDisplayView Grid.Row="0"
@@ -92,13 +93,13 @@
                       Grid.ColumnSpan="3">
                 <StackLayout Orientation="Horizontal"
                                Spacing="20">
-                    <Label Text="{Binding CardName}"
-                               HeightRequest="30" TextColor="Black"/>
-
                     <Entry HorizontalOptions="FillAndExpand"
                                Keyboard="Numeric"
                                Text="{Binding CardNumber, Mode=TwoWay}"
-                               Visual="Custom">
+                               Visual="Custom"
+                           TextChanged="Entry_TextChanged"
+                           Placeholder="Card number..."
+                           >
                         <Entry.Behaviors>
                             <fastEntry:XamarinFastEntryBehaviour Mask="####-####-####-####" 
                                                                        MaxLength="19"/>
@@ -120,6 +121,7 @@
                     <Entry HorizontalOptions="FillAndExpand"
                                Keyboard="Numeric"
                                Text="{Binding CardExpirationDate}"
+                           Placeholder="Card Expiration Date..."
                                Visual="Custom">
                         <Entry.Behaviors>
                             <fastEntry:XamarinFastEntryBehaviour Mask="##/##" 
@@ -139,6 +141,7 @@
                     <Entry HorizontalOptions="FillAndExpand"
                               Keyboard="Numeric"
                               Text="{Binding CardCvv}"
+                           Placeholder="Card CVV..."
                               Visual="Custom">
                         <Entry.Behaviors>
                             <fastEntry:XamarinFastEntryBehaviour Mask="###" 
@@ -148,22 +151,8 @@
                 </StackLayout>
             </Frame>
 
-            <CheckBox Color="LightGray"
-                         WidthRequest="30"
-                         HorizontalOptions="Start"
-                         Margin="30,0,0,0"
-                         Visual="Material"
-                         Grid.Row="3"
-                         Grid.Column="0"/>
-
-            <Label Text="Remember me"
-                       TextColor="{StaticResource PrimaryDark}"
-                       FontSize="16"
-                       VerticalOptions="Center"
-                       Grid.Row="3"
-                       Grid.Column="1"
-                       Grid.ColumnSpan="2"/>
-
+            
+            
             <Button Text="or Pay with Paypal"
                          Grid.Row="4"
                          Grid.Column="0"
@@ -175,7 +164,8 @@
                          FontSize="18"
                          CornerRadius="25"
                          Padding="18"
-                         Margin="30,0"/>
+                         Margin="30,0"
+                    Clicked="Button_Clicked"/>
 
             <BoxView HorizontalOptions="FillAndExpand"
                          Color="{StaticResource Secondary}"
@@ -186,11 +176,29 @@
                          Grid.Column="0"
                          Grid.ColumnSpan="3"/>
 
-            <Button Text="Purchase for $200"
+            <Frame HasShadow="false"
+                      Padding="10"
+                      BorderColor="{StaticResource LightColor}"
+                      Margin="30,30,30,10"
+                      Grid.Row="6"
+                      Grid.Column="0"
+                      Grid.ColumnSpan="3">
+                <StackLayout Orientation="Horizontal"
+                               Spacing="20">
+                    <Label HorizontalOptions="FillAndExpand" Text="Chose Package Type: " VerticalTextAlignment="Center"></Label>
+                    <Picker HorizontalOptions="FillAndExpand" Visual="Custom"
+                            ItemsSource="{Binding PackageTypesList}" 
+                            SelectedItem="{Binding SelectedPackageTypes}" 
+                            ItemDisplayBinding="{Binding NameAndPrice}"></Picker>
+                </StackLayout>
+            </Frame>
+            
+            <Button Text="{Binding SelectedPackageTypes.NameAndPrice}"
+                    Clicked="Button_Clicked_1"
                          BackgroundColor="{Binding CardNumber, Converter={StaticResource CardColorConverter}}"
                          CornerRadius="26"
                          FontSize="18"
-                         Grid.Row="6"
+                         Grid.Row="7"
                          Grid.Column="0"
                          Grid.ColumnSpan="3"
                          Padding="18"

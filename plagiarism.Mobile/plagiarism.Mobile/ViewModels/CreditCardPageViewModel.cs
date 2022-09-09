@@ -1,4 +1,9 @@
-﻿using System.Threading.Tasks;
+﻿using plagiarism.Mobile.Services;
+using plagiarismModel;
+using plagiarismModel.TableRequests.PackageTypes;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -6,10 +11,23 @@ namespace plagiarism.Mobile.ViewModels
 {
     public class CreditCardPageViewModel : BaseViewModel
     {
+        public ObservableCollection<PackageTypesRegistrationSearchRequest> PackageTypesList { get; set; }
+            = new ObservableCollection<PackageTypesRegistrationSearchRequest>();
+        private readonly APIService _packageTypesService = new APIService("packageTypes");
+
         public CreditCardPageViewModel()
         {
             InitCommand = new Command(async () => await Init());
         }
+
+        PackageTypesRegistrationSearchRequest _selectedPackageTypes = null;
+
+        public PackageTypesRegistrationSearchRequest SelectedPackageTypes
+        {
+            get { return _selectedPackageTypes; }
+            set { SetProperty(ref _selectedPackageTypes, value); }
+        }
+
         string _cardNumber = string.Empty;
         public ICommand InitCommand { get; set; }
         public string CardNumber
@@ -46,8 +64,15 @@ namespace plagiarism.Mobile.ViewModels
             set { SetProperty(ref _cardName, value); }
         }
 
+        string _price = string.Empty;
+        public string Price
+        {
+            get { return _price; }
+            set { SetProperty(ref _price, value); }
+        }
         public async Task Init()
         {
+            await addPackageTypes();
             var value = CardNumber;
             if (value == null) CardName = "NotRecognized";
 
@@ -65,8 +90,20 @@ namespace plagiarism.Mobile.ViewModels
             if (discoverRegex.IsMatch(numberNormalized)) CardName = " Discover";
 
             if (jcbRegex.IsMatch(numberNormalized)) CardName = " JCB";
+        }
 
-            CardName = "NotRecognized";
+        public async Task addPackageTypes()
+        {
+            if (PackageTypesList.Count == 0)
+            {
+                var packageTypesListDB = await _packageTypesService.Get<List<PackageTypes>>(null);
+                foreach (var item in packageTypesListDB)
+                {
+                    PackageTypesList.Add(new PackageTypesRegistrationSearchRequest(item.Name, item.Price.ToString(),
+                        item.Id));
+                }
+                SelectedPackageTypes = PackageTypesList[0];
+            }
         }
     }
 }
