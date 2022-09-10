@@ -1,6 +1,8 @@
 ﻿using plagiarism.Mobile.Services;
 using plagiarismModel;
 using plagiarismModel.TableRequests.PackageTypes;
+using plagiarismModel.TableRequests.UsersPackageTypes;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
@@ -14,6 +16,7 @@ namespace plagiarism.Mobile.ViewModels
         public ObservableCollection<PackageTypesRegistrationSearchRequest> PackageTypesList { get; set; }
             = new ObservableCollection<PackageTypesRegistrationSearchRequest>();
         private readonly APIService _packageTypesService = new APIService("packageTypes");
+        private readonly APIService _usersPackageTypesService = new APIService("usersPackageTypes");
 
         public CreditCardPageViewModel()
         {
@@ -70,9 +73,18 @@ namespace plagiarism.Mobile.ViewModels
             get { return _price; }
             set { SetProperty(ref _price, value); }
         }
+
+        int _expiredDays = 0;
+        public int ExpiredDays
+        {
+            get { return _expiredDays; }
+            set { SetProperty(ref _expiredDays, value); }
+        }
+
         public async Task Init()
         {
             await addPackageTypes();
+            await expiredDays();
             var value = CardNumber;
             if (value == null) CardName = "NotRecognized";
 
@@ -104,6 +116,17 @@ namespace plagiarism.Mobile.ViewModels
                 }
                 SelectedPackageTypes = PackageTypesList[0];
             }
+        }
+
+        public async Task expiredDays()
+        {
+            var usersPackageTypesSearchRequest = new UsersPackageTypesSearchRequest
+            {
+                UserId = Global.LoggedUser.Id
+            };
+            var usersPackageTypes = await _usersPackageTypesService.Get<List<UsersPackageTypes>>(usersPackageTypesSearchRequest);
+
+            ExpiredDays = (int)(usersPackageTypes[0].ExpiredDate - DateTime.Now).TotalDays;
         }
     }
 }

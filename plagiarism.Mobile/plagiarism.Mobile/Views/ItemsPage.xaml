@@ -17,11 +17,13 @@
             </StackLayout>
             <Label Text="Scan Something New Today!" HorizontalOptions="CenterAndExpand"></Label>
             <StackLayout>
-                <Button  Text="Text" Clicked="Scan_Text" Margin="15" BackgroundColor="OrangeRed"></Button>
+                <Button x:Name="txtScan" Text="Text" Clicked="Scan_Text" Margin="15" BackgroundColor="OrangeRed"></Button>
 
-                <Label IsEnabled="{Binding IsPremimum}" Text="or" HorizontalOptions="Center"></Label>
-                <Button IsEnabled="{Binding IsPremimum}" Text="Document" Clicked="Scan_Doc" Margin="15" BackgroundColor="PaleVioletRed"></Button>
-                <Label IsVisible="{Binding IsPremimum, Converter={StaticResource inverter}}" Text="Try Upgrading to Premium for Document Scan!" HorizontalOptions="Center"></Label>
+                <Label x:Name="docScanLbl" IsEnabled="False" Text="or" HorizontalOptions="Center"></Label>
+                <Button x:Name="docScanBttn" IsEnabled="False" Text="Document" Clicked="Scan_Doc" Margin="15" BackgroundColor="PaleVioletRed"></Button>
+                <Label x:Name="docScanError" IsVisible="False" Text="Try Upgrading to Premium for Document Scan!" HorizontalOptions="Center"></Label>
+
+                <Label x:Name="scanError" IsVisible="False" Text="Your package has expired!" HorizontalOptions="Center"></Label>
 
             </StackLayout>
         </StackLayout>

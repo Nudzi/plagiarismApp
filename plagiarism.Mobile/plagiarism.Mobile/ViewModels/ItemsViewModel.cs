@@ -2,6 +2,7 @@
 using plagiarismModel;
 using plagiarismModel.Enums;
 using plagiarismModel.TableRequests.UsersPackageTypes;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -9,8 +10,6 @@ namespace plagiarism.Mobile.ViewModels
 {
     public class ItemsViewModel : BaseViewModel
     {
-        private readonly APIService _usersService = new APIService("users");
-        private readonly APIService _userImagesService = new APIService("userImages");
         private readonly APIService _usersPackageTypesService = new APIService("usersPackageTypes");
 
         string _username = string.Empty;
@@ -31,6 +30,13 @@ namespace plagiarism.Mobile.ViewModels
             set { SetProperty(ref _isPremimum, value); }
         }
 
+        bool _isValid = false;
+        public bool IsValid
+        {
+            get { return _isValid; }
+            set { SetProperty(ref _isValid, value); }
+        }
+
         public async Task Init()
         {
             UserName = Global.LoggedUser.UserName;
@@ -46,6 +52,12 @@ namespace plagiarism.Mobile.ViewModels
             if (pkcgUs.Equals((int)PackageTypesTypes.Premium))
             {
                 IsPremimum = true;
+            }
+
+
+            if (DateTime.Compare(usersPackageTypes[0].ExpiredDate, DateTime.Now) > 0)
+            {
+                IsValid = true;
             }
         }
     }

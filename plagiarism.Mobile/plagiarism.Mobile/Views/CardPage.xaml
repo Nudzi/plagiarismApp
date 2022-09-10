@@ -185,6 +185,21 @@
                       Grid.ColumnSpan="3">
                 <StackLayout Orientation="Horizontal"
                                Spacing="20">
+                    <Label HorizontalOptions="FillAndExpand" Text="Days until package expiration: " VerticalTextAlignment="Center"></Label>
+                    <Label HorizontalOptions="FillAndExpand" Visual="Custom"
+                            Text="{Binding ExpiredDays}"></Label>
+                </StackLayout>
+            </Frame>
+            
+            <Frame HasShadow="false"
+                      Padding="10"
+                      BorderColor="{StaticResource LightColor}"
+                      Margin="30,30,30,10"
+                      Grid.Row="7"
+                      Grid.Column="0"
+                      Grid.ColumnSpan="3">
+                <StackLayout Orientation="Horizontal"
+                               Spacing="20">
                     <Label HorizontalOptions="FillAndExpand" Text="Chose Package Type: " VerticalTextAlignment="Center"></Label>
                     <Picker HorizontalOptions="FillAndExpand" Visual="Custom"
                             ItemsSource="{Binding PackageTypesList}" 
@@ -198,7 +213,7 @@
                          BackgroundColor="{Binding CardNumber, Converter={StaticResource CardColorConverter}}"
                          CornerRadius="26"
                          FontSize="18"
-                         Grid.Row="7"
+                         Grid.Row="8"
                          Grid.Column="0"
                          Grid.ColumnSpan="3"
                          Padding="18"

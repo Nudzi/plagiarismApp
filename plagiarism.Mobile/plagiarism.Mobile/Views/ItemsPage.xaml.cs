@@ -19,6 +19,22 @@ namespace plagiarism.Mobile.Views
         {
             base.OnAppearing();
             await viewModel.Init();
+
+            if (viewModel.IsValid)
+            {
+                docScanLbl.IsEnabled = viewModel.IsPremimum;
+                docScanBttn.IsEnabled = viewModel.IsPremimum;
+                docScanError.IsVisible = !viewModel.IsPremimum;
+            }
+            else
+            {
+                docScanBttn.IsEnabled = viewModel.IsValid;
+                scanError.IsVisible = true;
+                docScanError.IsVisible = false;
+                txtScan.IsEnabled = viewModel.IsValid;
+            }
+
+
         }
 
         private async void Scan_Doc(object sender, EventArgs e)
