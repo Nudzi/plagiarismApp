@@ -1,7 +1,6 @@
 ﻿using plagiarism.Mobile.Services;
 using plagiarism.Mobile.Views;
 using plagiarismModel;
-using plagiarismModel.Enums;
 using plagiarismModel.TableRequests.PackageTypes;
 using plagiarismModel.TableRequests.UserAddresses;
 using plagiarismModel.TableRequests.UserImages;
@@ -126,6 +125,7 @@ namespace plagiarism.Mobile.ViewModels
             await addPackageTypes();
             populateStates();
         }
+
         public async Task addPackageTypes()
         {
             if (PackageTypesList.Count == 0)
@@ -138,31 +138,6 @@ namespace plagiarism.Mobile.ViewModels
                 }
                 SelectedPackageTypes = PackageTypesList[0];
             }
-        }
-
-        public decimal buildPackageDisc(string package)
-        {
-            if (PackageTypesTypes.Basic.ToString().Equals(package))
-            {
-                return (decimal)PackageTypesDisc.Basic;
-            }
-            if (PackageTypesTypes.Silver.ToString().Equals(package))
-            {
-                return (decimal)PackageTypesDisc.Silver;
-            }
-            else
-            {
-                return (decimal)PackageTypesDisc.Premium;
-            }
-        }
-
-        public DateTime buildPackageExpDate(string package)
-        {
-            if (PackageTypesExpDate.Basic.ToString().Equals(package))
-                return DateTime.Now.AddMonths((int)(PackageTypesExpDate.Basic));
-            if (PackageTypesExpDate.Silver.ToString().Equals(package))
-                return DateTime.Now.AddMonths((int)(PackageTypesExpDate.Silver));
-            else return DateTime.Now.AddMonths((int)(PackageTypesExpDate.Premium));
         }
 
         public async Task Register()
@@ -227,16 +202,15 @@ namespace plagiarism.Mobile.ViewModels
                     UserId = user.Id,
                     IsActive = true,
                     PackageTypeId = SelectedPackageTypes.PackageTypeId,
-                    Discount = buildPackageDisc(SelectedPackageTypes.Name),
-                    ExpiredDate = buildPackageExpDate(SelectedPackageTypes.Name),
+                    Discount = Helper.buildPackageDisc(SelectedPackageTypes.Name),
+                    ExpiredDate = Helper.buildPackageExpDate(SelectedPackageTypes.Name),
                     CreatedDate = DateTime.Now
                 };
 
-
                 Application.Current.MainPage = new MainPage(user);
 
-                await _usersPackageTypesService.Insert<UsersPackageTypes>(usersPackageTypesUpsertRequest);
-
+                var pkc = await _usersPackageTypesService.Insert<UsersPackageTypes>(usersPackageTypesUpsertRequest);
+                Global.UsersPackageType = pkc;
                 await Application.Current.MainPage.DisplayAlert("Success", "Welcome new User " + user.UserName, "OK");
             }
             catch (Exception ex)
@@ -244,6 +218,7 @@ namespace plagiarism.Mobile.ViewModels
                 await Application.Current.MainPage.DisplayAlert("Error", ex.Message, "OK");
             }
         }
+
         public void populateStates()
         {
             CultureInfo[] getCultureInfos = CultureInfo.GetCultures(CultureTypes.SpecificCultures);

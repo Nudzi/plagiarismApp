@@ -1,9 +1,6 @@
 ﻿using plagiarism.Mobile.Services;
-using plagiarismModel;
 using plagiarismModel.Enums;
-using plagiarismModel.TableRequests.UsersPackageTypes;
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace plagiarism.Mobile.ViewModels
@@ -41,21 +38,14 @@ namespace plagiarism.Mobile.ViewModels
         {
             UserName = Global.LoggedUser.UserName;
 
-            var usersPackageTypesSearchRequest = new UsersPackageTypesSearchRequest
-            {
-                UserId = Global.LoggedUser.Id
-            };
-            var usersPackageTypes = await _usersPackageTypesService.Get<List<UsersPackageTypes>>(usersPackageTypesSearchRequest);
+            var pkcgUs = Global.UsersPackageType;
 
-            var pkcgUs = usersPackageTypes[0].PackageTypeId;
-
-            if (pkcgUs.Equals((int)PackageTypesTypes.Premium))
+            if (pkcgUs.PackageTypeId.Equals((int)PackageTypesTypes.Premium))
             {
                 IsPremimum = true;
             }
 
-
-            if (DateTime.Compare(usersPackageTypes[0].ExpiredDate, DateTime.Now) > 0)
+            if (DateTime.Compare(pkcgUs.ExpiredDate, DateTime.Now) > 0)
             {
                 IsValid = true;
             }

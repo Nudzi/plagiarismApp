@@ -38,6 +38,7 @@ namespace plagiarism.Mobile.Views
         private async void Button_Clicked_1(object sender, System.EventArgs e)
         {
             await Application.Current.MainPage.DisplayAlert("Success", "Payment in the procces.", "OK");
+            await model.ExtendPackage();
             Application.Current.MainPage = new MainPage(Global.LoggedUser);
         }
     }

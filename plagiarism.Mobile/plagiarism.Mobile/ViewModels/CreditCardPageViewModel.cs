@@ -1,10 +1,13 @@
 ﻿using plagiarism.Mobile.Services;
+using plagiarism.Mobile.Views;
 using plagiarismModel;
+using plagiarismModel.Enums;
 using plagiarismModel.TableRequests.PackageTypes;
 using plagiarismModel.TableRequests.UsersPackageTypes;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -32,6 +35,7 @@ namespace plagiarism.Mobile.ViewModels
         }
 
         string _cardNumber = string.Empty;
+
         public ICommand InitCommand { get; set; }
         public string CardNumber
         {
@@ -84,7 +88,7 @@ namespace plagiarism.Mobile.ViewModels
         public async Task Init()
         {
             await addPackageTypes();
-            await expiredDays();
+            expiredDays();
             var value = CardNumber;
             if (value == null) CardName = "NotRecognized";
 
@@ -118,15 +122,68 @@ namespace plagiarism.Mobile.ViewModels
             }
         }
 
-        public async Task expiredDays()
+        public void expiredDays()
         {
+            ExpiredDays = (int)(Global.UsersPackageType.ExpiredDate - DateTime.Now).TotalDays;
+
+            if (ExpiredDays < 0)
+            {
+                ExpiredDays = 0;
+            }
+        }
+
+        internal async Task ExtendPackage()
+        {
+            UsersPackageTypesUpsertRequest usersPackageTypesUpsertRequest = new UsersPackageTypesUpsertRequest
+            {
+                UserId = Global.LoggedUser.Id,
+                IsActive = true,
+                PackageTypeId = SelectedPackageTypes.PackageTypeId,
+                Discount = Helper.buildPackageDisc(SelectedPackageTypes.Name),
+                ExpiredDate = Helper.buildPackageExpDate(SelectedPackageTypes.Name),
+                CreatedDate = DateTime.Now
+            };
+
             var usersPackageTypesSearchRequest = new UsersPackageTypesSearchRequest
             {
                 UserId = Global.LoggedUser.Id
             };
-            var usersPackageTypes = await _usersPackageTypesService.Get<List<UsersPackageTypes>>(usersPackageTypesSearchRequest);
 
-            ExpiredDays = (int)(usersPackageTypes[0].ExpiredDate - DateTime.Now).TotalDays;
+            // make all of the rest packages unactive
+            var usersPackageTypes =
+                await _usersPackageTypesService.Get<List<UsersPackageTypes>>(usersPackageTypesSearchRequest);
+
+
+            // break if Basic is bought again
+            var basicPackage = usersPackageTypes.Where(x => x.PackageTypeId == SelectedPackageTypes.PackageTypeId
+            && x.PackageTypeId.Equals((int)PackageTypesTypes.Basic)).FirstOrDefault();
+
+            if (basicPackage != null)
+            {
+                await Application.Current.MainPage.DisplayAlert("Error",
+                   "You already had Basic package, try purchasing another one.", "OK");
+                Application.Current.MainPage = new MainPage(Global.LoggedUser);
+            }
+
+            var activePckges = usersPackageTypes.Where(x => x.IsActive);
+
+            foreach (var item in activePckges)
+            {
+                UsersPackageTypesUpsertRequest usersPackageTypesUpdateRequest = new UsersPackageTypesUpsertRequest
+                {
+                    Id = item.Id,
+                    UserId = Global.LoggedUser.Id,
+                    IsActive = false,
+                    PackageTypeId = item.PackageTypeId,
+                    Discount = item.Discount,
+                    ExpiredDate = item.ExpiredDate,
+                    CreatedDate = item.CreatedDate
+                };
+
+                await _usersPackageTypesService.Update<UsersPackageTypes>(item.Id, usersPackageTypesUpdateRequest);
+            }
+
+            Global.UsersPackageType = await _usersPackageTypesService.Insert<UsersPackageTypes>(usersPackageTypesUpsertRequest);
         }
     }
 }

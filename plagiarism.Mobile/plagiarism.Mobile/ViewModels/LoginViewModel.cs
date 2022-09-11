@@ -51,6 +51,7 @@ namespace plagiarism.Mobile.ViewModels
                         return;
                     }
                     Global.LoggedUser = userCheck;
+                    Global.UsersPackageType = await Helper.FindUsersPackageAsync();
 
                     await Application.Current.MainPage.DisplayAlert("Success", "Welcome " + user.UserName, "OK");
                     Application.Current.MainPage = new MainPage(userCheck);
