@@ -105,6 +105,7 @@
                                                                        MaxLength="19"/>
                         </Entry.Behaviors>
                     </Entry>
+                    <Label Grid.Column="2" x:Name="CardNumberError" TextColor="Red" IsVisible="False"></Label>
                 </StackLayout>
             </Frame>
 
@@ -128,6 +129,7 @@
                                                                    MaxLength="19"/>
                         </Entry.Behaviors>
                     </Entry>
+                    <Label Grid.Column="3" x:Name="CardExDate" TextColor="Red" IsVisible="False"></Label>
                 </StackLayout>
             </Frame>
 
@@ -148,6 +150,7 @@
                                                                    MaxLength="3"/>
                         </Entry.Behaviors>
                     </Entry>
+                    <Label Grid.Column="3" x:Name="CVVError" TextColor="Red" IsVisible="False"></Label>
                 </StackLayout>
             </Frame>
 

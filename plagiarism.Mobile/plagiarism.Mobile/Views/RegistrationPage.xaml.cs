@@ -79,14 +79,13 @@ namespace plagiarism.Mobile.Views
                 {
                     await model.Register();
                 }
-
-
             }
             else
             {
                 await DisplayAlert("Error", "Wrong input!", "OK");
             }
         }
+
         private bool validateRegistration()
         {
             bool valid = true;
@@ -111,15 +110,9 @@ namespace plagiarism.Mobile.Views
             if (validateImage() == false)
                 valid = false;
 
-            if (valid == false)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            };
+            return valid;
         }
+
         private bool validateTelephone()
         {
             if (inputTelephone.Text == "")
@@ -135,6 +128,7 @@ namespace plagiarism.Mobile.Views
                 return true;
             }
         }
+
         private bool validateEmail()
         {
             try
@@ -193,6 +187,7 @@ namespace plagiarism.Mobile.Views
                 return true;
             }
         }
+
         private bool validateCountry()
         {
             if (inputCountry.Text == "")
@@ -208,6 +203,7 @@ namespace plagiarism.Mobile.Views
                 return true;
             }
         }
+
         private bool validateZipCode()
         {
             if (inputZipCode.Text == "")
@@ -223,6 +219,7 @@ namespace plagiarism.Mobile.Views
                 return true;
             }
         }
+
         private bool validateUserName()
         {
             if (inputUserName.Text == "")
@@ -266,6 +263,7 @@ namespace plagiarism.Mobile.Views
                 return true;
             }
         }
+
         private bool validatePasswordConf()
         {
             if (inputPassword.Text != inputConf.Text)
@@ -329,7 +327,7 @@ namespace plagiarism.Mobile.Views
 
         private void CheckBox_CheckedChanged(object sender, CheckedChangedEventArgs e)
         {
-            Boolean isUserChecked = isUser_Check.IsChecked;
+            bool isUserChecked = isUser_Check.IsChecked;
             if (isUserChecked)
             {
                 officialNameVisible.IsVisible = false;

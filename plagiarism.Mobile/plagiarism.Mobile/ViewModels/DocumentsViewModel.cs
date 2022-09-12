@@ -83,13 +83,7 @@ namespace plagiarism.Mobile.ViewModels
         public async Task Init()
         {
             User = Global.LoggedUser;
-            var usersPackageTypesSearchRequest = new UsersPackageTypesSearchRequest
-            {
-                UserId = User.Id
-            };
-            var usersPackageTypes = await _usersPackageTypesService.Get<List<UsersPackageTypes>>(usersPackageTypesSearchRequest);
-
-            pkcgUs = usersPackageTypes[0].PackageTypeId;
+            pkcgUs = Global.UsersPackageType.PackageTypeId;
             DocumentsSearchRequest request = new DocumentsSearchRequest
             {
                 PackageTypeId = pkcgUs

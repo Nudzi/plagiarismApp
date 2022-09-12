@@ -37,9 +37,60 @@ namespace plagiarism.Mobile.Views
 
         private async void Button_Clicked_1(object sender, System.EventArgs e)
         {
-            await Application.Current.MainPage.DisplayAlert("Success", "Payment in the procces.", "OK");
-            await model.ExtendPackage();
-            Application.Current.MainPage = new MainPage(Global.LoggedUser);
+            if (validateCardNumber() && validateCardExDate() && validateCVV())
+            {
+                await Application.Current.MainPage.DisplayAlert("Success", "Payment in the procces.", "OK");
+                await model.ExtendPackage();
+                Application.Current.MainPage = new MainPage(Global.LoggedUser);
+            }
+        }
+
+        private bool validateCVV()
+        {
+            if (model.CardCvv == "")
+            {
+                CVVError.Text = "Must insert Card CVV!";
+                CVVError.IsVisible = true;
+                return false;
+            }
+            else
+            {
+                CVVError.IsVisible = false;
+                CVVError.Text = "";
+                return true;
+            }
+        }
+
+        private bool validateCardExDate()
+        {
+            if (model.CardExpirationDate == "")
+            {
+                CardExDate.Text = "Must insert Card Expiration Date!";
+                CardExDate.IsVisible = true;
+                return false;
+            }
+            else
+            {
+                CardExDate.IsVisible = false;
+                CardExDate.Text = "";
+                return true;
+            }
+        }
+
+        private bool validateCardNumber()
+        {
+            if (model.CardNumber == "")
+            {
+                CardNumberError.Text = "Must Card Number!";
+                CardNumberError.IsVisible = true;
+                return false;
+            }
+            else
+            {
+                CardNumberError.IsVisible = false;
+                CardNumberError.Text = "";
+                return true;
+            }
         }
     }
 }
