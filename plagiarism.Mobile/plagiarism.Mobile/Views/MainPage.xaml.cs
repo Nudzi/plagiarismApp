@@ -20,9 +20,8 @@ namespace plagiarism.Mobile.Views
             MasterBehavior = MasterBehavior.Popover;
             BindingContext = model = new MainViewModel() { User = user };
         }
-        public async Task NavigateFromMenu(int id, Users user)
+        public async Task NavigateFromMenu(int id)
         {
-            user = model.User;
             if (!MenuPages.ContainsKey(id))
             {
                 switch (id)
@@ -37,7 +36,7 @@ namespace plagiarism.Mobile.Views
                         MenuPages.Add(id, new NavigationPage(new DocumentsPage()));
                         break;
                     case (int)MenuItemType.AboutUs:
-                        MenuPages.Add(id, new NavigationPage(new AboutPage(user)));
+                        MenuPages.Add(id, new NavigationPage(new AboutPage()));
                         break;
                     case (int)MenuItemType.Card:
                         MenuPages.Add(id, new NavigationPage(new CardPage()));

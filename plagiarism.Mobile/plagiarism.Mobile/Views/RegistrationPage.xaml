@@ -111,8 +111,10 @@
                     <!--<Picker Grid.Row="28" Grid.Column="1" 
                             ItemsSource="{Binding CultureList}"></Picker>-->
 
-                    <Button x:Name="ButtonRegister" Grid.Row="28" Grid.ColumnSpan="2" Text="Register" BackgroundColor="Gray"
+                    <Button x:Name="ButtonRegister" Grid.Row="28" Grid.ColumnSpan="2" Text="Register - Basic package" BackgroundColor="Gray"
                        Clicked="ButtonRegister_Clicked"></Button>
+                    <Button x:Name="ButtonRegisterAndPay" Grid.Row="28" Grid.ColumnSpan="3" Text="Next - Payment" BackgroundColor="Gray"
+                       Clicked="ButtonRegister_Clicked_1"></Button>
                 </Grid>
             </ScrollView>
         </StackLayout>

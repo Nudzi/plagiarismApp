@@ -159,7 +159,6 @@ namespace plagiarism.Mobile.ViewModels
                 };
                 var address = await _addressesService.Insert<UserAddresses>(userAddressesUpserRequest);
 
-
                 UsersInsertRequest request = new UsersInsertRequest
                 {
                     Email = Email,

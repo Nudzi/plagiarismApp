@@ -1,12 +1,14 @@
 ﻿using plagiarism.Mobile.Services;
 using plagiarism.Mobile.ViewModels;
 using plagiarismModel;
+using plagiarismModel.TableRequests.PackageTypes;
 using Plugin.Media;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net.Mail;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -30,6 +32,17 @@ namespace plagiarism.Mobile.Views
         }
 
         private async void ButtonRegister_Clicked(object sender, EventArgs e)
+        {
+            model.SelectedPackageTypes = new PackageTypesRegistrationSearchRequest("Basic", "Basic - 0$", 1);
+            await Register();
+        }
+
+        private void ButtonRegister_Clicked_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private async Task Register()
         {
             bool doubleUserName = false;
             bool doubleEmail = false;

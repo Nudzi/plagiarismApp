@@ -1,5 +1,4 @@
 ﻿using plagiarism.Mobile.ViewModels;
-using plagiarismModel;
 using System;
 using System.Collections.Generic;
 using Xamarin.Essentials;
@@ -12,11 +11,12 @@ namespace plagiarism.Mobile.Views
     public partial class AboutPage : ContentPage
     {
         AboutViewModel model = null;
-        public AboutPage(Users user)
+        public AboutPage()
         {
             InitializeComponent();
-            BindingContext = model = new AboutViewModel { User = user };
+            BindingContext = model = new AboutViewModel();
         }
+
         private async void Button_Clicked(object sender, EventArgs e)
         {
             var latitude = 43.6547702;

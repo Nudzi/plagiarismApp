@@ -13,7 +13,6 @@ namespace plagiarism.Mobile.Views
         public ListView ListView;
         MainPage RootPage { get => Application.Current.MainPage as MainPage; }
         List<HomeMenuItem> menuItems;
-        Users user;
         public MenuPage()
         {
             InitializeComponent();
@@ -38,7 +37,7 @@ namespace plagiarism.Mobile.Views
                     return;
 
                 var id = (int)((HomeMenuItem)e.SelectedItem).Id;
-                await RootPage.NavigateFromMenu(id, user);
+                await RootPage.NavigateFromMenu(id);
             };
         }
     }
