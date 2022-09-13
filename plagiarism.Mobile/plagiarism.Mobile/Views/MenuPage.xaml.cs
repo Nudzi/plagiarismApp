@@ -1,5 +1,4 @@
 ﻿using plagiarism.Mobile.Models;
-using plagiarismModel;
 using System.Collections.Generic;
 
 using Xamarin.Forms;

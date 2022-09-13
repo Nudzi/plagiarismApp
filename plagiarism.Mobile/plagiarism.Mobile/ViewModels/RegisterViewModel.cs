@@ -24,8 +24,6 @@ namespace plagiarism.Mobile.ViewModels
         private readonly APIService _usersPackageTypesService = new APIService("usersPackageTypes");
         private readonly APIService _packageTypesService = new APIService("packageTypes");
 
-        public ObservableCollection<PackageTypesRegistrationSearchRequest> PackageTypesList { get; set; } = new ObservableCollection<PackageTypesRegistrationSearchRequest>();
-
         public ObservableCollection<string> CultureList { get; set; } = new ObservableCollection<string>();
 
         PackageTypesRegistrationSearchRequest _selectedPackageTypes = null;
@@ -120,24 +118,9 @@ namespace plagiarism.Mobile.ViewModels
             set { SetProperty(ref _isUser, value); }
         }
 
-        public async Task Init()
+        public void Init()
         {
-            await addPackageTypes();
             populateStates();
-        }
-
-        public async Task addPackageTypes()
-        {
-            if (PackageTypesList.Count == 0)
-            {
-                var packageTypesListDB = await _packageTypesService.Get<List<PackageTypes>>(null);
-                foreach (var item in packageTypesListDB)
-                {
-                    PackageTypesList.Add(new PackageTypesRegistrationSearchRequest(item.Name, item.Price.ToString(),
-                        item.Id));
-                }
-                SelectedPackageTypes = PackageTypesList[0];
-            }
         }
 
         public async Task Register()
@@ -199,18 +182,19 @@ namespace plagiarism.Mobile.ViewModels
                 UsersPackageTypesUpsertRequest usersPackageTypesUpsertRequest = new UsersPackageTypesUpsertRequest
                 {
                     UserId = user.Id,
-                    IsActive = true,
+                    IsActive = false,
                     PackageTypeId = SelectedPackageTypes.PackageTypeId,
                     Discount = Helper.buildPackageDisc(SelectedPackageTypes.Name),
                     ExpiredDate = Helper.buildPackageExpDate(SelectedPackageTypes.Name),
                     CreatedDate = DateTime.Now
                 };
 
-                Application.Current.MainPage = new MainPage(user);
-
                 var pkc = await _usersPackageTypesService.Insert<UsersPackageTypes>(usersPackageTypesUpsertRequest);
-                Global.UsersPackageType = pkc;
+                Global.UsersPackageType = null;
+                Global.JustRegisterNoPackage = true;
+
                 await Application.Current.MainPage.DisplayAlert("Success", "Welcome new User " + user.UserName, "OK");
+                Application.Current.MainPage = new CardPage();
             }
             catch (Exception ex)
             {

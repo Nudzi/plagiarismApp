@@ -3,7 +3,6 @@ using plagiarism.Mobile.Views;
 using plagiarismModel;
 using plagiarismModel.TableRequests.Documents;
 using plagiarismModel.TableRequests.Requests;
-using plagiarismModel.TableRequests.UsersPackageTypes;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
@@ -83,18 +82,21 @@ namespace plagiarism.Mobile.ViewModels
         public async Task Init()
         {
             User = Global.LoggedUser;
-            pkcgUs = Global.UsersPackageType.PackageTypeId;
-            DocumentsSearchRequest request = new DocumentsSearchRequest
+            if (Global.UsersPackageType != null)
             {
-                PackageTypeId = pkcgUs
-            };
+                pkcgUs = Global.UsersPackageType.PackageTypeId;
+                DocumentsSearchRequest request = new DocumentsSearchRequest
+                {
+                    PackageTypeId = pkcgUs
+                };
 
-            var documents = await _documentsService.Get<List<Documents>>(request);
-            DocList.Clear();
+                var documents = await _documentsService.Get<List<Documents>>(request);
+                DocList.Clear();
 
-            foreach (var item in documents)
-            {
-                DocList.Add(item);
+                foreach (var item in documents)
+                {
+                    DocList.Add(item);
+                }
             }
         }
 

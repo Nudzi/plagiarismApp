@@ -25,21 +25,16 @@ namespace plagiarism.Mobile.Views
             BindingContext = model = new RegisterViewModel();
         }
 
-        protected async override void OnAppearing()
+        protected override void OnAppearing()
         {
             base.OnAppearing();
-            await model.Init();
+            model.Init();
         }
 
         private async void ButtonRegister_Clicked(object sender, EventArgs e)
         {
-            model.SelectedPackageTypes = new PackageTypesRegistrationSearchRequest("Basic", "Basic - 0$", 1);
+            model.SelectedPackageTypes = new PackageTypesRegistrationSearchRequest("Basic", "Basic - 0.00$", 1);
             await Register();
-        }
-
-        private void ButtonRegister_Clicked_1(object sender, EventArgs e)
-        {
-
         }
 
         private async Task Register()

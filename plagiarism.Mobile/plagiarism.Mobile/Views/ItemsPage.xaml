@@ -9,13 +9,16 @@
             <converters:ImageConverter x:Key="imgConv"></converters:ImageConverter>
         </ResourceDictionary>
     </ContentPage.Resources>
-    <ContentPage.Content>
-        <StackLayout Padding="4" VerticalOptions="CenterAndExpand" StyleClass="BodyStyle">
+    <ContentPage.Content >
+        <StackLayout>
+        <StackLayout x:Name="wholeStack" Padding="4" VerticalOptions="CenterAndExpand" StyleClass="BodyStyle">
             <StackLayout Margin="10" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                 <Label Text="Welcome:" WidthRequest="150" FontSize="20"></Label>
                 <Label Text="{Binding UserName}" WidthRequest="150" FontSize="20"></Label>
             </StackLayout>
+            
             <Label Text="Scan Something New Today!" HorizontalOptions="CenterAndExpand"></Label>
+            
             <StackLayout>
                 <Button x:Name="txtScan" Text="Text" Clicked="Scan_Text" Margin="15" BackgroundColor="OrangeRed"></Button>
 
@@ -24,8 +27,11 @@
                 <Label x:Name="docScanError" IsVisible="False" Text="Try Upgrading to Premium for Document Scan!" HorizontalOptions="Center"></Label>
 
                 <Label x:Name="scanError" IsVisible="False" Text="Your package has expired!" HorizontalOptions="Center"></Label>
-
             </StackLayout>
+            
+        </StackLayout>
+
+            <Label IsVisible="False" x:Name="errorPkcg" Text="Buy at least one Package to unlock features."></Label>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

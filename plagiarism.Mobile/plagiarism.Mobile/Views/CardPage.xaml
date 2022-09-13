@@ -179,7 +179,7 @@
                          Grid.Column="0"
                          Grid.ColumnSpan="3"/>
 
-            <Frame HasShadow="false"
+            <Frame x:Name="expiredDays" HasShadow="false"
                       Padding="10"
                       BorderColor="{StaticResource LightColor}"
                       Margin="30,30,30,10"
@@ -191,6 +191,19 @@
                     <Label HorizontalOptions="FillAndExpand" Text="Days until package expiration: " VerticalTextAlignment="Center"></Label>
                     <Label HorizontalOptions="FillAndExpand" Visual="Custom"
                             Text="{Binding ExpiredDays}"></Label>
+                </StackLayout>
+            </Frame>
+
+            <Frame  x:Name="noPkcgError" HasShadow="false"
+                      Padding="10"
+                      BorderColor="{StaticResource LightColor}"
+                      Margin="30,30,30,10"
+                      Grid.Row="6"
+                      Grid.Column="0"
+                      Grid.ColumnSpan="3">
+                <StackLayout Orientation="Horizontal"
+                               Spacing="20">
+                    <Label TextColor="Red" HorizontalOptions="FillAndExpand" Text="Unactive Package. Purchase One." VerticalTextAlignment="Center"></Label>
                 </StackLayout>
             </Frame>
             
@@ -222,6 +235,7 @@
                          Padding="18"
                          TextColor="White"
                          Margin="30,0,30,30"/>
+
         </Grid>
     </ScrollView>
 </ContentPage>

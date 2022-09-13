@@ -124,11 +124,14 @@ namespace plagiarism.Mobile.ViewModels
 
         public void expiredDays()
         {
-            ExpiredDays = (int)(Global.UsersPackageType.ExpiredDate - DateTime.Now).TotalDays;
-
-            if (ExpiredDays < 0)
+            if (Global.UsersPackageType != null)
             {
-                ExpiredDays = 0;
+                ExpiredDays = (int)(Global.UsersPackageType.ExpiredDate - DateTime.Now).TotalDays;
+
+                if (ExpiredDays < 0)
+                {
+                    ExpiredDays = 0;
+                }
             }
         }
 
@@ -153,10 +156,29 @@ namespace plagiarism.Mobile.ViewModels
             var usersPackageTypes =
                 await _usersPackageTypesService.Get<List<UsersPackageTypes>>(usersPackageTypesSearchRequest);
 
-
             // break if Basic is bought again
             var basicPackage = usersPackageTypes.Where(x => x.PackageTypeId == SelectedPackageTypes.PackageTypeId
             && x.PackageTypeId.Equals((int)PackageTypesTypes.Basic)).FirstOrDefault();
+
+            if (basicPackage != null && Global.JustRegisterNoPackage)
+            {
+                UsersPackageTypesUpsertRequest usersPackageTypesUpdateRequest = new UsersPackageTypesUpsertRequest
+                {
+                    Id = basicPackage.Id,
+                    UserId = Global.LoggedUser.Id,
+                    IsActive = true,
+                    PackageTypeId = basicPackage.PackageTypeId,
+                    Discount = basicPackage.Discount,
+                    ExpiredDate = basicPackage.ExpiredDate,
+                    CreatedDate = basicPackage.CreatedDate
+                };
+
+                await _usersPackageTypesService.Update<UsersPackageTypes>(basicPackage.Id, usersPackageTypesUpdateRequest);
+                Global.UsersPackageType = await Helper.FindUsersPackageAsync();
+                Global.JustRegisterNoPackage = false;
+                Application.Current.MainPage = new MainPage(Global.LoggedUser);
+                return;
+            }
 
             if (basicPackage != null)
             {

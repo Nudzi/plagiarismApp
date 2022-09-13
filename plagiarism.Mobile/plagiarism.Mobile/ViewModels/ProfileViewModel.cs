@@ -154,18 +154,20 @@ namespace plagiarism.Mobile.ViewModels
                     foreach (var item in gettedUser.UserTypes)
                         userInts.Add(item.UserTypeId);
                 }
-                UsersInsertRequest request = new UsersInsertRequest();
-                request.Id = gettedUser.Id;
-                request.Email = gettedUser.Email;
-                request.OfficialName = gettedUser.OfficialName;
-                request.Status = true;
-                request.FirstName = gettedUser.FirstName;
-                request.LastName = gettedUser.LastName;
-                request.Password = Password;
-                request.PasswordConfirmation = PasswordConf;
-                request.Telephone = gettedUser.Telephone;
-                request.UserName = gettedUser.UserName;
-                request.UserTypes = userInts;
+                UsersInsertRequest request = new UsersInsertRequest
+                {
+                    Id = gettedUser.Id,
+                    Email = gettedUser.Email,
+                    OfficialName = gettedUser.OfficialName,
+                    Status = true,
+                    FirstName = gettedUser.FirstName,
+                    LastName = gettedUser.LastName,
+                    Password = Password,
+                    PasswordConfirmation = PasswordConf,
+                    Telephone = gettedUser.Telephone,
+                    UserName = gettedUser.UserName,
+                    UserTypes = userInts
+                };
 
 
                 if (request != null)

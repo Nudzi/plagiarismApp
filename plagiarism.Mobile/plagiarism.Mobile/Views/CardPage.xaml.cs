@@ -19,6 +19,17 @@ namespace plagiarism.Mobile.Views
         {
             base.OnAppearing();
             await model.Init();
+
+            if (Global.JustRegisterNoPackage)
+            {
+                noPkcgError.IsVisible = true;
+                expiredDays.IsVisible = false;
+            }
+            else
+            {
+                expiredDays.IsVisible = true;
+                noPkcgError.IsVisible = false;
+            }
         }
 
         private async void Entry_TextChanged(object sender, TextChangedEventArgs e)

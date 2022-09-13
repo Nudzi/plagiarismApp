@@ -34,7 +34,16 @@ namespace plagiarism.Mobile.Views
                 txtScan.IsEnabled = viewModel.IsValid;
             }
 
-
+            if (Global.JustRegisterNoPackage)
+            {
+                wholeStack.IsVisible = false;
+                errorPkcg.IsVisible = true;
+            }
+            else
+            {
+                wholeStack.IsVisible = true;
+                errorPkcg.IsVisible = false;
+            }
         }
 
         private async void Scan_Doc(object sender, EventArgs e)

@@ -6,5 +6,6 @@ namespace plagiarism.Mobile
     {
         public static Users LoggedUser { get; set; }
         public static UsersPackageTypes UsersPackageType { get; set; }
+        public static bool JustRegisterNoPackage { get; set; }
     }
 }

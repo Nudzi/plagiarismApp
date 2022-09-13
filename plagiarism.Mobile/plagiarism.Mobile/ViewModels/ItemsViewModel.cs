@@ -40,14 +40,17 @@ namespace plagiarism.Mobile.ViewModels
 
             var pkcgUs = Global.UsersPackageType;
 
-            if (pkcgUs.PackageTypeId.Equals((int)PackageTypesTypes.Premium))
+            if (pkcgUs != null)
             {
-                IsPremimum = true;
-            }
+                if (pkcgUs.PackageTypeId.Equals((int)PackageTypesTypes.Premium))
+                {
+                    IsPremimum = true;
+                }
 
-            if (DateTime.Compare(pkcgUs.ExpiredDate, DateTime.Now) > 0)
-            {
-                IsValid = true;
+                if (DateTime.Compare(pkcgUs.ExpiredDate, DateTime.Now) > 0)
+                {
+                    IsValid = true;
+                }
             }
         }
     }

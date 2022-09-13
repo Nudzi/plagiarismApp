@@ -53,8 +53,10 @@ namespace plagiarism.Mobile.ViewModels
                     Global.LoggedUser = userCheck;
                     Global.UsersPackageType = await Helper.FindUsersPackageAsync();
 
+                    Global.JustRegisterNoPackage = Global.UsersPackageType == null ? true : false;
+
                     await Application.Current.MainPage.DisplayAlert("Success", "Welcome " + user.UserName, "OK");
-                    Application.Current.MainPage = new MainPage(userCheck);
+                    Application.Current.MainPage = new MainPage(user);
                 }
                 else
                 {
