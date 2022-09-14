@@ -24,7 +24,7 @@
                     <Label x:Name="SupportingDocument" TextColor="Red"></Label>
                 </StackLayout>
                 
-                <Button WidthRequest="100" Padding="10" Text="SCAN" BackgroundColor="DarkRed"></Button>
+                <Button WidthRequest="100" Padding="10" Text="SCAN" Clicked="Button_Clicked_1" BackgroundColor="DarkRed"></Button>
             </StackLayout>
 
         </StackLayout>

@@ -4,7 +4,8 @@
   xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
   xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest"
   xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
-  IgnorableNamespaces="uap mp">
+  xmlns:uap4="http://schemas.microsoft.com/appx/manifest/uap/windows10/4"
+  IgnorableNamespaces="uap mp uap4">
 
   <Identity
     Name="52158fe3-327d-4766-a2a9-f97ee60df325"
@@ -51,5 +52,10 @@
 
   <Capabilities>
     <Capability Name="internetClient" />
+    <uap:Capability Name="videosLibrary"/>
+    <uap:Capability Name="userAccountInformation"/>
+    <uap4:Capability Name="userDataTasks"/>
+    <uap:Capability Name="removableStorage"/>
+    <uap:Capability Name="picturesLibrary"/>
   </Capabilities>
 </Package>
