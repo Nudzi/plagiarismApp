@@ -5,6 +5,7 @@ using plagiarismModel.TableRequests.Documents;
 using plagiarismModel.TableRequests.UsersPackageTypes;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace plagiarism.Mobile.ViewModels
 {
@@ -69,6 +70,8 @@ namespace plagiarism.Mobile.ViewModels
             };
 
             var matchedTexts = await _documentsService.Plagiarism<List<Documents>>(docReq);
+
+            await Application.Current.MainPage.DisplayAlert("", matchedTexts[0].Title, "OK");
         }
     }
 }

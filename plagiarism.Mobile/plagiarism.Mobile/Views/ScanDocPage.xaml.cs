@@ -1,10 +1,11 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using plagiarism.Mobile.ViewModels;
 using Plugin.FilePicker;
 using Plugin.FilePicker.Abstractions;
 using Plugin.Permissions;
+using Spire.Doc;
+using Spire.Pdf;
 using System;
 using System.IO;
-using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -16,9 +17,11 @@ namespace plagiarism.Mobile.Views
     public partial class ScanDocPage : ContentPage
     {
         private static FileData fileData = null;
+        ScanViewModel model = null;
         public ScanDocPage()
         {
             InitializeComponent();
+            BindingContext = model = new ScanViewModel { };
         }
 
         [Obsolete]
@@ -69,33 +72,90 @@ namespace plagiarism.Mobile.Views
             }
         }
 
-        private void CheckText()
+        private async void CheckText()
         {
-            // Example #1
-            // Read the file as one string.
-            string text = System.IO.File.ReadAllText(fileData.FilePath, Encoding.UTF8);
-
-            System.Console.WriteLine("Contents of WriteText.txt = {0}", text);
-
             // Example #2
             // Read each line of the file into a string array. Each element
             // of the array is one line of the file.
-            string[] lines = System.IO.File.ReadAllLines(fileData.FilePath, Encoding.UTF8);
-            // Display the file contents by using a foreach loop.
-            System.Console.WriteLine("Contents of WriteLines2.txt = ");
-            foreach (string line in lines)
-            {
-                // Use a tab to indent each line of the file.
-                Console.WriteLine("\t" + line);
-            }
-
-            Console.WriteLine("Press any key to exit.");
-            System.Console.ReadKey();
+            CheckExtension();
+            await model.CheckPlagiarism();
         }
 
         private void Button_Clicked_1(object sender, EventArgs e)
         {
             CheckText();
+        }
+
+        private async void CheckExtension()
+        {
+            var file = new FileInfo(fileData.FilePath);
+
+            if (file.Extension.Equals(".doc") || file.Extension.Equals(".docx"))
+            {
+                CheckDoc();
+            }
+            if (file.Extension.Equals(".txt"))
+            {
+                CheckTxt();
+            }
+            if (file.Extension.Equals(".pdf"))
+            {
+                CheckPdf();
+            }
+        }
+
+        private void CheckTxt()
+        {
+            //var text = File.ReadAllText(fileData.FilePath);
+
+            //string file = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "temp.txt");
+            //File.WriteAllText(file, text);
+
+            //var textTxt = File.ReadAllText(file);
+
+            model.Text = File.ReadAllText(fileData.FilePath);
+        }
+
+        private void CheckDoc()
+        {
+            //Create a Document object
+            Document doc = new Document();
+            //Load a Word file
+            doc.LoadFromFile(fileData.FilePath);
+            //Convert the text in Word line by line into a txt file
+            doc.SaveToTxt("result.text", Encoding.UTF8);
+            //Read all lines of txt file
+            string[] lines = File.ReadAllLines("result.text", System.Text.Encoding.Default);
+            foreach (string line in lines)
+            {
+                // Use a tab to indent each line of the file.
+                model.Text += "\t" + line;
+            }
+        }
+
+        private void CheckPdf()
+        {
+            //Create a Document object
+            PdfDocument pdf = new PdfDocument();
+            //Load a Word file
+            pdf.LoadFromFile(fileData.FilePath);
+            string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "result.doc");
+
+            //Convert the text in Word line by line into a txt file
+            pdf.SaveToFile(path);
+            //Create a Document object
+            Document doc = new Document();
+            //Load a Word file
+            doc.LoadFromFile(path);
+            //Convert the text in Word line by line into a txt file
+            doc.SaveToTxt("result.text", Encoding.UTF8);
+            //Read all lines of txt file
+            string[] lines = File.ReadAllLines("result.text", System.Text.Encoding.Default);
+            foreach (string line in lines)
+            {
+                // Use a tab to indent each line of the file.
+                model.Text += "\t" + line;
+            }
         }
     }
 }
