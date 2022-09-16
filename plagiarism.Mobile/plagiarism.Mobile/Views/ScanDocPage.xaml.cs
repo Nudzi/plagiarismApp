@@ -6,6 +6,7 @@ using Spire.Doc;
 using Spire.Pdf;
 using System;
 using System.IO;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -77,8 +78,9 @@ namespace plagiarism.Mobile.Views
             // Example #2
             // Read each line of the file into a string array. Each element
             // of the array is one line of the file.
-            CheckExtension();
-            await model.CheckPlagiarism();
+            //CheckExtension();
+            ScanFile();
+            //await model.CheckPlagiarism();
         }
 
         private void Button_Clicked_1(object sender, EventArgs e)
@@ -155,6 +157,27 @@ namespace plagiarism.Mobile.Views
             {
                 // Use a tab to indent each line of the file.
                 model.Text += "\t" + line;
+            }
+        }
+
+        private async void ScanFile()
+        {
+            var customId = "scan-for-user-" + Global.LoggedUser.Id;
+            var requestUrl = "https://api.copyleaks.com/v3/scans/submit/file/" + customId;
+            Helper.GetAccessToken();
+            using (var httpClient = new HttpClient())
+            {
+                using (var request = new HttpRequestMessage(new HttpMethod("PUT"), requestUrl))
+                {
+                    request.Headers.TryAddWithoutValidation("Authorization", "Bearer " + Global.AccessToken);
+
+                    var data = "{\"base64\":\"SGVsbG8gd29ybGQh\",\"filename\":\"" + fileData.FileName +
+                        "\",\"properties\"" +
+                        ":{\"webhooks\":{\"status\":\"https://enkbumpblgdi.x.pipedream.net/{STATUS}/" +  customId + "\"}}}";
+                    request.Content = new StringContent(data, Encoding.UTF8, "application/json");
+
+                    var response = await httpClient.SendAsync(request);
+                }
             }
         }
     }

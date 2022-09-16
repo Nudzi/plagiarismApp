@@ -1,10 +1,13 @@
-﻿using plagiarism.Mobile.Services;
+﻿using Newtonsoft.Json.Linq;
+using plagiarism.Mobile.Services;
 using plagiarismModel;
 using plagiarismModel.Enums;
 using plagiarismModel.TableRequests.UsersPackageTypes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace plagiarism.Mobile
@@ -24,6 +27,24 @@ namespace plagiarism.Mobile
                 chars[i] = Alphabet[random.Next(Alphabet.Length)];
             }
             return new string(chars);
+        }
+
+        public static async void GetAccessToken()
+        {
+            var requestUrl = "https://id.copyleaks.com/v3/account/login/api";
+
+            using (var httpClient = new HttpClient())
+            {
+                using (var request = new HttpRequestMessage(new HttpMethod("POST"), requestUrl))
+                {
+                    var data = "{\"email\":\"nudzejma.kezo@gmail.com\",\"key\":\"93914651-29c4-4bf5-9278-fc1f9c05e4a2\"}";
+                    request.Content = new StringContent(data, Encoding.UTF8, "application/json");
+
+                    var response = await httpClient.SendAsync(request);
+                    var jsonString = await response.Content.ReadAsStringAsync();
+                    Global.AccessToken = JObject.Parse(jsonString)["access_token"].ToString();
+                }
+            }
         }
 
         public static decimal buildPackageDisc(string package)

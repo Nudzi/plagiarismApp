@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
 using plagiarismApp.Database;
 using plagiarismModel.TableRequests.Documents;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace plagiarismApp.Services
 {
@@ -43,6 +45,31 @@ namespace plagiarismApp.Services
             {
                 query = query.Where(x => x.Extension.StartsWith(request.Extension));
             }
+
+            //  EXPRESSION TRY
+            // this represents the argument to your lambda expression
+            //var parameter = Expression.Parameter(typeof(plagiarismModel.Documents), "qo");
+
+            //// this is the "qo.QueriedField" part of the resulting expression - we'll use it several times later
+            //var memberAccess = Expression.Field(parameter, "Text");
+
+            //// start with a 1 == 1 comparison for easier building - 
+            //// you can just add further &&s to it without checking if it's the first in the chain
+            //var expr = Expression.Equal(Expression.Constant(1), Expression.Constant(1));
+
+            //// doesn't trigger, so you still have 1 == 1
+            //if (request.matches != null || request.matches.Count != 0)
+            //{
+            //    foreach (var item in request.matches)
+            //    {
+            //        expr = Expression.OrElse(expr, Expression.Equal(memberAccess, Expression.Constant(item)));
+            //    }
+            //}
+            //// now, we combine the lambda body with the parameter to create a lambda expression, which can be cast to Expression<Func<X, bool>>
+            //var lambda = (Expression<Func<Documents, bool>>)Expression.Lambda(expr, parameter);
+
+            //// you can now do this, and the Where will be translated to an SQL query just as if you've written the expression manually
+            //query = query.Where(lambda);
 
 
             // ints

@@ -3,6 +3,7 @@ using plagiarismModel;
 using plagiarismModel.Enums;
 using plagiarismModel.TableRequests.Documents;
 using plagiarismModel.TableRequests.UsersPackageTypes;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -64,14 +65,44 @@ namespace plagiarism.Mobile.ViewModels
 
         internal async Task CheckPlagiarism()
         {
-            var docReq = new DocumentsSearchRequest
+            char[] delimiters = new char[] { ' ', '\r', '\n' };
+            var aray = Text.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
+            var textLength = Text.Split(delimiters, StringSplitOptions.RemoveEmptyEntries).Length;
+
+            // uzmi skup po 3 rijeci i match
+            if (textLength < 4)
             {
-                Text = Text
-            };
+                var docReq = new DocumentsSearchRequest
+                {
+                    Text = Text
+                };
 
-            var matchedTexts = await _documentsService.Plagiarism<List<Documents>>(docReq);
+                var matchedTexts = await _documentsService.Plagiarism<List<Documents>>(docReq);
+            }
+            else
+            {
+                List<string> mojArej = new List<string>();
+                for (int i = 0; i < textLength; i++)
+                {
+                    var moj = "";
+                    if (i + 2 < textLength)
+                    {
+                        moj = aray[i] + " " + aray[i + 1] + " " + aray[i + 2];
+                        mojArej.Add(moj);
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+                var docReq = new DocumentsSearchRequest
+                {
+                    matches = mojArej
+                };
 
-            await Application.Current.MainPage.DisplayAlert("", matchedTexts[0].Title, "OK");
+                var matchedTexts = await _documentsService.Plagiarism<List<Documents>>(docReq);
+            }
         }
     }
 }
+

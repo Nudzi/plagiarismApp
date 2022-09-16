@@ -1,4 +1,6 @@
-﻿namespace plagiarismModel.TableRequests.Documents
+﻿using System.Collections.Generic;
+
+namespace plagiarismModel.TableRequests.Documents
 {
     public class DocumentsSearchRequest
     {
@@ -11,5 +13,6 @@
         public string Text { get; set; }
         public int? TimeUsed { get; set; }
         public int? PackageTypeId { get; set; }
+        public List<string> matches { get; set; }
     }
 }
