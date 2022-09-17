@@ -58,8 +58,6 @@ namespace plagiarism.Mobile.Views
                     if (fileData == null)
                         return;
 
-                    //writing the filename to our view
-                    //SupportingDocument is the x:name of our label in xaml
                     SupportingDocument.Text = fileData.FileName;
                 }
                 else
@@ -75,12 +73,9 @@ namespace plagiarism.Mobile.Views
 
         private async void CheckText()
         {
-            // Example #2
-            // Read each line of the file into a string array. Each element
-            // of the array is one line of the file.
-            //CheckExtension();
-            ScanFile();
-            //await model.CheckPlagiarism();
+            CheckExtension();
+            //ScanFile();
+            await model.CheckPlagiarism();
         }
 
         private void Button_Clicked_1(object sender, EventArgs e)
@@ -88,7 +83,7 @@ namespace plagiarism.Mobile.Views
             CheckText();
         }
 
-        private async void CheckExtension()
+        private void CheckExtension()
         {
             var file = new FileInfo(fileData.FilePath);
 
@@ -108,29 +103,17 @@ namespace plagiarism.Mobile.Views
 
         private void CheckTxt()
         {
-            //var text = File.ReadAllText(fileData.FilePath);
-
-            //string file = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "temp.txt");
-            //File.WriteAllText(file, text);
-
-            //var textTxt = File.ReadAllText(file);
-
             model.Text = File.ReadAllText(fileData.FilePath);
         }
 
         private void CheckDoc()
         {
-            //Create a Document object
             Document doc = new Document();
-            //Load a Word file
             doc.LoadFromFile(fileData.FilePath);
-            //Convert the text in Word line by line into a txt file
             doc.SaveToTxt("result.text", Encoding.UTF8);
-            //Read all lines of txt file
             string[] lines = File.ReadAllLines("result.text", System.Text.Encoding.Default);
             foreach (string line in lines)
             {
-                // Use a tab to indent each line of the file.
                 model.Text += "\t" + line;
             }
         }
@@ -173,7 +156,7 @@ namespace plagiarism.Mobile.Views
 
                     var data = "{\"base64\":\"SGVsbG8gd29ybGQh\",\"filename\":\"" + fileData.FileName +
                         "\",\"properties\"" +
-                        ":{\"webhooks\":{\"status\":\"https://enkbumpblgdi.x.pipedream.net/{STATUS}/" +  customId + "\"}}}";
+                        ":{\"webhooks\":{\"status\":\"https://enkbumpblgdi.x.pipedream.net/{STATUS}/" + customId + "\"}}}";
                     request.Content = new StringContent(data, Encoding.UTF8, "application/json");
 
                     var response = await httpClient.SendAsync(request);

@@ -69,26 +69,26 @@ namespace plagiarism.Mobile.ViewModels
             var aray = Text.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
             var textLength = Text.Split(delimiters, StringSplitOptions.RemoveEmptyEntries).Length;
 
-            // uzmi skup po 3 rijeci i match
-            if (textLength < 4)
+            if (textLength < 3)
             {
                 var docReq = new DocumentsSearchRequest
                 {
                     Text = Text
                 };
 
-                var matchedTexts = await _documentsService.Plagiarism<List<Documents>>(docReq);
+                var matchedTexts = await _documentsService.Get<List<Documents>>(docReq);
+                await Application.Current.MainPage.DisplayAlert("Success", matchedTexts.ToString(), "OK");
             }
             else
             {
-                List<string> mojArej = new List<string>();
+                List<string> requestMatches = new List<string>();
                 for (int i = 0; i < textLength; i++)
                 {
-                    var moj = "";
+                    var requestMatchesString = "";
                     if (i + 2 < textLength)
                     {
-                        moj = aray[i] + " " + aray[i + 1] + " " + aray[i + 2];
-                        mojArej.Add(moj);
+                        requestMatchesString = aray[i] + " " + aray[i + 1] + " " + aray[i + 2];
+                        requestMatches.Add(requestMatchesString);
                     }
                     else
                     {
@@ -97,12 +97,12 @@ namespace plagiarism.Mobile.ViewModels
                 }
                 var docReq = new DocumentsSearchRequest
                 {
-                    matches = mojArej
+                    matches = requestMatches
                 };
 
                 var matchedTexts = await _documentsService.Plagiarism<List<Documents>>(docReq);
+                await Application.Current.MainPage.DisplayAlert("Success", matchedTexts.ToString(), "OK");
             }
         }
     }
 }
-
