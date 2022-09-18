@@ -1,9 +1,10 @@
-﻿using plagiarism.Mobile.ViewModels;
+﻿using iTextSharp.text.pdf;
+using iTextSharp.text.pdf.parser;
+using plagiarism.Mobile.ViewModels;
 using Plugin.FilePicker;
 using Plugin.FilePicker.Abstractions;
 using Plugin.Permissions;
 using Spire.Doc;
-using Spire.Pdf;
 using System;
 using System.IO;
 using System.Net.Http;
@@ -73,9 +74,15 @@ namespace plagiarism.Mobile.Views
 
         private async void CheckText()
         {
-            CheckExtension();
-            //ScanFile();
-            await model.CheckPlagiarism();
+            if (SearchOnline.IsChecked)
+            {
+                ScanFile();
+            }
+            else
+            {
+                CheckExtension();
+                await model.CheckPlagiarism();
+            }
         }
 
         private void Button_Clicked_1(object sender, EventArgs e)
@@ -120,31 +127,18 @@ namespace plagiarism.Mobile.Views
 
         private void CheckPdf()
         {
-            //Create a Document object
-            PdfDocument pdf = new PdfDocument();
-            //Load a Word file
-            pdf.LoadFromFile(fileData.FilePath);
-            string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "result.doc");
-
-            //Convert the text in Word line by line into a txt file
-            pdf.SaveToFile(path);
-            //Create a Document object
-            Document doc = new Document();
-            //Load a Word file
-            doc.LoadFromFile(path);
-            //Convert the text in Word line by line into a txt file
-            doc.SaveToTxt("result.text", Encoding.UTF8);
-            //Read all lines of txt file
-            string[] lines = File.ReadAllLines("result.text", System.Text.Encoding.Default);
-            foreach (string line in lines)
+            PdfReader reader = new PdfReader(fileData.FilePath);
+            for (int page = 1; page <= reader.NumberOfPages; page++)
             {
-                // Use a tab to indent each line of the file.
-                model.Text += "\t" + line;
+                model.Text += PdfTextExtractor.GetTextFromPage(reader, page);
             }
+            reader.Close();
         }
 
         private async void ScanFile()
         {
+            await Application.Current.MainPage.DisplayAlert("Success", "Online", "OK");
+
             var customId = "scan-for-user-" + Global.LoggedUser.Id;
             var requestUrl = "https://api.copyleaks.com/v3/scans/submit/file/" + customId;
             Helper.GetAccessToken();

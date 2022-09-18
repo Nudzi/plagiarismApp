@@ -7,26 +7,31 @@
         <vm:ScanViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Scan Document!"
+        <ScrollView>
+            <StackLayout>
+                <Label Text="Welcome to Scan Document!"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" 
-                   HeightRequest="100"/>
+                   HeightRequest="30"/>
 
-            <StackLayout Margin="15" HeightRequest="200">
+                <StackLayout Margin="15">
 
-                <Label Padding="10" Text="Insert you document to be scanned!"></Label>
-                <Button Clicked="Button_Clicked" Text="Upload"></Button>
+                    <Label Padding="10" Text="Insert you document to be scanned!"></Label>
+                    <Button Clicked="Button_Clicked" Text="Upload"></Button>
 
-                <StackLayout Padding="8" VerticalOptions="CenterAndExpand" 
+                    <StackLayout Padding="8" VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" BackgroundColor="LightGoldenrodYellow">
-                    <Label HorizontalTextAlignment="Center" Text=" Uploaded document:"></Label>
-                    <Label x:Name="SupportingDocument" TextColor="Red"></Label>
-                </StackLayout>
-                
-                <Button WidthRequest="100" Padding="10" Text="SCAN" Clicked="Button_Clicked_1" BackgroundColor="DarkRed"></Button>
-            </StackLayout>
+                        <Label HorizontalTextAlignment="Center" Text=" Uploaded document:"></Label>
+                        <Label x:Name="SupportingDocument" TextColor="Red"></Label>
+                    </StackLayout>
 
-        </StackLayout>
+                    <Label HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" Text="Search Online"></Label>
+                    <CheckBox HorizontalOptions="CenterAndExpand" x:Name="SearchOnline" IsChecked="False"></CheckBox>
+
+                    <Button WidthRequest="100" Padding="10" Text="SCAN" Clicked="Button_Clicked_1" BackgroundColor="DarkRed"></Button>
+                </StackLayout>
+
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

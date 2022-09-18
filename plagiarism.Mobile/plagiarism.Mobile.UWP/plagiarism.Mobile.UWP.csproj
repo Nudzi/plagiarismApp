@@ -148,6 +148,9 @@
     <PackageReference Include="Flurl.Http">
       <Version>3.0.1</Version>
     </PackageReference>
+    <PackageReference Include="itextsharp.pdfa">
+      <Version>5.4.2</Version>
+    </PackageReference>
     <PackageReference Include="Spire.Doc">
       <Version>6.10.6</Version>
     </PackageReference>

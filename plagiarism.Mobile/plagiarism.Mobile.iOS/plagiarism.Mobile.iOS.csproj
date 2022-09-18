@@ -142,10 +142,4 @@
     </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
-  <ItemGroup>
-    <ProjectReference Include="..\plagiarism.Mobile\plagiarism.Mobile.csproj">
-      <Project>{7583FDA5-BF2E-49A2-894C-D285AA260F96}</Project>
-      <Name>plagiarism.Mobile</Name>
-    </ProjectReference>
-  </ItemGroup>
 </Project>

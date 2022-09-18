@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <PackageReference Include="Flurl.Http" Version="3.0.1" />
+    <PackageReference Include="itextsharp.pdfa" Version="5.4.2" />
     <PackageReference Include="Plugin.Permissions" Version="6.0.1" />
     <PackageReference Include="Spire.Doc" Version="6.10.6" />
     <PackageReference Include="Xam.Plugin.Media" Version="5.0.1" />
