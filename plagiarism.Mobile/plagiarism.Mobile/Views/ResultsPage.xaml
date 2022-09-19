@@ -1,12 +1,74 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:plagiarism.Mobile.ViewModels"
              x:Class="plagiarism.Mobile.Views.ResultsPage">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+    <ContentPage.BindingContext>
+        <vm:ResultsViewModel></vm:ResultsViewModel>
+    </ContentPage.BindingContext>
+        <NavigationPage.TitleView>
+            <Label Text="Scan"
+                    HorizontalOptions="CenterAndExpand"
+                    FontSize="17"
+                    FontAttributes="Bold"
+                    TextColor="{StaticResource PrimaryDark}"/>
+        </NavigationPage.TitleView>
+        <ScrollView>
+        <Grid VerticalOptions="FillAndExpand"
+              ColumnSpacing="20"
+              HorizontalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Frame x:Name="expiredDays" HasShadow="false"
+                      Padding="10"
+                      BorderColor="{StaticResource LightColor}"
+                      Margin="30,30,30,10"
+                      Grid.Row="1"
+                      Grid.Column="0"
+                      Grid.ColumnSpan="3">
+                <StackLayout Orientation="Horizontal" Spacing="20">
+                    <Label HorizontalOptions="FillAndExpand" Text="Plagiarism Percentage: " VerticalTextAlignment="Center"></Label>
+                    <Label HorizontalOptions="FillAndExpand" Visual="Custom" Text="{Binding Percentage}"></Label>
+                </StackLayout>
+            </Frame>
+
+            <Frame x:Name="expiredDays" HasShadow="false"
+                      Padding="10"
+                      BorderColor="{StaticResource LightColor}"
+                      Margin="30,30,30,10"
+                      Grid.Row="2"
+                      Grid.Column="0"
+                      Grid.ColumnSpan="3">
+                <StackLayout Orientation="Horizontal" Spacing="20">
+                    <Label HorizontalOptions="FillAndExpand" Text="Founded files: " VerticalTextAlignment="Center"></Label>
+                    <Label HorizontalOptions="FillAndExpand" Visual="Custom"></Label>
+                </StackLayout>
+            </Frame>
+
+            <Button Text="Close"
+                         CornerRadius="26"
+                         FontSize="18"
+                         Grid.Row="3"
+                         Grid.Column="0"
+                         Grid.ColumnSpan="3"
+                         Padding="18"
+                         TextColor="White"
+                         Margin="30,0,30,30"/>
+        </Grid>
+    </ScrollView>
 </ContentPage>
+    

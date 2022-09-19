@@ -45,7 +45,6 @@ namespace plagiarism.Mobile.Views
             return true;
         }
 
-
         [Obsolete]
         private async void Button_Clicked(object sender, EventArgs e)
         {
@@ -83,6 +82,8 @@ namespace plagiarism.Mobile.Views
                 CheckExtension();
                 await model.CheckPlagiarism();
             }
+
+            await Navigation.PushAsync(new ResultsPage());
         }
 
         private void Button_Clicked_1(object sender, EventArgs e)

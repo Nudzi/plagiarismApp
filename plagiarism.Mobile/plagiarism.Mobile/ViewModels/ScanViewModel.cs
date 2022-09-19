@@ -68,16 +68,13 @@ namespace plagiarism.Mobile.ViewModels
             char[] delimiters = new char[] { ' ', '\r', '\n' };
             var aray = Text.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
             var textLength = Text.Split(delimiters, StringSplitOptions.RemoveEmptyEntries).Length;
+            var docReq = new DocumentsSearchRequest();
 
             if (textLength < 3)
             {
-                var docReq = new DocumentsSearchRequest
-                {
-                    Text = Text
-                };
+                docReq.Text = Text;
 
-                var matchedTexts = await _documentsService.Get<List<Documents>>(docReq);
-                await Application.Current.MainPage.DisplayAlert("Success", matchedTexts.ToString(), "OK");
+                Global.MatchedDocs = await _documentsService.Get<List<Documents>>(docReq);
             }
             else
             {
@@ -90,18 +87,10 @@ namespace plagiarism.Mobile.ViewModels
                         requestMatchesString = aray[i] + " " + aray[i + 1] + " " + aray[i + 2];
                         requestMatches.Add(requestMatchesString);
                     }
-                    else
-                    {
-                        break;
-                    }
                 }
-                var docReq = new DocumentsSearchRequest
-                {
-                    matches = requestMatches
-                };
+                docReq.matches = requestMatches;
 
-                var matchedTexts = await _documentsService.Plagiarism<List<Documents>>(docReq);
-                await Application.Current.MainPage.DisplayAlert("Success", matchedTexts.ToString(), "OK");
+                Global.MatchedDocs = await _documentsService.Plagiarism<List<Documents>>(docReq);
             }
         }
     }

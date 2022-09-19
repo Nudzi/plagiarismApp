@@ -1,4 +1,5 @@
 ﻿using plagiarismModel;
+using System.Collections.Generic;
 
 namespace plagiarism.Mobile
 {
@@ -8,5 +9,6 @@ namespace plagiarism.Mobile
         public static UsersPackageTypes UsersPackageType { get; set; }
         public static bool JustRegisterNoPackage { get; set; }
         public static string AccessToken { get; set; }
+        public static List<Documents> MatchedDocs { get; set; }
     }
 }
