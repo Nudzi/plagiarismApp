@@ -1,4 +1,5 @@
 ﻿using plagiarism.Mobile.Services;
+using plagiarism.Mobile.Views;
 using plagiarismModel;
 using plagiarismModel.Enums;
 using plagiarismModel.TableRequests.Documents;
@@ -91,6 +92,17 @@ namespace plagiarism.Mobile.ViewModels
                 docReq.matches = requestMatches;
 
                 Global.MatchedDocs = await _documentsService.Plagiarism<List<Documents>>(docReq);
+
+                double Total = 0;
+                foreach (var item in Global.MatchedDocs)
+                {
+                    Total += Text.Length / (double)item.Text.Length;
+                }
+
+                Global.Percentage = Total / Global.MatchedDocs.Count;
+
+                if (Global.Percentage >= 100) Global.Percentage = 100;
+                Application.Current.MainPage = new ResultsPage();
             }
         }
     }

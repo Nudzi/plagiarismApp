@@ -10,5 +10,6 @@ namespace plagiarism.Mobile
         public static bool JustRegisterNoPackage { get; set; }
         public static string AccessToken { get; set; }
         public static List<Documents> MatchedDocs { get; set; }
+        public static double Percentage { get; set; }
     }
 }

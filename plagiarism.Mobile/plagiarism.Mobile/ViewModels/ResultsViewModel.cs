@@ -1,12 +1,5 @@
 ﻿using plagiarism.Mobile.Services;
-using plagiarismModel;
-using plagiarismModel.Enums;
-using plagiarismModel.TableRequests.Documents;
-using plagiarismModel.TableRequests.UsersPackageTypes;
 using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using Xamarin.Forms;
 
 namespace plagiarism.Mobile.ViewModels
 {
@@ -22,10 +15,21 @@ namespace plagiarism.Mobile.ViewModels
             set { SetProperty(ref _percentage, value); }
         }
 
-        internal async Task Init()
+        string _docNames = string.Empty;
+        public string DocNames
         {
+            get { return _docNames; }
+            set { SetProperty(ref _docNames, value); }
+        }
 
+        internal void Init()
+        {
+            foreach (var item in Global.MatchedDocs)
+            {
+                DocNames += item.Title + ", ";
+            }
 
+            Percentage = Math.Round(Global.Percentage, 2).ToString() + "%";
         }
     }
 }

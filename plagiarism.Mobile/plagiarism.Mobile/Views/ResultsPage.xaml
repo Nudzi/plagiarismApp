@@ -33,7 +33,7 @@
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
 
-            <Frame x:Name="expiredDays" HasShadow="false"
+            <Frame HasShadow="false"
                       Padding="10"
                       BorderColor="{StaticResource LightColor}"
                       Margin="30,30,30,10"
@@ -46,7 +46,7 @@
                 </StackLayout>
             </Frame>
 
-            <Frame x:Name="expiredDays" HasShadow="false"
+            <Frame HasShadow="false"
                       Padding="10"
                       BorderColor="{StaticResource LightColor}"
                       Margin="30,30,30,10"
@@ -54,8 +54,8 @@
                       Grid.Column="0"
                       Grid.ColumnSpan="3">
                 <StackLayout Orientation="Horizontal" Spacing="20">
-                    <Label HorizontalOptions="FillAndExpand" Text="Founded files: " VerticalTextAlignment="Center"></Label>
-                    <Label HorizontalOptions="FillAndExpand" Visual="Custom"></Label>
+                    <Label HorizontalOptions="FillAndExpand" Text="Found files: " VerticalTextAlignment="Center"></Label>
+                    <Label HorizontalOptions="FillAndExpand" Visual="Custom" Text="{Binding DocNames}" ></Label>
                 </StackLayout>
             </Frame>
 
@@ -67,6 +67,7 @@
                          Grid.ColumnSpan="3"
                          Padding="18"
                          TextColor="White"
+                         Clicked="Button_Clicked"
                          Margin="30,0,30,30"/>
         </Grid>
     </ScrollView>

@@ -82,8 +82,6 @@ namespace plagiarism.Mobile.Views
                 CheckExtension();
                 await model.CheckPlagiarism();
             }
-
-            await Navigation.PushAsync(new ResultsPage());
         }
 
         private void Button_Clicked_1(object sender, EventArgs e)

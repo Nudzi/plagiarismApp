@@ -1,4 +1,6 @@
 ﻿using plagiarism.Mobile.ViewModels;
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace plagiarism.Mobile.Views
 {
@@ -12,10 +14,15 @@ namespace plagiarism.Mobile.Views
             BindingContext = model = new ResultsViewModel { };
         }
 
-        protected async override void OnAppearing()
+        protected override void OnAppearing()
         {
             base.OnAppearing();
-            await model.Init();
+            model.Init();
+        }
+
+        private void Button_Clicked(object sender, System.EventArgs e)
+        {
+            Application.Current.MainPage = new MainPage(Global.LoggedUser);
         }
     }
 }
