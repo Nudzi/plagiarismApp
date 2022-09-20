@@ -160,6 +160,7 @@ namespace plagiarism.WinUI.InstitutionsForms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(907, 539);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnOfficial);

@@ -123,7 +123,7 @@ namespace plagiarism.WinUI.Users
             // 
             // btnSave
             // 
-            this.btnSave.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnSave.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.btnSave.Location = new System.Drawing.Point(240, 452);
             this.btnSave.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSave.Name = "btnSave";
@@ -395,6 +395,7 @@ namespace plagiarism.WinUI.Users
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(966, 510);
             this.Controls.Add(this.cbNewPackage);
             this.Controls.Add(this.txtPackage);

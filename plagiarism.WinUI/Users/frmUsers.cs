@@ -62,15 +62,5 @@ namespace plagiarism.WinUI.Users
                 MessageBox.Show("Nothing selected", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
-        private void txtSearch_TextChanged(object sender, System.EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, System.EventArgs e)
-        {
-
-        }
     }
 }

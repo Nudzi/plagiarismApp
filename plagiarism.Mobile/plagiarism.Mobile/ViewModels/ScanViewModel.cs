@@ -3,7 +3,6 @@ using plagiarism.Mobile.Views;
 using plagiarismModel;
 using plagiarismModel.Enums;
 using plagiarismModel.TableRequests.Documents;
-using plagiarismModel.TableRequests.UsersPackageTypes;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -41,15 +40,7 @@ namespace plagiarism.Mobile.ViewModels
 
         internal async Task<bool> CheckAllowedTextSize()
         {
-            User = Global.LoggedUser;
-            var usersPackageTypesSearchRequest = new UsersPackageTypesSearchRequest
-            {
-                UserId = User.Id
-            };
-            var usersPackageTypes = await _usersPackageTypesService.Get<List<UsersPackageTypes>>(usersPackageTypesSearchRequest);
-
-            pckgUsr = usersPackageTypes[0].PackageTypeId;
-            var maxTextSize = generateMaxTextSizeByPackage(pckgUsr);
+            var maxTextSize = generateMaxTextSizeByPackage(Global.UsersPackageType.PackageTypeId);
             TextError = "Your maximum Text size is: " + maxTextSize + ", but you inserted: " + Text.Length;
             return Text.Length > maxTextSize;
         }
@@ -86,7 +77,10 @@ namespace plagiarism.Mobile.ViewModels
                     if (i + 2 < textLength)
                     {
                         requestMatchesString = aray[i] + " " + aray[i + 1] + " " + aray[i + 2];
-                        requestMatches.Add(requestMatchesString);
+                        if (!requestMatches.Contains(requestMatchesString))
+                        {
+                            requestMatches.Add(requestMatchesString);
+                        }
                     }
                 }
                 docReq.matches = requestMatches;

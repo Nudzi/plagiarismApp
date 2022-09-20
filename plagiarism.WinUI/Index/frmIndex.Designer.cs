@@ -41,18 +41,22 @@ namespace plagiarism.WinUI.Index
             this.documentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewAllToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.requestsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewAllToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.requestsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewAllToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.pbUpload = new System.Windows.Forms.PictureBox();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbUpload)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip
             // 
-            this.menuStrip.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
+            this.menuStrip.BackColor = System.Drawing.Color.DarkSalmon;
+            this.menuStrip.Dock = System.Windows.Forms.DockStyle.Left;
+            this.menuStrip.Font = new System.Drawing.Font("Sitka Subheading", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.userToolStripMenuItem,
@@ -62,9 +66,10 @@ namespace plagiarism.WinUI.Index
             this.requestsToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(948, 33);
+            this.menuStrip.Size = new System.Drawing.Size(168, 410);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "MenuStrip";
+            this.menuStrip.UseWaitCursor = true;
             // 
             // userToolStripMenuItem
             // 
@@ -72,20 +77,20 @@ namespace plagiarism.WinUI.Index
             this.viewAllToolStripMenuItem,
             this.newToolStripMenuItem});
             this.userToolStripMenuItem.Name = "userToolStripMenuItem";
-            this.userToolStripMenuItem.Size = new System.Drawing.Size(63, 29);
+            this.userToolStripMenuItem.Size = new System.Drawing.Size(173, 39);
             this.userToolStripMenuItem.Text = "User";
             // 
             // viewAllToolStripMenuItem
             // 
             this.viewAllToolStripMenuItem.Name = "viewAllToolStripMenuItem";
-            this.viewAllToolStripMenuItem.Size = new System.Drawing.Size(176, 34);
+            this.viewAllToolStripMenuItem.Size = new System.Drawing.Size(212, 44);
             this.viewAllToolStripMenuItem.Text = "View All";
             this.viewAllToolStripMenuItem.Click += new System.EventHandler(this.viewAllToolStripMenuItem_Click);
             // 
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(176, 34);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(212, 44);
             this.newToolStripMenuItem.Text = "New";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
@@ -94,13 +99,13 @@ namespace plagiarism.WinUI.Index
             this.institutionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.viewAllToolStripMenuItem1});
             this.institutionsToolStripMenuItem.Name = "institutionsToolStripMenuItem";
-            this.institutionsToolStripMenuItem.Size = new System.Drawing.Size(116, 29);
+            this.institutionsToolStripMenuItem.Size = new System.Drawing.Size(173, 39);
             this.institutionsToolStripMenuItem.Text = "Institutions";
             // 
             // viewAllToolStripMenuItem1
             // 
             this.viewAllToolStripMenuItem1.Name = "viewAllToolStripMenuItem1";
-            this.viewAllToolStripMenuItem1.Size = new System.Drawing.Size(176, 34);
+            this.viewAllToolStripMenuItem1.Size = new System.Drawing.Size(212, 44);
             this.viewAllToolStripMenuItem1.Text = "View All";
             this.viewAllToolStripMenuItem1.Click += new System.EventHandler(this.viewAllToolStripMenuItem1_Click);
             // 
@@ -109,13 +114,13 @@ namespace plagiarism.WinUI.Index
             this.reportsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openToolStripMenuItem});
             this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
-            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(89, 29);
+            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(173, 39);
             this.reportsToolStripMenuItem.Text = "Reports";
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(158, 34);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(178, 44);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
@@ -125,32 +130,49 @@ namespace plagiarism.WinUI.Index
             this.viewAllToolStripMenuItem2,
             this.newToolStripMenuItem1});
             this.documentsToolStripMenuItem.Name = "documentsToolStripMenuItem";
-            this.documentsToolStripMenuItem.Size = new System.Drawing.Size(119, 29);
+            this.documentsToolStripMenuItem.Size = new System.Drawing.Size(173, 39);
             this.documentsToolStripMenuItem.Text = "Documents";
             // 
             // viewAllToolStripMenuItem2
             // 
             this.viewAllToolStripMenuItem2.Name = "viewAllToolStripMenuItem2";
-            this.viewAllToolStripMenuItem2.Size = new System.Drawing.Size(176, 34);
+            this.viewAllToolStripMenuItem2.Size = new System.Drawing.Size(212, 44);
             this.viewAllToolStripMenuItem2.Text = "View All";
             this.viewAllToolStripMenuItem2.Click += new System.EventHandler(this.viewAllToolStripMenuItem2_Click);
             // 
             // newToolStripMenuItem1
             // 
             this.newToolStripMenuItem1.Name = "newToolStripMenuItem1";
-            this.newToolStripMenuItem1.Size = new System.Drawing.Size(176, 34);
+            this.newToolStripMenuItem1.Size = new System.Drawing.Size(212, 44);
             this.newToolStripMenuItem1.Text = "New";
             this.newToolStripMenuItem1.Click += new System.EventHandler(this.newToolStripMenuItem1_Click);
             // 
+            // requestsToolStripMenuItem
+            // 
+            this.requestsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.viewAllToolStripMenuItem3});
+            this.requestsToolStripMenuItem.Name = "requestsToolStripMenuItem";
+            this.requestsToolStripMenuItem.Size = new System.Drawing.Size(173, 39);
+            this.requestsToolStripMenuItem.Text = "Requests";
+            // 
+            // viewAllToolStripMenuItem3
+            // 
+            this.viewAllToolStripMenuItem3.Name = "viewAllToolStripMenuItem3";
+            this.viewAllToolStripMenuItem3.Size = new System.Drawing.Size(212, 44);
+            this.viewAllToolStripMenuItem3.Text = "View All";
+            this.viewAllToolStripMenuItem3.Click += new System.EventHandler(this.viewAllToolStripMenuItem3_Click);
+            // 
             // statusStrip
             // 
+            this.statusStrip.BackColor = System.Drawing.Color.DarkOrchid;
+            this.statusStrip.Dock = System.Windows.Forms.DockStyle.None;
             this.statusStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel});
-            this.statusStrip.Location = new System.Drawing.Point(0, 665);
+            this.statusStrip.Location = new System.Drawing.Point(288, 162);
             this.statusStrip.Name = "statusStrip";
             this.statusStrip.Padding = new System.Windows.Forms.Padding(2, 0, 21, 0);
-            this.statusStrip.Size = new System.Drawing.Size(948, 32);
+            this.statusStrip.Size = new System.Drawing.Size(85, 32);
             this.statusStrip.TabIndex = 2;
             this.statusStrip.Text = "StatusStrip";
             // 
@@ -160,37 +182,40 @@ namespace plagiarism.WinUI.Index
             this.toolStripStatusLabel.Size = new System.Drawing.Size(60, 25);
             this.toolStripStatusLabel.Text = "Status";
             // 
-            // requestsToolStripMenuItem
+            // pbUpload
             // 
-            this.requestsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.viewAllToolStripMenuItem3});
-            this.requestsToolStripMenuItem.Name = "requestsToolStripMenuItem";
-            this.requestsToolStripMenuItem.Size = new System.Drawing.Size(99, 29);
-            this.requestsToolStripMenuItem.Text = "Requests";
-            // 
-            // viewAllToolStripMenuItem3
-            // 
-            this.viewAllToolStripMenuItem3.Name = "viewAllToolStripMenuItem3";
-            this.viewAllToolStripMenuItem3.Size = new System.Drawing.Size(270, 34);
-            this.viewAllToolStripMenuItem3.Text = "View All";
-            this.viewAllToolStripMenuItem3.Click += new System.EventHandler(this.viewAllToolStripMenuItem3_Click);
+            this.pbUpload.Image = global::plagiarism.WinUI.Properties.Resources.icon3;
+            this.pbUpload.Location = new System.Drawing.Point(261, 62);
+            this.pbUpload.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pbUpload.Name = "pbUpload";
+            this.pbUpload.Size = new System.Drawing.Size(304, 281);
+            this.pbUpload.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbUpload.TabIndex = 78;
+            this.pbUpload.TabStop = false;
             // 
             // frmIndex
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(948, 697);
+            this.BackColor = System.Drawing.Color.DarkRed;
+            this.ClientSize = new System.Drawing.Size(640, 415);
+            this.Controls.Add(this.pbUpload);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.menuStrip);
-            this.IsMdiContainer = true;
+            this.ForeColor = System.Drawing.Color.CornflowerBlue;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.HelpButton = true;
+            this.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.MainMenuStrip = this.menuStrip;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmIndex";
-            this.Text = "frmIndex";
+            this.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            this.Text = "Welcome";
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbUpload)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -214,6 +239,7 @@ namespace plagiarism.WinUI.Index
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem requestsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewAllToolStripMenuItem3;
+        private System.Windows.Forms.PictureBox pbUpload;
     }
 }
 

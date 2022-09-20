@@ -136,10 +136,9 @@ namespace plagiarism.Mobile.Views
 
         private async void ScanFile()
         {
-            await Application.Current.MainPage.DisplayAlert("Success", "Online", "OK");
+            Helper.BuildCustomId();
 
-            var customId = "scan-for-user-" + Global.LoggedUser.Id;
-            var requestUrl = "https://api.copyleaks.com/v3/scans/submit/file/" + customId;
+            var requestUrl = "https://api.copyleaks.com/v3/scans/submit/file/" + Global.CustomId;
             Helper.GetAccessToken();
             using (var httpClient = new HttpClient())
             {
@@ -149,7 +148,7 @@ namespace plagiarism.Mobile.Views
 
                     var data = "{\"base64\":\"SGVsbG8gd29ybGQh\",\"filename\":\"" + fileData.FileName +
                         "\",\"properties\"" +
-                        ":{\"webhooks\":{\"status\":\"https://enkbumpblgdi.x.pipedream.net/{STATUS}/" + customId + "\"}}}";
+                        ":{\"webhooks\":{\"status\":\"https://enkbumpblgdi.x.pipedream.net/{STATUS}/" + Global.CustomId + "\"}}}";
                     request.Content = new StringContent(data, Encoding.UTF8, "application/json");
 
                     var response = await httpClient.SendAsync(request);

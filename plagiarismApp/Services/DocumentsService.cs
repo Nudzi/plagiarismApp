@@ -88,7 +88,18 @@ namespace plagiarismApp.Services
             _context.Documents.Attach(entity);
             _context.Documents.Update(entity);
 
-            _mapper.Map(request, entity);
+            entity.Image = request.Image == null ? entity.Image : request.Image;
+            entity.ImageThumb = request.ImageThumb == null ? entity.ImageThumb : request.ImageThumb;
+            entity.Link = request.Link == null ? entity.Link : request.Link;
+            entity.Author = request.Author == null ? entity.Author : request.Author;
+            entity.Text = request.Text == null ? entity.Text : request.Text;
+            entity.Title = request.Title == null ? entity.Title : request.Title;
+            entity.Publisher = request.Publisher == null ? entity.Publisher : request.Publisher;
+            entity.TimeUsed = request.TimeUsed == 0 ? entity.TimeUsed : request.TimeUsed;
+            entity.Extension = request.Extension == null ? entity.Extension : request.Extension;
+            entity.PackageTypeId = request.PackageTypeId == 0 ? entity.PackageTypeId : request.PackageTypeId;
+
+            //_mapper.Map(request, entity);
             _context.SaveChanges();
 
             return _mapper.Map<plagiarismModel.Documents>(entity);

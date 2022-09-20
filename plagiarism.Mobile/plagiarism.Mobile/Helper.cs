@@ -83,5 +83,11 @@ namespace plagiarism.Mobile
 
             return usersPackageTypes.Where(x => x.IsActive).FirstOrDefault();
         }
+
+        public static void BuildCustomId()
+        {
+            Global.CustomId = "scan-for-user-" + Global.LoggedUser.Id;
+            Global.ExportId = "export-for-user-" + Global.LoggedUser.Id;
+        }
     }
 }

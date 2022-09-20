@@ -1,11 +1,16 @@
 ﻿using plagiarism.Mobile.Services;
+using plagiarismModel;
+using plagiarismModel.TableRequests.Documents;
+using plagiarismModel.TableRequests.Results;
 using System;
+using System.Net.Http;
+using System.Text;
 
 namespace plagiarism.Mobile.ViewModels
 {
     public class ResultsViewModel : BaseViewModel
     {
-        private readonly APIService _usersPackageTypesService = new APIService("usersPackageTypes");
+        private readonly APIService _resultsService = new APIService("results");
         private readonly APIService _documentsService = new APIService("documents");
 
         string _percentage = string.Empty;
@@ -22,14 +27,58 @@ namespace plagiarism.Mobile.ViewModels
             set { SetProperty(ref _docNames, value); }
         }
 
-        internal void Init()
+        internal async void Init()
         {
+            Percentage = Math.Round(Global.Percentage, 2).ToString() + "%";
+
+            ResultsUpsertRequest resultsUpsertRequest = new ResultsUpsertRequest
+            {
+                UserId = Global.LoggedUser.Id,
+                Percentage = (decimal)Global.Percentage,
+                RunDate = DateTime.Now
+            };
+
+            await _resultsService.Insert<Results>(resultsUpsertRequest);
+
             foreach (var item in Global.MatchedDocs)
             {
-                DocNames += item.Title + ", ";
-            }
+                DocumentsUpsertRequest request = new DocumentsUpsertRequest
+                {
+                    Id = item.Id,
+                    TimeUsed = (int)(item.TimeUsed + 1)
+                };
 
-            Percentage = Math.Round(Global.Percentage, 2).ToString() + "%";
+                await _documentsService.Update<Documents>(item.Id, request);
+                DocNames += item.Title + " " + "(" + item.Author + "), ";
+            }
+        }
+
+        private async void ScanOnline()
+        {
+            var requestUrl = "https://api.copyleaks.com/v3/downloads/" +
+                Global.CustomId +
+                "/export/" +
+                Global.ExportId;
+
+            using (var httpClient = new HttpClient())
+            {
+                using (var request = new HttpRequestMessage(new HttpMethod("POST"), requestUrl))
+                {
+                    request.Headers.TryAddWithoutValidation("Authorization", "Bearer " + Global.AccessToken);
+
+                    var data = "{\"results\":[{\"id\":\"my-result-id\",\"verb\":\"POST\",\"headers\"" +
+                        ":[[\"header-key\",\"header-value\"]],\"endpoint\"" +
+                        ":\"https://yourserver.com/export/export-id/results/my-result-id\"}]," +
+                        "\"pdfReport\":{\"verb\":\"POST\",\"headers\":[[\"header-key\",\"header-value\"]]," +
+                        "\"endpoint\":\"https://yourserver.com/export/export-id/pdf-report\"},\"crawledVersion\"" +
+                        ":{\"verb\":\"POST\",\"headers\":[[\"header-key\",\"header-value\"]],\"endpoint\"" +
+                        ":\"https://yourserver.com/export/export-id/crawled-version\"},\"completionWebhook\"" +
+                        ":\"https://yourserver.com/export/export-id/completed\",\"maxRetries\":3}";
+                    request.Content = new StringContent(data, Encoding.UTF8, "application/json");
+
+                    var response = await httpClient.SendAsync(request);
+                }
+            }
         }
     }
 }

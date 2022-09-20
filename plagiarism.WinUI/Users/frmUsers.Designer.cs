@@ -46,21 +46,22 @@ namespace plagiarism.WinUI.Users
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(21, 65);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(210, 20);
+            this.label1.Size = new System.Drawing.Size(261, 25);
             this.label1.TabIndex = 9;
             this.label1.Text = "Search User by User Name: ";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // txtSearch
             // 
+            this.txtSearch.BackColor = System.Drawing.Color.White;
+            this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSearch.Location = new System.Drawing.Point(25, 100);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(416, 26);
             this.txtSearch.TabIndex = 8;
-            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // groupBox1
             // 
@@ -78,6 +79,7 @@ namespace plagiarism.WinUI.Users
             // 
             this.dgvUsers.AllowUserToAddRows = false;
             this.dgvUsers.AllowUserToDeleteRows = false;
+            this.dgvUsers.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUsers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.UserID,
@@ -149,12 +151,14 @@ namespace plagiarism.WinUI.Users
             // btnShow
             // 
             this.btnShow.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnShow.Location = new System.Drawing.Point(461, 96);
+            this.btnShow.BackgroundImage = global::plagiarism.WinUI.Properties.Resources.s5;
+            this.btnShow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnShow.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.btnShow.Location = new System.Drawing.Point(458, 87);
             this.btnShow.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnShow.Name = "btnShow";
-            this.btnShow.Size = new System.Drawing.Size(112, 35);
+            this.btnShow.Size = new System.Drawing.Size(58, 50);
             this.btnShow.TabIndex = 7;
-            this.btnShow.Text = "Show";
             this.btnShow.UseVisualStyleBackColor = false;
             this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
             // 
@@ -162,9 +166,11 @@ namespace plagiarism.WinUI.Users
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightBlue;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(892, 482);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.txtSearch);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnShow);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmUsers";

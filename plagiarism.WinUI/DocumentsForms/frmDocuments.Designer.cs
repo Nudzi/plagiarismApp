@@ -171,6 +171,7 @@ namespace plagiarism.WinUI.DocumentsForms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(882, 608);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);

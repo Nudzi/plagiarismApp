@@ -58,6 +58,7 @@ namespace plagiarismApp.Services
 
             return null;
         }
+
         public List<plagiarismModel.Users> Get(UsersSearchRequest request)
         {
             var query = _context.Users.Include(x => x.UserAddress).AsQueryable();

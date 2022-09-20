@@ -4,6 +4,7 @@ using plagiarismModel.TableRequests.Requests;
 using plagiarismModel.TableRequests.Results;
 using plagiarismModel.TableRequests.UserAddresses;
 using plagiarismModel.TableRequests.UserImages;
+using plagiarismModel.TableRequests.Users;
 using plagiarismModel.TableRequests.UsersPackageTypes;
 using plagiarismModel.TableRequests.UsersUserTypes;
 
@@ -15,7 +16,7 @@ namespace plagiarismApp.Mappers
         {
             //users
             CreateMap<Database.Users, plagiarismModel.Users>();
-            CreateMap<Database.Users, plagiarismModel.TableRequests.Users.UsersInsertRequest>().ReverseMap();
+            CreateMap<Database.Users, UsersInsertRequest>().ReverseMap();
 
             //userTypes
             CreateMap<Database.UserTypes, plagiarismModel.UserTypes>();
@@ -48,8 +49,8 @@ namespace plagiarismApp.Mappers
             CreateMap<Database.Documents, plagiarismModel.Documents>();
             CreateMap<Database.Documents, DocumentsUpsertRequest>().ReverseMap();
 
-            //Doucuments
-            CreateMap<Database.Requests, plagiarismModel.Requests>();
+            //Requests
+            CreateMap<Database.Requests, plagiarismModel.Requests>().ReverseMap();
             CreateMap<Database.Requests, RequestsUpsertRequest>().ReverseMap();
         }
     }
