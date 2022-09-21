@@ -105,10 +105,10 @@ namespace plagiarism.WinUI.Reports
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 38F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(12, 23);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(302, 86);
+            this.label1.Size = new System.Drawing.Size(176, 52);
             this.label1.TabIndex = 16;
             this.label1.Text = "Reports";
             // 
@@ -215,7 +215,7 @@ namespace plagiarism.WinUI.Reports
             this.Controls.Add(this.btnFromDisable);
             this.Controls.Add(this.label4);
             this.Name = "frmReports";
-            this.Text = "frmReports";
+            this.Text = "Reports";
             ((System.ComponentModel.ISupportInitialize)(this.dgvResults)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

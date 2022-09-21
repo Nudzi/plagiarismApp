@@ -41,6 +41,7 @@ namespace plagiarism.WinUI.DocumentsForms
             this.txtPublisher = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDocs)).BeginInit();
             this.SuspendLayout();
@@ -48,9 +49,10 @@ namespace plagiarism.WinUI.DocumentsForms
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label1.Location = new System.Drawing.Point(18, 74);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(121, 20);
+            this.label1.Size = new System.Drawing.Size(154, 25);
             this.label1.TabIndex = 13;
             this.label1.Text = "Search by Title: ";
             // 
@@ -65,12 +67,13 @@ namespace plagiarism.WinUI.DocumentsForms
             // btnShow
             // 
             this.btnShow.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnShow.Location = new System.Drawing.Point(449, 166);
+            this.btnShow.BackgroundImage = global::plagiarism.WinUI.Properties.Resources.s5;
+            this.btnShow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnShow.Location = new System.Drawing.Point(449, 158);
             this.btnShow.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnShow.Name = "btnShow";
-            this.btnShow.Size = new System.Drawing.Size(112, 35);
+            this.btnShow.Size = new System.Drawing.Size(58, 50);
             this.btnShow.TabIndex = 11;
-            this.btnShow.Text = "Show";
             this.btnShow.UseVisualStyleBackColor = false;
             this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
             // 
@@ -152,20 +155,32 @@ namespace plagiarism.WinUI.DocumentsForms
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label2.Location = new System.Drawing.Point(18, 211);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(157, 20);
+            this.label2.Size = new System.Drawing.Size(198, 25);
             this.label2.TabIndex = 16;
             this.label2.Text = "Search by Publisher: ";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label3.Location = new System.Drawing.Point(18, 145);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(140, 20);
+            this.label3.Size = new System.Drawing.Size(175, 25);
             this.label3.TabIndex = 17;
             this.label3.Text = "Search by Author: ";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(698, 20);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(158, 32);
+            this.label4.TabIndex = 18;
+            this.label4.Text = "Documents";
             // 
             // frmDocuments
             // 
@@ -173,6 +188,7 @@ namespace plagiarism.WinUI.DocumentsForms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(882, 608);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtPublisher);
@@ -182,7 +198,7 @@ namespace plagiarism.WinUI.DocumentsForms
             this.Controls.Add(this.btnShow);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmDocuments";
-            this.Text = "frmDocuments";
+            this.Text = "Documents";
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDocs)).EndInit();
             this.ResumeLayout(false);
@@ -204,5 +220,6 @@ namespace plagiarism.WinUI.DocumentsForms
         private System.Windows.Forms.DataGridViewTextBoxColumn Title;
         private System.Windows.Forms.DataGridViewTextBoxColumn Author;
         private System.Windows.Forms.DataGridViewTextBoxColumn Publisher;
+        private System.Windows.Forms.Label label4;
     }
 }

@@ -249,7 +249,7 @@ namespace plagiarism.WinUI.RequestsForm
             this.Controls.Add(this.lblFirstName);
             this.Controls.Add(this.txtTitle);
             this.Name = "frmRequestDetails";
-            this.Text = "frmRequestDetails";
+            this.Text = "RequestDetails";
             this.Load += new System.EventHandler(this.frmRequestDetails_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -155,9 +155,6 @@
     <Compile Include="RequestsForm\frmRequests.Designer.cs">
       <DependentUpon>frmRequests.cs</DependentUpon>
     </Compile>
-    <Compile Include="RoundButton.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Users\frmUserDetails.cs">
       <SubType>Form</SubType>
     </Compile>

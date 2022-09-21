@@ -122,7 +122,7 @@ namespace plagiarism.WinUI
             this.Controls.Add(this.textBoxUserName);
             this.Controls.Add(this.txtUserName);
             this.Name = "frmLogin";
-            this.Text = "frmLogin";
+            this.Text = "Login";
             ((System.ComponentModel.ISupportInitialize)(this.pbUpload)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -39,6 +39,7 @@ namespace plagiarism.WinUI.Users
             this.Status = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Edit = new System.Windows.Forms.DataGridViewLinkColumn();
             this.btnShow = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             this.SuspendLayout();
@@ -162,6 +163,16 @@ namespace plagiarism.WinUI.Users
             this.btnShow.UseVisualStyleBackColor = false;
             this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(761, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(88, 32);
+            this.label2.TabIndex = 15;
+            this.label2.Text = "Users";
+            // 
             // frmUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -169,12 +180,13 @@ namespace plagiarism.WinUI.Users
             this.BackColor = System.Drawing.Color.LightBlue;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(892, 482);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnShow);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmUsers";
-            this.Text = "frmUsers";
+            this.Text = "Users";
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
             this.ResumeLayout(false);
@@ -193,5 +205,6 @@ namespace plagiarism.WinUI.Users
         private System.Windows.Forms.DataGridViewCheckBoxColumn Status;
         private System.Windows.Forms.DataGridViewLinkColumn Edit;
         private System.Windows.Forms.Button btnShow;
+        private System.Windows.Forms.Label label2;
     }
 }

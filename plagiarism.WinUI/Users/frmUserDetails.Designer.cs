@@ -123,13 +123,14 @@ namespace plagiarism.WinUI.Users
             // 
             // btnSave
             // 
-            this.btnSave.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.btnSave.Location = new System.Drawing.Point(240, 452);
+            this.btnSave.BackColor = System.Drawing.Color.Green;
+            this.btnSave.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnSave.Location = new System.Drawing.Point(800, 448);
             this.btnSave.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(112, 35);
+            this.btnSave.Size = new System.Drawing.Size(104, 48);
             this.btnSave.TabIndex = 32;
-            this.btnSave.Text = "Save";
+            this.btnSave.Text = "SAVE";
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
@@ -430,7 +431,7 @@ namespace plagiarism.WinUI.Users
             this.Controls.Add(this.lblFirstName);
             this.Controls.Add(this.txtFirstName);
             this.Name = "frmUserDetails";
-            this.Text = "frmUserDetails";
+            this.Text = "UserDetails";
             this.Load += new System.EventHandler(this.frmUserDetails_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.gbUserTypes.ResumeLayout(false);

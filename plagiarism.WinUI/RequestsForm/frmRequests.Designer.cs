@@ -34,6 +34,7 @@ namespace plagiarism.WinUI.RequestsForm
             this.btnShow = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvUsers = new System.Windows.Forms.DataGridView();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             this.SuspendLayout();
@@ -41,9 +42,10 @@ namespace plagiarism.WinUI.RequestsForm
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label1.Location = new System.Drawing.Point(17, 59);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(117, 20);
+            this.label1.Size = new System.Drawing.Size(149, 25);
             this.label1.TabIndex = 12;
             this.label1.Text = "Search by Title:";
             // 
@@ -58,12 +60,13 @@ namespace plagiarism.WinUI.RequestsForm
             // btnShow
             // 
             this.btnShow.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnShow.Location = new System.Drawing.Point(457, 90);
+            this.btnShow.BackgroundImage = global::plagiarism.WinUI.Properties.Resources.s5;
+            this.btnShow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnShow.Location = new System.Drawing.Point(445, 81);
             this.btnShow.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnShow.Name = "btnShow";
-            this.btnShow.Size = new System.Drawing.Size(112, 35);
+            this.btnShow.Size = new System.Drawing.Size(58, 50);
             this.btnShow.TabIndex = 10;
-            this.btnShow.Text = "Show";
             this.btnShow.UseVisualStyleBackColor = false;
             this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
             // 
@@ -96,18 +99,29 @@ namespace plagiarism.WinUI.RequestsForm
             this.dgvUsers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsers_CellContentClick);
             this.dgvUsers.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvUsers_CellMouseDoubleClick);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(718, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(135, 32);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "Requests";
+            // 
             // frmRequests
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(880, 468);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.btnShow);
             this.Name = "frmRequests";
-            this.Text = "frmRequests";
+            this.Text = "Requests";
             this.Load += new System.EventHandler(this.frmRequests_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
@@ -122,5 +136,6 @@ namespace plagiarism.WinUI.RequestsForm
         private System.Windows.Forms.Button btnShow;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dgvUsers;
+        private System.Windows.Forms.Label label2;
     }
 }

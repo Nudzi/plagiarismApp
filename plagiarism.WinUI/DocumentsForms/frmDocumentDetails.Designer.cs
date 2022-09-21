@@ -400,7 +400,7 @@ namespace plagiarism.WinUI.DocumentsForms
             this.Controls.Add(this.lblFirstName);
             this.Controls.Add(this.txtTitle);
             this.Name = "frmDocumentDetails";
-            this.Text = "frmDocumentDetails";
+            this.Text = "DocumentDetails";
             this.Load += new System.EventHandler(this.frmDocumentDetails_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbUpload)).EndInit();

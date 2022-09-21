@@ -39,6 +39,7 @@ namespace plagiarism.WinUI.InstitutionsForms
             this.OfficialName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Edit = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             this.SuspendLayout();
@@ -46,21 +47,23 @@ namespace plagiarism.WinUI.InstitutionsForms
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label2.Location = new System.Drawing.Point(37, 111);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(260, 20);
+            this.label2.Size = new System.Drawing.Size(233, 25);
             this.label2.TabIndex = 16;
-            this.label2.Text = "Search Institution by Official Name: ";
+            this.label2.Text = "Search by Official Name: ";
             // 
             // btnOfficial
             // 
             this.btnOfficial.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnOfficial.Location = new System.Drawing.Point(477, 127);
+            this.btnOfficial.BackgroundImage = global::plagiarism.WinUI.Properties.Resources.s5;
+            this.btnOfficial.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnOfficial.Location = new System.Drawing.Point(471, 124);
             this.btnOfficial.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnOfficial.Name = "btnOfficial";
-            this.btnOfficial.Size = new System.Drawing.Size(112, 35);
+            this.btnOfficial.Size = new System.Drawing.Size(58, 50);
             this.btnOfficial.TabIndex = 15;
-            this.btnOfficial.Text = "Show";
             this.btnOfficial.UseVisualStyleBackColor = false;
             this.btnOfficial.Click += new System.EventHandler(this.btnOfficial_Click);
             // 
@@ -156,18 +159,29 @@ namespace plagiarism.WinUI.InstitutionsForms
             this.Edit.UseColumnTextForLinkValue = true;
             this.Edit.Width = 150;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(717, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(152, 32);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "Institutions";
+            // 
             // frmInstitutions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(907, 539);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnOfficial);
             this.Controls.Add(this.txtOfficial);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmInstitutions";
-            this.Text = "frmInstitutions";
+            this.Text = "Institutions";
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
             this.ResumeLayout(false);
@@ -187,5 +201,6 @@ namespace plagiarism.WinUI.InstitutionsForms
         private System.Windows.Forms.DataGridViewTextBoxColumn OfficialName;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Status;
         private System.Windows.Forms.DataGridViewLinkColumn Edit;
+        private System.Windows.Forms.Label label1;
     }
 }
