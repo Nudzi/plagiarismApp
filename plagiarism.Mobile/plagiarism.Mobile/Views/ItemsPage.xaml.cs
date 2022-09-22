@@ -34,7 +34,7 @@ namespace plagiarism.Mobile.Views
                 txtScan.IsEnabled = viewModel.IsValid;
             }
 
-            if (Global.JustRegisterNoPackage)
+            if (Global.UsersPackageType.PackageTypeId == 4)
             {
                 wholeStack.IsVisible = false;
                 errorPkcg.IsVisible = true;

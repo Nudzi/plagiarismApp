@@ -4,6 +4,7 @@
     {
         Basic = 1,
         Silver,
-        Premium
+        Premium,
+        NoPackage
     }
 }

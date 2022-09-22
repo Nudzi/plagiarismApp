@@ -20,7 +20,7 @@ namespace plagiarism.Mobile.Views
             base.OnAppearing();
             await model.Init();
 
-            if (Global.JustRegisterNoPackage)
+            if (Global.UsersPackageType.PackageTypeId == 4)
             {
                 noPkcgError.IsVisible = true;
                 expiredDays.IsVisible = false;

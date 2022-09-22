@@ -119,6 +119,7 @@ namespace plagiarism.Mobile.ViewModels
                         item.Id));
                 }
                 SelectedPackageTypes = PackageTypesList[0];
+                PackageTypesList.RemoveAt(PackageTypesList.Count - 1);
             }
         }
 
@@ -160,31 +161,11 @@ namespace plagiarism.Mobile.ViewModels
             var basicPackage = usersPackageTypes.Where(x => x.PackageTypeId == SelectedPackageTypes.PackageTypeId
             && x.PackageTypeId.Equals((int)PackageTypesTypes.Basic)).FirstOrDefault();
 
-            if (basicPackage != null && Global.JustRegisterNoPackage)
-            {
-                UsersPackageTypesUpsertRequest usersPackageTypesUpdateRequest = new UsersPackageTypesUpsertRequest
-                {
-                    Id = basicPackage.Id,
-                    UserId = Global.LoggedUser.Id,
-                    IsActive = true,
-                    PackageTypeId = basicPackage.PackageTypeId,
-                    Discount = basicPackage.Discount,
-                    ExpiredDate = basicPackage.ExpiredDate,
-                    CreatedDate = basicPackage.CreatedDate
-                };
-
-                await _usersPackageTypesService.Update<UsersPackageTypes>(basicPackage.Id, usersPackageTypesUpdateRequest);
-                Global.UsersPackageType = await Helper.FindUsersPackageAsync();
-                Global.JustRegisterNoPackage = false;
-                Application.Current.MainPage = new MainPage(Global.LoggedUser);
-                return;
-            }
-
             if (basicPackage != null)
             {
                 await Application.Current.MainPage.DisplayAlert("Error",
                    "You already had Basic package, try purchasing another one.", "OK");
-                Application.Current.MainPage = new MainPage(Global.LoggedUser);
+                return;
             }
 
             var activePckges = usersPackageTypes.Where(x => x.IsActive);
@@ -205,7 +186,16 @@ namespace plagiarism.Mobile.ViewModels
                 await _usersPackageTypesService.Update<UsersPackageTypes>(item.Id, usersPackageTypesUpdateRequest);
             }
 
-            Global.UsersPackageType = await _usersPackageTypesService.Insert<UsersPackageTypes>(usersPackageTypesUpsertRequest);
+            try
+            {
+                Global.UsersPackageType = await _usersPackageTypesService.Insert<UsersPackageTypes>(usersPackageTypesUpsertRequest);
+                Application.Current.MainPage = new MainPage(Global.LoggedUser);
+            }
+            catch (Exception e)
+            {
+                await Application.Current.MainPage.DisplayAlert("Error",
+                   "Something went wrong, " + e.Message, "OK");
+            }
         }
     }
 }

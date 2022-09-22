@@ -164,7 +164,7 @@ namespace plagiarism.Mobile.ViewModels
                 else
                 {
                     request.FirstName = "";
-                    request.FirstName = "";
+                    request.LastName = "";
                 }
 
                 var user = await _service.Insert<Users>(request);
@@ -182,18 +182,16 @@ namespace plagiarism.Mobile.ViewModels
                 UsersPackageTypesUpsertRequest usersPackageTypesUpsertRequest = new UsersPackageTypesUpsertRequest
                 {
                     UserId = user.Id,
-                    IsActive = false,
-                    PackageTypeId = SelectedPackageTypes.PackageTypeId,
-                    Discount = Helper.buildPackageDisc(SelectedPackageTypes.Name),
-                    ExpiredDate = Helper.buildPackageExpDate(SelectedPackageTypes.Name),
+                    IsActive = true,
+                    PackageTypeId = 4,
+                    Discount = 0,
+                    ExpiredDate = DateTime.Now,
                     CreatedDate = DateTime.Now
                 };
 
-                var pkc = await _usersPackageTypesService.Insert<UsersPackageTypes>(usersPackageTypesUpsertRequest);
-                Global.UsersPackageType = null;
-                Global.JustRegisterNoPackage = true;
+                Global.UsersPackageType = await _usersPackageTypesService.Insert<UsersPackageTypes>(usersPackageTypesUpsertRequest);
 
-                await Application.Current.MainPage.DisplayAlert("Success", "Welcome new User " + user.UserName, "OK");
+                await Application.Current.MainPage.DisplayAlert("Success", "Welcome " + user.UserName, "OK");
                 Application.Current.MainPage = new CardPage();
             }
             catch (Exception ex)

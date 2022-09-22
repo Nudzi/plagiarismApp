@@ -46,10 +46,8 @@ namespace plagiarism.WinUI.Index
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.pbUpload = new System.Windows.Forms.PictureBox();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbUpload)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip
@@ -77,7 +75,7 @@ namespace plagiarism.WinUI.Index
             this.viewAllToolStripMenuItem,
             this.newToolStripMenuItem});
             this.userToolStripMenuItem.Name = "userToolStripMenuItem";
-            this.userToolStripMenuItem.Size = new System.Drawing.Size(173, 39);
+            this.userToolStripMenuItem.Size = new System.Drawing.Size(155, 39);
             this.userToolStripMenuItem.Text = "User";
             // 
             // viewAllToolStripMenuItem
@@ -99,7 +97,7 @@ namespace plagiarism.WinUI.Index
             this.institutionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.viewAllToolStripMenuItem1});
             this.institutionsToolStripMenuItem.Name = "institutionsToolStripMenuItem";
-            this.institutionsToolStripMenuItem.Size = new System.Drawing.Size(173, 39);
+            this.institutionsToolStripMenuItem.Size = new System.Drawing.Size(155, 39);
             this.institutionsToolStripMenuItem.Text = "Institutions";
             // 
             // viewAllToolStripMenuItem1
@@ -114,7 +112,7 @@ namespace plagiarism.WinUI.Index
             this.reportsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openToolStripMenuItem});
             this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
-            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(173, 39);
+            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(155, 39);
             this.reportsToolStripMenuItem.Text = "Reports";
             // 
             // openToolStripMenuItem
@@ -130,7 +128,7 @@ namespace plagiarism.WinUI.Index
             this.viewAllToolStripMenuItem2,
             this.newToolStripMenuItem1});
             this.documentsToolStripMenuItem.Name = "documentsToolStripMenuItem";
-            this.documentsToolStripMenuItem.Size = new System.Drawing.Size(173, 39);
+            this.documentsToolStripMenuItem.Size = new System.Drawing.Size(155, 39);
             this.documentsToolStripMenuItem.Text = "Documents";
             // 
             // viewAllToolStripMenuItem2
@@ -152,7 +150,7 @@ namespace plagiarism.WinUI.Index
             this.requestsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.viewAllToolStripMenuItem3});
             this.requestsToolStripMenuItem.Name = "requestsToolStripMenuItem";
-            this.requestsToolStripMenuItem.Size = new System.Drawing.Size(173, 39);
+            this.requestsToolStripMenuItem.Size = new System.Drawing.Size(155, 39);
             this.requestsToolStripMenuItem.Text = "Requests";
             // 
             // viewAllToolStripMenuItem3
@@ -164,12 +162,12 @@ namespace plagiarism.WinUI.Index
             // 
             // statusStrip
             // 
-            this.statusStrip.BackColor = System.Drawing.Color.DarkOrchid;
+            this.statusStrip.BackColor = System.Drawing.Color.Black;
             this.statusStrip.Dock = System.Windows.Forms.DockStyle.None;
             this.statusStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel});
-            this.statusStrip.Location = new System.Drawing.Point(288, 162);
+            this.statusStrip.Location = new System.Drawing.Point(509, 378);
             this.statusStrip.Name = "statusStrip";
             this.statusStrip.Padding = new System.Windows.Forms.Padding(2, 0, 21, 0);
             this.statusStrip.Size = new System.Drawing.Size(85, 32);
@@ -182,30 +180,19 @@ namespace plagiarism.WinUI.Index
             this.toolStripStatusLabel.Size = new System.Drawing.Size(60, 25);
             this.toolStripStatusLabel.Text = "Status";
             // 
-            // pbUpload
-            // 
-            this.pbUpload.Image = global::plagiarism.WinUI.Properties.Resources.icon3;
-            this.pbUpload.Location = new System.Drawing.Point(261, 62);
-            this.pbUpload.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.pbUpload.Name = "pbUpload";
-            this.pbUpload.Size = new System.Drawing.Size(304, 281);
-            this.pbUpload.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbUpload.TabIndex = 78;
-            this.pbUpload.TabStop = false;
-            // 
             // frmIndex
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkRed;
             this.ClientSize = new System.Drawing.Size(640, 415);
-            this.Controls.Add(this.pbUpload);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.menuStrip);
             this.ForeColor = System.Drawing.Color.CornflowerBlue;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.HelpButton = true;
             this.ImeMode = System.Windows.Forms.ImeMode.Off;
+            this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmIndex";
@@ -215,7 +202,6 @@ namespace plagiarism.WinUI.Index
             this.menuStrip.PerformLayout();
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbUpload)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -239,7 +225,6 @@ namespace plagiarism.WinUI.Index
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem requestsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewAllToolStripMenuItem3;
-        private System.Windows.Forms.PictureBox pbUpload;
     }
 }
 

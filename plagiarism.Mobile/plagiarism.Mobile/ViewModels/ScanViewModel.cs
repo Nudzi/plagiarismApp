@@ -93,7 +93,7 @@ namespace plagiarism.Mobile.ViewModels
                     Total += Text.Length / (double)item.Text.Length;
                 }
 
-                Global.Percentage = Total / Global.MatchedDocs.Count;
+                Global.Percentage = (Total / Global.MatchedDocs.Count) * 100;
 
                 if (Global.Percentage >= 100) Global.Percentage = 100;
                 Application.Current.MainPage = new ResultsPage();

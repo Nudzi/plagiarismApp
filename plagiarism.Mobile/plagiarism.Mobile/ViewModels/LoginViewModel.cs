@@ -4,7 +4,6 @@ using plagiarismModel;
 using System;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace plagiarism.Mobile.ViewModels
@@ -12,7 +11,6 @@ namespace plagiarism.Mobile.ViewModels
     public class LoginViewModel : BaseViewModel
     {
         private readonly APIService _service = new APIService("users");
-        private readonly APIService _userAddressesService = new APIService("userAddresses");
 
         public LoginViewModel()
         {
@@ -43,17 +41,14 @@ namespace plagiarism.Mobile.ViewModels
                 if (user != null)
                 {
                     Users userCheck = await _service.GetById<Users>(user.Id);
-                    if (userCheck.Status == false)
+                    if ((bool)!userCheck.Status)
                     {
-                        await TextToSpeech.SpeakAsync("There is problem with your account, you can contact us for further details!");
                         await Application.Current.MainPage.DisplayAlert("Error", "There is problem with your account, you can contact us for further details!", "OK");
                         IsBusy = false;
                         return;
                     }
                     Global.LoggedUser = userCheck;
                     Global.UsersPackageType = await Helper.FindUsersPackageAsync();
-
-                    Global.JustRegisterNoPackage = Global.UsersPackageType == null ? true : false;
 
                     await Application.Current.MainPage.DisplayAlert("Success", "Welcome " + user.UserName, "OK");
                     Application.Current.MainPage = new MainPage(user);
@@ -69,7 +64,6 @@ namespace plagiarism.Mobile.ViewModels
                 IsBusy = false;
                 await Application.Current.MainPage.DisplayAlert("Error", ex.Message, "OK");
             }
-
         }
     }
 }
