@@ -80,6 +80,7 @@ namespace plagiarism.WinUI.Users
             // cbStatus
             // 
             this.cbStatus.AutoSize = true;
+            this.cbStatus.ForeColor = System.Drawing.Color.Black;
             this.cbStatus.Location = new System.Drawing.Point(29, 302);
             this.cbStatus.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cbStatus.Name = "cbStatus";
@@ -95,6 +96,7 @@ namespace plagiarism.WinUI.Users
             // gbUserTypes
             // 
             this.gbUserTypes.Controls.Add(this.cblUserTypes);
+            this.gbUserTypes.ForeColor = System.Drawing.Color.Black;
             this.gbUserTypes.Location = new System.Drawing.Point(362, 80);
             this.gbUserTypes.Name = "gbUserTypes";
             this.gbUserTypes.Size = new System.Drawing.Size(239, 227);
@@ -105,6 +107,7 @@ namespace plagiarism.WinUI.Users
             // label7
             // 
             this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.Black;
             this.label7.Location = new System.Drawing.Point(23, 255);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
@@ -114,6 +117,7 @@ namespace plagiarism.WinUI.Users
             // 
             // txtUserName
             // 
+            this.txtUserName.ForeColor = System.Drawing.Color.Black;
             this.txtUserName.Location = new System.Drawing.Point(151, 251);
             this.txtUserName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtUserName.Name = "txtUserName";
@@ -137,6 +141,7 @@ namespace plagiarism.WinUI.Users
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.Black;
             this.label6.Location = new System.Drawing.Point(193, 386);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
@@ -146,6 +151,7 @@ namespace plagiarism.WinUI.Users
             // 
             // txtPasswordConfirmation
             // 
+            this.txtPasswordConfirmation.ForeColor = System.Drawing.Color.Black;
             this.txtPasswordConfirmation.Location = new System.Drawing.Point(203, 410);
             this.txtPasswordConfirmation.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtPasswordConfirmation.Name = "txtPasswordConfirmation";
@@ -155,6 +161,7 @@ namespace plagiarism.WinUI.Users
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(60, 386);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
@@ -164,6 +171,7 @@ namespace plagiarism.WinUI.Users
             // 
             // txtPassword
             // 
+            this.txtPassword.ForeColor = System.Drawing.Color.Black;
             this.txtPassword.Location = new System.Drawing.Point(24, 410);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtPassword.Name = "txtPassword";
@@ -173,6 +181,7 @@ namespace plagiarism.WinUI.Users
             // lblLastName
             // 
             this.lblLastName.AutoSize = true;
+            this.lblLastName.ForeColor = System.Drawing.Color.Black;
             this.lblLastName.Location = new System.Drawing.Point(23, 135);
             this.lblLastName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLastName.Name = "lblLastName";
@@ -182,6 +191,7 @@ namespace plagiarism.WinUI.Users
             // 
             // txtLastName
             // 
+            this.txtLastName.ForeColor = System.Drawing.Color.Black;
             this.txtLastName.Location = new System.Drawing.Point(151, 131);
             this.txtLastName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtLastName.Name = "txtLastName";
@@ -192,6 +202,7 @@ namespace plagiarism.WinUI.Users
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(23, 175);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
@@ -201,6 +212,7 @@ namespace plagiarism.WinUI.Users
             // 
             // txtEmail
             // 
+            this.txtEmail.ForeColor = System.Drawing.Color.Black;
             this.txtEmail.Location = new System.Drawing.Point(151, 171);
             this.txtEmail.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtEmail.Name = "txtEmail";
@@ -211,6 +223,7 @@ namespace plagiarism.WinUI.Users
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(23, 215);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
@@ -220,6 +233,7 @@ namespace plagiarism.WinUI.Users
             // 
             // txtTelephone
             // 
+            this.txtTelephone.ForeColor = System.Drawing.Color.Black;
             this.txtTelephone.Location = new System.Drawing.Point(151, 211);
             this.txtTelephone.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtTelephone.Name = "txtTelephone";
@@ -230,6 +244,7 @@ namespace plagiarism.WinUI.Users
             // lblFirstName
             // 
             this.lblFirstName.AutoSize = true;
+            this.lblFirstName.ForeColor = System.Drawing.Color.Black;
             this.lblFirstName.Location = new System.Drawing.Point(23, 95);
             this.lblFirstName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFirstName.Name = "lblFirstName";
@@ -239,6 +254,7 @@ namespace plagiarism.WinUI.Users
             // 
             // txtFirstName
             // 
+            this.txtFirstName.ForeColor = System.Drawing.Color.Black;
             this.txtFirstName.Location = new System.Drawing.Point(151, 91);
             this.txtFirstName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtFirstName.Name = "txtFirstName";
@@ -249,6 +265,7 @@ namespace plagiarism.WinUI.Users
             // lblOfficialName
             // 
             this.lblOfficialName.AutoSize = true;
+            this.lblOfficialName.ForeColor = System.Drawing.Color.Black;
             this.lblOfficialName.Location = new System.Drawing.Point(23, 340);
             this.lblOfficialName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblOfficialName.Name = "lblOfficialName";
@@ -258,6 +275,7 @@ namespace plagiarism.WinUI.Users
             // 
             // txtOfficialName
             // 
+            this.txtOfficialName.ForeColor = System.Drawing.Color.Black;
             this.txtOfficialName.Location = new System.Drawing.Point(151, 336);
             this.txtOfficialName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtOfficialName.Name = "txtOfficialName";
@@ -268,6 +286,7 @@ namespace plagiarism.WinUI.Users
             // cbkIsUser
             // 
             this.cbkIsUser.AutoSize = true;
+            this.cbkIsUser.ForeColor = System.Drawing.Color.Black;
             this.cbkIsUser.Location = new System.Drawing.Point(27, 51);
             this.cbkIsUser.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cbkIsUser.Name = "cbkIsUser";
@@ -280,6 +299,7 @@ namespace plagiarism.WinUI.Users
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(642, 135);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
@@ -289,6 +309,7 @@ namespace plagiarism.WinUI.Users
             // 
             // txtCity
             // 
+            this.txtCity.ForeColor = System.Drawing.Color.Black;
             this.txtCity.Location = new System.Drawing.Point(770, 131);
             this.txtCity.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtCity.Name = "txtCity";
@@ -299,6 +320,7 @@ namespace plagiarism.WinUI.Users
             // label8
             // 
             this.label8.AutoSize = true;
+            this.label8.ForeColor = System.Drawing.Color.Black;
             this.label8.Location = new System.Drawing.Point(642, 175);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
@@ -308,6 +330,7 @@ namespace plagiarism.WinUI.Users
             // 
             // txtStreet
             // 
+            this.txtStreet.ForeColor = System.Drawing.Color.Black;
             this.txtStreet.Location = new System.Drawing.Point(770, 171);
             this.txtStreet.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtStreet.Name = "txtStreet";
@@ -318,6 +341,7 @@ namespace plagiarism.WinUI.Users
             // label9
             // 
             this.label9.AutoSize = true;
+            this.label9.ForeColor = System.Drawing.Color.Black;
             this.label9.Location = new System.Drawing.Point(642, 215);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
@@ -327,6 +351,7 @@ namespace plagiarism.WinUI.Users
             // 
             // txtZipCode
             // 
+            this.txtZipCode.ForeColor = System.Drawing.Color.Black;
             this.txtZipCode.Location = new System.Drawing.Point(770, 211);
             this.txtZipCode.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtZipCode.Name = "txtZipCode";
@@ -337,6 +362,7 @@ namespace plagiarism.WinUI.Users
             // label10
             // 
             this.label10.AutoSize = true;
+            this.label10.ForeColor = System.Drawing.Color.Black;
             this.label10.Location = new System.Drawing.Point(642, 95);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
@@ -346,6 +372,7 @@ namespace plagiarism.WinUI.Users
             // 
             // txtState
             // 
+            this.txtState.ForeColor = System.Drawing.Color.Black;
             this.txtState.Location = new System.Drawing.Point(770, 91);
             this.txtState.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtState.Name = "txtState";
@@ -356,6 +383,7 @@ namespace plagiarism.WinUI.Users
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(642, 336);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
@@ -365,6 +393,7 @@ namespace plagiarism.WinUI.Users
             // 
             // cbPackage
             // 
+            this.cbPackage.ForeColor = System.Drawing.Color.Black;
             this.cbPackage.FormattingEnabled = true;
             this.cbPackage.Location = new System.Drawing.Point(770, 333);
             this.cbPackage.Name = "cbPackage";
@@ -373,6 +402,7 @@ namespace plagiarism.WinUI.Users
             // 
             // txtPackage
             // 
+            this.txtPackage.ForeColor = System.Drawing.Color.Black;
             this.txtPackage.Location = new System.Drawing.Point(769, 334);
             this.txtPackage.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtPackage.Name = "txtPackage";
@@ -383,6 +413,7 @@ namespace plagiarism.WinUI.Users
             // cbNewPackage
             // 
             this.cbNewPackage.AutoSize = true;
+            this.cbNewPackage.ForeColor = System.Drawing.Color.Black;
             this.cbNewPackage.Location = new System.Drawing.Point(770, 371);
             this.cbNewPackage.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cbNewPackage.Name = "cbNewPackage";

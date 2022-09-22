@@ -43,6 +43,7 @@ namespace plagiarism.WinUI.RequestsForm
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(17, 59);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(149, 25);
@@ -51,6 +52,7 @@ namespace plagiarism.WinUI.RequestsForm
             // 
             // txtSearch
             // 
+            this.txtSearch.ForeColor = System.Drawing.Color.Black;
             this.txtSearch.Location = new System.Drawing.Point(21, 94);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtSearch.Name = "txtSearch";
@@ -73,6 +75,7 @@ namespace plagiarism.WinUI.RequestsForm
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.dgvUsers);
+            this.groupBox1.ForeColor = System.Drawing.Color.Black;
             this.groupBox1.Location = new System.Drawing.Point(21, 153);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
@@ -103,6 +106,7 @@ namespace plagiarism.WinUI.RequestsForm
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(718, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(135, 32);
@@ -120,6 +124,7 @@ namespace plagiarism.WinUI.RequestsForm
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.btnShow);
+            this.ForeColor = System.Drawing.Color.Black;
             this.Name = "frmRequests";
             this.Text = "Requests";
             this.Load += new System.EventHandler(this.frmRequests_Load);

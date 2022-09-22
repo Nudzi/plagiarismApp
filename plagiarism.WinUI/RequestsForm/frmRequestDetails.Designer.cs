@@ -52,6 +52,7 @@ namespace plagiarism.WinUI.RequestsForm
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(28, 226);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
@@ -61,6 +62,7 @@ namespace plagiarism.WinUI.RequestsForm
             // 
             // txtLink
             // 
+            this.txtLink.ForeColor = System.Drawing.Color.Black;
             this.txtLink.Location = new System.Drawing.Point(156, 226);
             this.txtLink.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtLink.Name = "txtLink";
@@ -71,6 +73,7 @@ namespace plagiarism.WinUI.RequestsForm
             // lblLastName
             // 
             this.lblLastName.AutoSize = true;
+            this.lblLastName.ForeColor = System.Drawing.Color.Black;
             this.lblLastName.Location = new System.Drawing.Point(28, 104);
             this.lblLastName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLastName.Name = "lblLastName";
@@ -80,6 +83,7 @@ namespace plagiarism.WinUI.RequestsForm
             // 
             // txtAuthor
             // 
+            this.txtAuthor.ForeColor = System.Drawing.Color.Black;
             this.txtAuthor.Location = new System.Drawing.Point(156, 100);
             this.txtAuthor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtAuthor.Name = "txtAuthor";
@@ -90,6 +94,7 @@ namespace plagiarism.WinUI.RequestsForm
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(28, 144);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
@@ -99,6 +104,7 @@ namespace plagiarism.WinUI.RequestsForm
             // 
             // txtPublisher
             // 
+            this.txtPublisher.ForeColor = System.Drawing.Color.Black;
             this.txtPublisher.Location = new System.Drawing.Point(156, 140);
             this.txtPublisher.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtPublisher.Name = "txtPublisher";
@@ -109,6 +115,7 @@ namespace plagiarism.WinUI.RequestsForm
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(28, 184);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
@@ -118,6 +125,7 @@ namespace plagiarism.WinUI.RequestsForm
             // 
             // txtTextLenght
             // 
+            this.txtTextLenght.ForeColor = System.Drawing.Color.Black;
             this.txtTextLenght.Location = new System.Drawing.Point(156, 180);
             this.txtTextLenght.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtTextLenght.Name = "txtTextLenght";
@@ -128,6 +136,7 @@ namespace plagiarism.WinUI.RequestsForm
             // lblFirstName
             // 
             this.lblFirstName.AutoSize = true;
+            this.lblFirstName.ForeColor = System.Drawing.Color.Black;
             this.lblFirstName.Location = new System.Drawing.Point(28, 64);
             this.lblFirstName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFirstName.Name = "lblFirstName";
@@ -137,6 +146,7 @@ namespace plagiarism.WinUI.RequestsForm
             // 
             // txtTitle
             // 
+            this.txtTitle.ForeColor = System.Drawing.Color.Black;
             this.txtTitle.Location = new System.Drawing.Point(156, 60);
             this.txtTitle.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtTitle.Name = "txtTitle";
@@ -147,6 +157,7 @@ namespace plagiarism.WinUI.RequestsForm
             // label7
             // 
             this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.Black;
             this.label7.Location = new System.Drawing.Point(477, 226);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
@@ -156,6 +167,7 @@ namespace plagiarism.WinUI.RequestsForm
             // 
             // txtContentText
             // 
+            this.txtContentText.ForeColor = System.Drawing.Color.Black;
             this.txtContentText.Location = new System.Drawing.Point(604, 222);
             this.txtContentText.Name = "txtContentText";
             this.txtContentText.ReadOnly = true;
@@ -165,6 +177,7 @@ namespace plagiarism.WinUI.RequestsForm
             // 
             // cbExt
             // 
+            this.cbExt.ForeColor = System.Drawing.Color.Black;
             this.cbExt.FormattingEnabled = true;
             this.cbExt.Location = new System.Drawing.Point(604, 96);
             this.cbExt.Name = "cbExt";
@@ -174,6 +187,7 @@ namespace plagiarism.WinUI.RequestsForm
             // lblExt
             // 
             this.lblExt.AutoSize = true;
+            this.lblExt.ForeColor = System.Drawing.Color.Black;
             this.lblExt.Location = new System.Drawing.Point(477, 101);
             this.lblExt.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblExt.Name = "lblExt";
@@ -183,6 +197,7 @@ namespace plagiarism.WinUI.RequestsForm
             // 
             // cbType
             // 
+            this.cbType.ForeColor = System.Drawing.Color.Black;
             this.cbType.FormattingEnabled = true;
             this.cbType.Location = new System.Drawing.Point(604, 57);
             this.cbType.Name = "cbType";
@@ -193,6 +208,7 @@ namespace plagiarism.WinUI.RequestsForm
             // lblDocType
             // 
             this.lblDocType.AutoSize = true;
+            this.lblDocType.ForeColor = System.Drawing.Color.Black;
             this.lblDocType.Location = new System.Drawing.Point(477, 63);
             this.lblDocType.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDocType.Name = "lblDocType";
@@ -248,6 +264,7 @@ namespace plagiarism.WinUI.RequestsForm
             this.Controls.Add(this.txtTextLenght);
             this.Controls.Add(this.lblFirstName);
             this.Controls.Add(this.txtTitle);
+            this.ForeColor = System.Drawing.Color.Black;
             this.Name = "frmRequestDetails";
             this.Text = "RequestDetails";
             this.Load += new System.EventHandler(this.frmRequestDetails_Load);

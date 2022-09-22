@@ -48,6 +48,7 @@ namespace plagiarism.WinUI.InstitutionsForms
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(37, 111);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(233, 25);
@@ -69,6 +70,7 @@ namespace plagiarism.WinUI.InstitutionsForms
             // 
             // txtOfficial
             // 
+            this.txtOfficial.ForeColor = System.Drawing.Color.Black;
             this.txtOfficial.Location = new System.Drawing.Point(41, 136);
             this.txtOfficial.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtOfficial.Name = "txtOfficial";
@@ -78,6 +80,7 @@ namespace plagiarism.WinUI.InstitutionsForms
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.dgvUsers);
+            this.groupBox1.ForeColor = System.Drawing.Color.Black;
             this.groupBox1.Location = new System.Drawing.Point(41, 210);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
@@ -163,6 +166,7 @@ namespace plagiarism.WinUI.InstitutionsForms
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(717, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(152, 32);
@@ -180,6 +184,7 @@ namespace plagiarism.WinUI.InstitutionsForms
             this.Controls.Add(this.btnOfficial);
             this.Controls.Add(this.txtOfficial);
             this.Controls.Add(this.groupBox1);
+            this.ForeColor = System.Drawing.Color.Black;
             this.Name = "frmInstitutions";
             this.Text = "Institutions";
             this.groupBox1.ResumeLayout(false);

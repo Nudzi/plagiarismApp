@@ -176,6 +176,7 @@ namespace plagiarism.WinUI.Reports
             // 
             // txtSum
             // 
+            this.txtSum.ForeColor = System.Drawing.Color.Black;
             this.txtSum.Location = new System.Drawing.Point(855, 485);
             this.txtSum.Name = "txtSum";
             this.txtSum.ReadOnly = true;

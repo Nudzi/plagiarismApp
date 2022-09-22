@@ -50,7 +50,8 @@ namespace plagiarism.WinUI.DocumentsForms
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label1.Location = new System.Drawing.Point(18, 74);
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(18, 72);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(154, 25);
             this.label1.TabIndex = 13;
@@ -80,6 +81,7 @@ namespace plagiarism.WinUI.DocumentsForms
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.dgvDocs);
+            this.groupBox1.ForeColor = System.Drawing.Color.Black;
             this.groupBox1.Location = new System.Drawing.Point(22, 306);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
@@ -156,7 +158,8 @@ namespace plagiarism.WinUI.DocumentsForms
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label2.Location = new System.Drawing.Point(18, 211);
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(18, 209);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(198, 25);
             this.label2.TabIndex = 16;
@@ -166,7 +169,8 @@ namespace plagiarism.WinUI.DocumentsForms
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label3.Location = new System.Drawing.Point(18, 145);
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(18, 143);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(175, 25);
             this.label3.TabIndex = 17;
@@ -176,6 +180,7 @@ namespace plagiarism.WinUI.DocumentsForms
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(698, 20);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(158, 32);

@@ -52,7 +52,7 @@ namespace plagiarism.WinUI.Index
             // 
             // menuStrip
             // 
-            this.menuStrip.BackColor = System.Drawing.Color.DarkSalmon;
+            this.menuStrip.BackColor = System.Drawing.Color.LightBlue;
             this.menuStrip.Dock = System.Windows.Forms.DockStyle.Left;
             this.menuStrip.Font = new System.Drawing.Font("Sitka Subheading", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
@@ -64,10 +64,9 @@ namespace plagiarism.WinUI.Index
             this.requestsToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(168, 410);
+            this.menuStrip.Size = new System.Drawing.Size(168, 372);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "MenuStrip";
-            this.menuStrip.UseWaitCursor = true;
             // 
             // userToolStripMenuItem
             // 
@@ -182,21 +181,20 @@ namespace plagiarism.WinUI.Index
             // 
             // frmIndex
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.DarkRed;
-            this.ClientSize = new System.Drawing.Size(640, 415);
+            this.ClientSize = new System.Drawing.Size(1381, 377);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.menuStrip);
             this.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.HelpButton = true;
-            this.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmIndex";
             this.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Welcome";
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();

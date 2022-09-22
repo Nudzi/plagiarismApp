@@ -29,6 +29,8 @@ namespace plagiarism.WinUI
 
                 else
                 {
+                    MessageBox.Show("Checking...", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                     plagiarismModel.Users user = await _service.Authentication<plagiarismModel.Users>(textBoxUserName.Text, textBoxPass.Text);
 
                     if (checkUserType(user))
