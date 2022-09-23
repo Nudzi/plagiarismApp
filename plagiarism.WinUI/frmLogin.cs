@@ -1,5 +1,4 @@
 ﻿using plagiarism.WinUI.Index;
-using plagiarismModel;
 using System;
 using System.Windows.Forms;
 
@@ -9,7 +8,7 @@ namespace plagiarism.WinUI
     {
         protected APIService _service = new APIService("users");
         protected APIService _userTypesService = new APIService("userTypes");
-        UserTypes role = null;
+
         public frmLogin()
         {
             InitializeComponent();

@@ -12,8 +12,8 @@ namespace plagiarism.WinUI.Reports
         private readonly APIService _usersPackageTypesService = new APIService("usersPackageTypes");
         private readonly APIService _packageTypesService = new APIService("packageTypes");
         private readonly APIService _documentsService = new APIService("documents");
-        private string Enable = "Enable";
-        private string Disable = "Disable";
+        private readonly string Enable = "Enable";
+        private readonly string Disable = "Disable";
         private decimal Summarize = 0;
         public frmReports()
         {
@@ -53,6 +53,9 @@ namespace plagiarism.WinUI.Reports
         }
 
         Bitmap bmp;
+
+        public string Enable1 => Enable;
+
         private void btnPrint_Click(object sender, EventArgs e)
         {
             int height = dgvResults.Height;
@@ -75,11 +78,11 @@ namespace plagiarism.WinUI.Reports
             if (btnFromDisable.Text.Equals(Disable))
             {
                 dtpFrom.Enabled = false;
-                btnFromDisable.Text = Enable;
+                btnFromDisable.Text = Enable1;
                 dtpFrom.Value = dtpTo.MinDate;
                 return;
             }
-            else if (btnFromDisable.Text.Equals(Enable))
+            else if (btnFromDisable.Text.Equals(Enable1))
             {
                 dtpFrom.Enabled = true;
                 btnFromDisable.Text = Disable;
@@ -93,11 +96,11 @@ namespace plagiarism.WinUI.Reports
             if (btnToDisable.Text.Equals(Disable))
             {
                 dtpTo.Enabled = false;
-                btnToDisable.Text = Enable;
+                btnToDisable.Text = Enable1;
                 dtpTo.Value = dtpTo.MaxDate;
                 return;
             }
-            else if (btnToDisable.Text.Equals(Enable))
+            else if (btnToDisable.Text.Equals(Enable1))
             {
                 dtpTo.Enabled = true;
                 btnToDisable.Text = Disable;

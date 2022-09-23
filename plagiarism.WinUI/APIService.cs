@@ -7,7 +7,7 @@ namespace plagiarism.WinUI
 {
     public class APIService
     {
-        private string _route = null;
+        private readonly string _route = null;
         public static string userName { get; set; }
         public static string password { get; set; }
         public APIService(string route)

@@ -127,7 +127,6 @@ namespace plagiarism.WinUI.RequestsForm
             this.ForeColor = System.Drawing.Color.Black;
             this.Name = "frmRequests";
             this.Text = "Requests";
-            this.Load += new System.EventHandler(this.frmRequests_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
             this.ResumeLayout(false);

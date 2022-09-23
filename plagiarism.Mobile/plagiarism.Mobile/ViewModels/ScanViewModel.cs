@@ -12,10 +12,7 @@ namespace plagiarism.Mobile.ViewModels
 {
     public class ScanViewModel : BaseViewModel
     {
-        private readonly APIService _usersPackageTypesService = new APIService("usersPackageTypes");
         private readonly APIService _documentsService = new APIService("documents");
-
-        int pckgUsr = 0;
 
         string _text = string.Empty;
         public string Text
@@ -38,7 +35,7 @@ namespace plagiarism.Mobile.ViewModels
             set { SetProperty(ref _user, value); }
         }
 
-        internal async Task<bool> CheckAllowedTextSize()
+        internal bool CheckAllowedTextSize()
         {
             var maxTextSize = generateMaxTextSizeByPackage(Global.UsersPackageType.PackageTypeId);
             TextError = "Your maximum Text size is: " + maxTextSize + ", but you inserted: " + Text.Length;
@@ -73,10 +70,9 @@ namespace plagiarism.Mobile.ViewModels
                 List<string> requestMatches = new List<string>();
                 for (int i = 0; i < textLength; i++)
                 {
-                    var requestMatchesString = "";
                     if (i + 2 < textLength)
                     {
-                        requestMatchesString = aray[i] + " " + aray[i + 1] + " " + aray[i + 2];
+                        string requestMatchesString = aray[i] + " " + aray[i + 1] + " " + aray[i + 2];
                         if (!requestMatches.Contains(requestMatchesString))
                         {
                             requestMatches.Add(requestMatchesString);

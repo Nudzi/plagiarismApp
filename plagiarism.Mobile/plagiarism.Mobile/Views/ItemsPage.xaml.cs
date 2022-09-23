@@ -8,17 +8,17 @@ namespace plagiarism.Mobile.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ItemsPage : ContentPage
     {
-        ItemsViewModel viewModel;
+        readonly ItemsViewModel viewModel;
         public ItemsPage()
         {
             InitializeComponent();
             BindingContext = viewModel = new ItemsViewModel();
         }
 
-        protected async override void OnAppearing()
+        protected override void OnAppearing()
         {
             base.OnAppearing();
-            await viewModel.Init();
+            viewModel.Init();
 
             if (viewModel.IsValid)
             {

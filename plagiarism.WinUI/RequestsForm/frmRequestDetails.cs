@@ -12,7 +12,7 @@ namespace plagiarism.WinUI.RequestsForm
         private readonly APIService _usersPackageTypesService = new APIService("usersPackageTypes");
         private readonly APIService _requestsService = new APIService("requests");
         private readonly APIService _documentsService = new APIService("documents");
-        private Requests _request = null;
+        private readonly Requests _request = null;
         public frmRequestDetails(Requests request)
         {
             InitializeComponent();

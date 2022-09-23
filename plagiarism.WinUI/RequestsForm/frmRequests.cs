@@ -14,10 +14,6 @@ namespace plagiarism.WinUI.RequestsForm
             InitializeComponent();
         }
 
-        private async void frmRequests_Load(object sender, EventArgs e)
-        {
-        }
-
         private void dgvInst_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             try

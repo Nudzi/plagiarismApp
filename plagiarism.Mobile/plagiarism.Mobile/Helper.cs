@@ -14,10 +14,10 @@ namespace plagiarism.Mobile
 {
     public class Helper
     {
-        private static APIService _usersPackageTypesService = new APIService("usersPackageTypes");
+        private static readonly APIService _usersPackageTypesService = new APIService("usersPackageTypes");
 
-        private static Random random = new Random();
-        public static string Alphabet =
+        private static readonly Random random = new Random();
+        public static readonly string Alphabet =
 "abcdefghijklmnopqrstuvwyxzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/=-(*)&^%$#@!";
         public static string GenerateString(int size)
         {

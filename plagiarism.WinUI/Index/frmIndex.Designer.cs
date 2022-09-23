@@ -64,7 +64,7 @@ namespace plagiarism.WinUI.Index
             this.requestsToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(168, 372);
+            this.menuStrip.Size = new System.Drawing.Size(168, 515);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "MenuStrip";
             // 
@@ -166,10 +166,10 @@ namespace plagiarism.WinUI.Index
             this.statusStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel});
-            this.statusStrip.Location = new System.Drawing.Point(509, 378);
+            this.statusStrip.Location = new System.Drawing.Point(1261, 483);
             this.statusStrip.Name = "statusStrip";
             this.statusStrip.Padding = new System.Windows.Forms.Padding(2, 0, 21, 0);
-            this.statusStrip.Size = new System.Drawing.Size(85, 32);
+            this.statusStrip.Size = new System.Drawing.Size(131, 32);
             this.statusStrip.TabIndex = 2;
             this.statusStrip.Text = "StatusStrip";
             // 
@@ -185,7 +185,7 @@ namespace plagiarism.WinUI.Index
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.DarkRed;
-            this.ClientSize = new System.Drawing.Size(1381, 377);
+            this.ClientSize = new System.Drawing.Size(1392, 520);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.menuStrip);
             this.ForeColor = System.Drawing.Color.CornflowerBlue;

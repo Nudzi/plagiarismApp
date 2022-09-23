@@ -22,7 +22,6 @@ namespace plagiarism.Mobile.ViewModels
         private readonly APIService _addressesService = new APIService("userAddresses");
         private readonly APIService _userImagesService = new APIService("userImages");
         private readonly APIService _usersPackageTypesService = new APIService("usersPackageTypes");
-        private readonly APIService _packageTypesService = new APIService("packageTypes");
 
         public ObservableCollection<string> CultureList { get; set; } = new ObservableCollection<string>();
 

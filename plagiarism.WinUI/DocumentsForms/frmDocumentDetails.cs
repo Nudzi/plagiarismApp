@@ -14,7 +14,7 @@ namespace plagiarism.WinUI.DocumentsForms
     {
         private readonly APIService _packageTypesService = new APIService("packageTypes");
         private readonly APIService _documentsService = new APIService("documents");
-        private Documents _documents = null;
+        private readonly Documents _documents = null;
         public frmDocumentDetails(Documents documents = null)
         {
             InitializeComponent();
@@ -148,7 +148,7 @@ namespace plagiarism.WinUI.DocumentsForms
             }
         }
 
-        DocumentsUpsertRequest request = new DocumentsUpsertRequest();
+        readonly DocumentsUpsertRequest request = new DocumentsUpsertRequest();
 
         private async void btnSave_Click(object sender, EventArgs e)
         {

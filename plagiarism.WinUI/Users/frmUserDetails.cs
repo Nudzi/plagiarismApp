@@ -21,14 +21,13 @@ namespace plagiarism.WinUI.Users
         private readonly APIService _userAddressesService = new APIService("userAddresses");
         private readonly APIService _packageTypesService = new APIService("packageTypes");
         private readonly APIService _usersPackageTypesService = new APIService("usersPackageTypes");
-        private plagiarismModel.Users _user;
+        private readonly plagiarismModel.Users _user;
         private bool isSaveCliked = false;
-        private bool _token;
-        public frmUserDetails(plagiarismModel.Users user = null, bool token = false)
+
+        public frmUserDetails(plagiarismModel.Users user = null)
         {
             InitializeComponent();
             _user = user;
-            _token = token;
         }
 
         private async void btnSave_Click(object sender, EventArgs e)

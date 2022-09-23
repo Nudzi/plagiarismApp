@@ -8,7 +8,7 @@ namespace plagiarism.Mobile.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CardPage : ContentPage
     {
-        CreditCardPageViewModel model = null;
+        readonly CreditCardPageViewModel model = null;
         public CardPage()
         {
             InitializeComponent();

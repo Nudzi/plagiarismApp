@@ -1,14 +1,10 @@
-﻿using plagiarism.Mobile.Services;
-using plagiarismModel.Enums;
+﻿using plagiarismModel.Enums;
 using System;
-using System.Threading.Tasks;
 
 namespace plagiarism.Mobile.ViewModels
 {
     public class ItemsViewModel : BaseViewModel
     {
-        private readonly APIService _usersPackageTypesService = new APIService("usersPackageTypes");
-
         string _username = string.Empty;
         public string UserName
         {
@@ -34,7 +30,7 @@ namespace plagiarism.Mobile.ViewModels
             set { SetProperty(ref _isValid, value); }
         }
 
-        public async Task Init()
+        public void Init()
         {
             UserName = Global.LoggedUser.UserName;
 
