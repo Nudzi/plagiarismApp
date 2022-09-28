@@ -9,7 +9,7 @@
               HasUnevenRows="true"
               ItemsSource="{Binding MenuItems}">
             <ListView.Header>
-                <Grid BackgroundColor="MistyRose">
+                <Grid BackgroundColor="CornflowerBlue">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="10"/>
                         <ColumnDefinition Width="*"/>
@@ -24,7 +24,7 @@
                     <Label
               Grid.Column="1"
               Grid.Row="2"
-              Text="CHAT"
+              Text="PLAGIARISM"
                         TextColor="Black"
                         FontSize="25"
                         ></Label>

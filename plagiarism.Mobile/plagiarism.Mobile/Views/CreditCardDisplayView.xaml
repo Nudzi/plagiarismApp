@@ -2,7 +2,7 @@
 <StackLayout xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              x:Class="plagiarism.Mobile.Views.CreditCardDisplayView"
-             BackgroundColor="{StaticResource Primary}"
+             BackgroundColor="CornflowerBlue"
              HorizontalOptions="FillAndExpand"
              VerticalOptions="Start">
     <Frame Margin="40,10,40,30"

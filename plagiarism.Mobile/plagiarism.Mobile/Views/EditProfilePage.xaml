@@ -142,7 +142,8 @@
                 </StackLayout>
                 <StackLayout Orientation="Vertical" Margin="15">
                     <Label HorizontalTextAlignment="Center" Text="Make sure every changes you make are in correct format!"></Label>
-                    <Button Margin="16" Text="Edit Profile" Clicked="Button_Clicked"></Button>
+                    <Button CornerRadius="26" FontSize="15" Margin="30,0,30,30" Padding="18"
+                        Text="Edit Profile" BackgroundColor="CornflowerBlue" Clicked="Button_Clicked"></Button>
                 </StackLayout>
             </StackLayout>
         </ScrollView>

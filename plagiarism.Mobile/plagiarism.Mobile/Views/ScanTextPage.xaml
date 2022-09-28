@@ -19,7 +19,11 @@
                         Placeholder="Lore ipsum..." Text="{Binding Text}" />
                 <Label x:Name="textError" TextColor="Red" IsVisible="False" Text="{Binding TextError}"></Label>
 
-                <Button Text="SCAN" BackgroundColor="DarkRed" Clicked="Button_Clicked"></Button>
+                <Label HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" Text="Scan whole phraze"></Label>
+                <CheckBox HorizontalOptions="CenterAndExpand" x:Name="SearchPhraze" IsChecked="False"></CheckBox>
+
+                <Button CornerRadius="26" FontSize="15" Margin="30,0,30,30" Padding="18"
+                        Text="SCAN" BackgroundColor="CornflowerBlue" Clicked="Button_Clicked"></Button>
             </StackLayout>
             
         </StackLayout>

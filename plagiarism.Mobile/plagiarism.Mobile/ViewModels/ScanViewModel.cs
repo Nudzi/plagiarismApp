@@ -52,14 +52,14 @@ namespace plagiarism.Mobile.ViewModels
         }
 
 
-        internal async Task CheckPlagiarism()
+        internal async Task CheckPlagiarism(bool searchPhraze = false)
         {
             char[] delimiters = new char[] { ' ', '\r', '\n' };
             var aray = Text.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
             var textLength = Text.Split(delimiters, StringSplitOptions.RemoveEmptyEntries).Length;
             var docReq = new DocumentsSearchRequest();
 
-            if (textLength < 3)
+            if (textLength < 3 || searchPhraze)
             {
                 docReq.Text = Text;
 

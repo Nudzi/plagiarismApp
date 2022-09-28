@@ -17,7 +17,7 @@ namespace plagiarism.Mobile.Views
 
         private async void Button_Clicked(object sender, System.EventArgs e)
         {
-            bool isError = await model.CheckAllowedTextSize();
+            bool isError = model.CheckAllowedTextSize();
             textError.IsVisible = isError;
 
             char[] delimiters = new char[] { ' ', '\r', '\n' };
@@ -31,7 +31,7 @@ namespace plagiarism.Mobile.Views
             }
             if (!isError)
             {
-                await model.CheckPlagiarism();
+                await model.CheckPlagiarism(SearchPhraze.IsChecked);
             }
         }
     }

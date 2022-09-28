@@ -13,7 +13,7 @@
         <vm:DocumentsViewModel></vm:DocumentsViewModel>
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <StackLayout Margin="5" Padding="0,0,3,0" StyleClass="BodyStyle">
+        <StackLayout BackgroundColor="CornflowerBlue" Margin="5" Padding="0,0,3,0" StyleClass="BodyStyle">
             <Label Text="Documents"
                 FontSize="25"
                 VerticalTextAlignment="Center" 
@@ -26,8 +26,9 @@
                     <Label Text="{Binding User.Id}" IsVisible="false"></Label>
                 </StackLayout>
                 <StackLayout Margin="10" Orientation="Horizontal" HorizontalOptions="EndAndExpand">
-                    <Label Padding="3" TextColor="DarkRed" Text="Upload New document/text: "></Label>
-                    <Button Padding="3" Text="Add new!" Clicked="Button_Clicked" />
+                    <Label Padding="15" TextColor="DarkOliveGreen" Text="Upload New document/text: "></Label>
+                    <Button BackgroundColor="DeepSkyBlue" CornerRadius="26" Margin="30,0,30,30" 
+                            Padding="21" Text="Add new!" Clicked="Button_Clicked" />
                 </StackLayout>
             </StackLayout>
 

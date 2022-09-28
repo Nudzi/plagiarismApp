@@ -136,6 +136,8 @@ namespace plagiarism.Mobile.Views
 
         private async void ScanFile()
         {
+            await Application.Current.MainPage.DisplayAlert("Information", "Scaning online!", "OK");
+
             Helper.BuildCustomId();
 
             var requestUrl = "https://api.copyleaks.com/v3/scans/submit/file/" + Global.CustomId;

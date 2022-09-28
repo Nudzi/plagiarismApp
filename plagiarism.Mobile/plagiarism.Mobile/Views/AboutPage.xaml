@@ -17,7 +17,7 @@
     <ScrollView>
 
         <StackLayout>
-            <StackLayout WidthRequest="400" Background="MistyRose" Margin="10" HorizontalOptions="CenterAndExpand">
+            <StackLayout WidthRequest="400" Background="CornflowerBlue" Margin="10" HorizontalOptions="CenterAndExpand">
                 <Label HorizontalTextAlignment="Center" Text="ABOUT US" FontSize="50"></Label>
             </StackLayout>
             <!--Telephone-->
@@ -26,14 +26,14 @@
                     <Label Text="Telephone:" WidthRequest="150" FontSize="20"></Label>
                     <Label Text="+123 456 789" WidthRequest="150" FontSize="20"></Label>
                 </StackLayout>
-                <Button Text="Call us!" Margin="60" BackgroundColor="Bisque" Clicked="Button_Clicked_1" />
+                <Button Text="Call us!" Margin="60" BackgroundColor="DeepSkyBlue" Clicked="Button_Clicked_1" />
             </StackLayout>
             <StackLayout Orientation="Vertical">
                 <StackLayout Margin="30" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                     <Label Text="Email:" WidthRequest="150" FontSize="20"></Label>
                     <Label Text="plagiarism@gmail.com" WidthRequest="150" FontSize="20"></Label>
                 </StackLayout>
-                <Button Text="Email us!" Margin="60" BackgroundColor="Bisque"  Clicked="Button_Clicked_2"></Button>
+                <Button Text="Email us!" Margin="60" BackgroundColor="DeepSkyBlue"  Clicked="Button_Clicked_2"></Button>
             </StackLayout>
             <StackLayout Orientation="Vertical">
                 <StackLayout Margin="30" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
@@ -43,9 +43,9 @@
                    Kolonija br. 1 
                    88400" WidthRequest="150" FontSize="20"></Label>
                 </StackLayout>
-                <Button Text="See location on Maps" Margin="60" BackgroundColor="Bisque" Clicked="Button_Clicked" />
+                <Button Text="See location on Maps" Margin="60" BackgroundColor="DeepSkyBlue" Clicked="Button_Clicked" />
             </StackLayout>
-            <StackLayout WidthRequest="400" Background="MistyRose" Margin="10" HorizontalOptions="CenterAndExpand">
+            <StackLayout WidthRequest="400" Background="CornflowerBlue" Margin="10" HorizontalOptions="CenterAndExpand">
                 <Label HorizontalTextAlignment="Center" Text="VISIT US AGAIN" FontSize="50"></Label>
             </StackLayout>
         </StackLayout>

@@ -13,7 +13,7 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout VerticalOptions="CenterAndExpand" Margin="10">
+        <StackLayout BackgroundColor="CornflowerBlue" Padding="5" VerticalOptions="CenterAndExpand" Margin="10">
             <ScrollView>
                 <Grid>
                     <Grid.RowDefinitions>
@@ -86,7 +86,7 @@
                     <Label Grid.Row="19" Grid.ColumnSpan="2" x:Name="cityError" TextColor="Red" IsVisible="True"></Label>
 
                     <Label Text="Street: " Grid.Row="20" FontSize="18" VerticalTextAlignment="Center"></Label>
-                    <Entry Grid.Row="20" Grid.Column="1" x:Name="inputAddress"  Text="{Binding Street}"></Entry>
+                    <Entry Grid.Row="20" Grid.Column="1" x:Name="inputAddress" Text="{Binding Street}"></Entry>
                     <Label Grid.Row="21" Grid.ColumnSpan="2" x:Name="addressError" TextColor="Red" IsVisible="True"></Label>
 
                     <Label Text="ZipCode: " Grid.Row="22" FontSize="18" VerticalTextAlignment="Center"></Label>
@@ -105,7 +105,8 @@
                     <!--<Picker Grid.Row="28" Grid.Column="1" 
                             ItemsSource="{Binding CultureList}"></Picker>-->
 
-                    <Button x:Name="ButtonRegister" Grid.Row="27" Grid.ColumnSpan="2" Text="Register - No package" BackgroundColor="Gray"
+                    <Button BackgroundColor="DeepSkyBlue" CornerRadius="26" FontSize="15" Margin="30,0,30,30" Padding="18"
+                            x:Name="ButtonRegister" Grid.Row="27" Grid.ColumnSpan="2" Text="Register - No package"
                        Clicked="ButtonRegister_Clicked"></Button>
                 </Grid>
             </ScrollView>

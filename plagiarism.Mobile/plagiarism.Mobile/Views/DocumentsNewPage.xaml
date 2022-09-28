@@ -13,7 +13,7 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout Padding="5">
+        <StackLayout BackgroundColor="CornflowerBlue" Padding="5">
             <Label Text="Submit Text or New Document"></Label>
             <Label Text="Is this Text?"></Label>
             <CheckBox x:Name="isTextChecked" CheckedChanged="CheckBox_CheckedChanged" IsChecked="{Binding IsText}"></CheckBox>

@@ -17,7 +17,8 @@
                 <StackLayout Margin="15">
 
                     <Label Padding="10" Text="Insert you document to be scanned!"></Label>
-                    <Button Clicked="Button_Clicked" Text="Upload"></Button>
+                    <Button CornerRadius="26" FontSize="15" Margin="30,0,30,30" Padding="18"
+                            Clicked="Button_Clicked" BackgroundColor="DeepSkyBlue" Text="Upload"></Button>
 
                     <StackLayout Padding="8" VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" BackgroundColor="LightGoldenrodYellow">
@@ -28,7 +29,9 @@
                     <Label HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" Text="Search Online"></Label>
                     <CheckBox HorizontalOptions="CenterAndExpand" x:Name="SearchOnline" IsChecked="False"></CheckBox>
 
-                    <Button WidthRequest="100" Padding="10" Text="SCAN" Clicked="Button_Clicked_1" BackgroundColor="DarkRed"></Button>
+                    <Button CornerRadius="26" FontSize="15" 
+                            Margin="30,0,30,30" Padding="18" WidthRequest="100" 
+                            Text="SCAN" Clicked="Button_Clicked_1" BackgroundColor="CornflowerBlue"></Button>
                 </StackLayout>
 
             </StackLayout>

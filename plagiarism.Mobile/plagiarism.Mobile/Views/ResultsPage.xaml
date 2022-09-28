@@ -14,7 +14,7 @@
                     TextColor="{StaticResource PrimaryDark}"/>
         </NavigationPage.TitleView>
         <ScrollView>
-        <Grid VerticalOptions="FillAndExpand"
+        <Grid BackgroundColor="CornflowerBlue" VerticalOptions="FillAndExpand"
               ColumnSpacing="20"
               HorizontalOptions="FillAndExpand">
             <Grid.RowDefinitions>
@@ -33,7 +33,7 @@
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
 
-            <Frame HasShadow="false"
+            <Frame BackgroundColor="White" HasShadow="false"
                       Padding="10"
                       BorderColor="{StaticResource LightColor}"
                       Margin="30,30,30,10"
@@ -46,7 +46,7 @@
                 </StackLayout>
             </Frame>
 
-            <Frame HasShadow="false"
+            <Frame BackgroundColor="White" HasShadow="false"
                       Padding="10"
                       BorderColor="{StaticResource LightColor}"
                       Margin="30,30,30,10"
