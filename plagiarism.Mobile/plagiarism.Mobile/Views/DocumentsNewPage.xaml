@@ -36,7 +36,7 @@
             <Label Text="Description: "></Label>
             <Entry x:Name="entryDesc" Text="{Binding Desc}"
                    Placeholder="Insert Description..."></Entry>
-            <Button Padding="5" Text="ADD" Clicked="Button_Clicked" />
+            <Button FontSize="15" BackgroundColor="DeepSkyBlue" CornerRadius="26" Margin="30,0,30,30" Padding="18" Text="ADD" Clicked="Button_Clicked" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

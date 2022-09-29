@@ -51,6 +51,7 @@ namespace plagiarism.WinUI.Reports
             // btnPaymants
             // 
             this.btnPaymants.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnPaymants.ForeColor = System.Drawing.Color.Black;
             this.btnPaymants.Location = new System.Drawing.Point(27, 142);
             this.btnPaymants.Name = "btnPaymants";
             this.btnPaymants.Size = new System.Drawing.Size(138, 60);
@@ -62,6 +63,7 @@ namespace plagiarism.WinUI.Reports
             // btnPrint
             // 
             this.btnPrint.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnPrint.ForeColor = System.Drawing.Color.Black;
             this.btnPrint.Location = new System.Drawing.Point(27, 395);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(229, 58);
@@ -76,6 +78,7 @@ namespace plagiarism.WinUI.Reports
             this.dgvResults.AllowUserToDeleteRows = false;
             this.dgvResults.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvResults.GridColor = System.Drawing.Color.Black;
             this.dgvResults.Location = new System.Drawing.Point(262, 142);
             this.dgvResults.Name = "dgvResults";
             this.dgvResults.ReadOnly = true;
@@ -87,6 +90,7 @@ namespace plagiarism.WinUI.Reports
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(670, 87);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(67, 20);
@@ -96,6 +100,7 @@ namespace plagiarism.WinUI.Reports
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(670, 42);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(86, 20);
@@ -106,6 +111,7 @@ namespace plagiarism.WinUI.Reports
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(12, 23);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(176, 52);
@@ -114,6 +120,7 @@ namespace plagiarism.WinUI.Reports
             // 
             // dtpTo
             // 
+            this.dtpTo.CalendarForeColor = System.Drawing.Color.Black;
             this.dtpTo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpTo.Location = new System.Drawing.Point(791, 83);
             this.dtpTo.Name = "dtpTo";
@@ -122,6 +129,7 @@ namespace plagiarism.WinUI.Reports
             // 
             // dtpFrom
             // 
+            this.dtpFrom.CalendarForeColor = System.Drawing.Color.Black;
             this.dtpFrom.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpFrom.Location = new System.Drawing.Point(791, 36);
             this.dtpFrom.Name = "dtpFrom";
@@ -146,6 +154,7 @@ namespace plagiarism.WinUI.Reports
             // btnToDisable
             // 
             this.btnToDisable.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnToDisable.ForeColor = System.Drawing.Color.Black;
             this.btnToDisable.Location = new System.Drawing.Point(1014, 75);
             this.btnToDisable.Name = "btnToDisable";
             this.btnToDisable.Size = new System.Drawing.Size(91, 37);
@@ -157,6 +166,7 @@ namespace plagiarism.WinUI.Reports
             // btnFromDisable
             // 
             this.btnFromDisable.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnFromDisable.ForeColor = System.Drawing.Color.Black;
             this.btnFromDisable.Location = new System.Drawing.Point(1014, 32);
             this.btnFromDisable.Name = "btnFromDisable";
             this.btnFromDisable.Size = new System.Drawing.Size(91, 35);
@@ -168,6 +178,7 @@ namespace plagiarism.WinUI.Reports
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(258, 119);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(120, 20);
@@ -188,6 +199,7 @@ namespace plagiarism.WinUI.Reports
             // btnDoc
             // 
             this.btnDoc.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnDoc.ForeColor = System.Drawing.Color.Black;
             this.btnDoc.Location = new System.Drawing.Point(27, 241);
             this.btnDoc.Name = "btnDoc";
             this.btnDoc.Size = new System.Drawing.Size(138, 60);

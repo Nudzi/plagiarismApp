@@ -113,7 +113,7 @@ namespace plagiarism.WinUI
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkRed;
-            this.ClientSize = new System.Drawing.Size(816, 418);
+            this.ClientSize = new System.Drawing.Size(845, 418);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pbUpload);
             this.Controls.Add(this.btnLogin);

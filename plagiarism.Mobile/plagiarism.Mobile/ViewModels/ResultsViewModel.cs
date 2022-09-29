@@ -3,6 +3,7 @@ using plagiarismModel;
 using plagiarismModel.TableRequests.Documents;
 using plagiarismModel.TableRequests.Results;
 using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 
@@ -12,6 +13,7 @@ namespace plagiarism.Mobile.ViewModels
     {
         private readonly APIService _resultsService = new APIService("results");
         private readonly APIService _documentsService = new APIService("documents");
+        private int inValidDocuments = 0;
 
         string _percentage = string.Empty;
         public string Percentage
@@ -39,7 +41,7 @@ namespace plagiarism.Mobile.ViewModels
             };
 
             await _resultsService.Insert<Results>(resultsUpsertRequest);
-
+            inValidDocuments = 0;
             foreach (var item in Global.MatchedDocs)
             {
                 DocumentsUpsertRequest request = new DocumentsUpsertRequest
@@ -49,9 +51,16 @@ namespace plagiarism.Mobile.ViewModels
                 };
 
                 await _documentsService.Update<Documents>(item.Id, request);
-                DocNames += item.Title + " " + "(" + item.Author + "), ";
+                CheckDocumentPackage(item);
             }
-        }
+
+            if (inValidDocuments != 0)
+            {
+                DocNames += " and " + inValidDocuments + " documents " +
+                    "more. (Buy higher package for info).";
+            }
+
+         }
 
         private async void ScanOnline()
         {
@@ -78,6 +87,18 @@ namespace plagiarism.Mobile.ViewModels
 
                     var response = await httpClient.SendAsync(request);
                 }
+            }
+        }
+
+        private void CheckDocumentPackage(Documents item)
+        {
+            if (item.PackageTypeId <= Global.UsersPackageType.PackageTypeId)
+            {
+                DocNames += item.Title + " " + "(" + item.Author + "), ";
+            }
+            else
+            {
+                inValidDocuments += 1;
             }
         }
     }

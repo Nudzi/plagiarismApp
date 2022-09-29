@@ -55,7 +55,7 @@
                       Grid.ColumnSpan="3">
                 <StackLayout Orientation="Horizontal" Spacing="20">
                     <Label HorizontalOptions="FillAndExpand" Text="Found files: " VerticalTextAlignment="Center"></Label>
-                    <Label HorizontalOptions="FillAndExpand" Visual="Custom" Text="{Binding DocNames}" ></Label>
+                    <Label HeightRequest="200" HorizontalOptions="FillAndExpand" Visual="Custom" Text="{Binding DocNames}" ></Label>
                 </StackLayout>
             </Frame>
 
