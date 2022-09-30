@@ -17,6 +17,7 @@ namespace plagiarism.Mobile.Views
 
         protected override void OnAppearing()
         {
+            Helper.GetAccessToken();
             base.OnAppearing();
             viewModel.Init();
 

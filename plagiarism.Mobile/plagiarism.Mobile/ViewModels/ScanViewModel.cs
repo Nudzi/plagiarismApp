@@ -5,6 +5,8 @@ using plagiarismModel.Enums;
 using plagiarismModel.TableRequests.Documents;
 using System;
 using System.Collections.Generic;
+using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
@@ -93,6 +95,34 @@ namespace plagiarism.Mobile.ViewModels
 
                 if (Global.Percentage >= 100) Global.Percentage = 100;
                 Application.Current.MainPage = new ResultsPage();
+            }
+        }
+
+        private async void ScanOnline()
+        {
+            var requestUrl = "https://api.copyleaks.com/v3/downloads/" +
+                Global.CustomId +
+                "/export/" +
+                Global.ExportId;
+
+            using (var httpClient = new HttpClient())
+            {
+                using (var request = new HttpRequestMessage(new HttpMethod("POST"), requestUrl))
+                {
+                    request.Headers.TryAddWithoutValidation("Authorization", "Bearer " + Global.AccessToken);
+
+                    var data = "{\"results\":[{\"id\":\"my-result-id\",\"verb\":\"POST\",\"headers\"" +
+                        ":[[\"header-key\",\"header-value\"]],\"endpoint\"" +
+                        ":\"https://yourserver.com/export/export-id/results/my-result-id\"}]," +
+                        "\"pdfReport\":{\"verb\":\"POST\",\"headers\":[[\"header-key\",\"header-value\"]]," +
+                        "\"endpoint\":\"https://yourserver.com/export/export-id/pdf-report\"},\"crawledVersion\"" +
+                        ":{\"verb\":\"POST\",\"headers\":[[\"header-key\",\"header-value\"]],\"endpoint\"" +
+                        ":\"https://yourserver.com/export/export-id/crawled-version\"},\"completionWebhook\"" +
+                        ":\"https://yourserver.com/export/export-id/completed\",\"maxRetries\":3}";
+                    request.Content = new StringContent(data, Encoding.UTF8, "application/json");
+
+                    var response = await httpClient.SendAsync(request);
+                }
             }
         }
     }

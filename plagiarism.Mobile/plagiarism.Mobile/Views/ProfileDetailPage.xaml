@@ -77,7 +77,8 @@
                     <Label BackgroundColor="LavenderBlush" Text="Email: " Grid.Row="9" Grid.Column="1"  VerticalTextAlignment="Center"></Label>
                     <Label BackgroundColor="LavenderBlush" Grid.Row="9" Grid.Column="2" Text="{Binding User.Email}" VerticalTextAlignment="Center"></Label>
 
-                    <Button Grid.Row="10" Grid.Column="3" WidthRequest="100" Margin="16" Text="Edit Profile" Clicked="Button_Clicked"></Button>
+                    <Button BackgroundColor="DeepSkyBlue" CornerRadius="26" FontSize="15" Margin="30,0,30,30" Padding="18"
+                        Grid.Row="10" Grid.Column="3" Font="15" WidthRequest="100" Text="Edit Profile" Clicked="Button_Clicked"></Button>
                 </Grid>
             </ScrollView>
         </StackLayout>

@@ -141,7 +141,7 @@ namespace plagiarism.Mobile.Views
             Helper.BuildCustomId();
 
             var requestUrl = "https://api.copyleaks.com/v3/scans/submit/file/" + Global.CustomId;
-            Helper.GetAccessToken();
+            
             using (var httpClient = new HttpClient())
             {
                 using (var request = new HttpRequestMessage(new HttpMethod("PUT"), requestUrl))
@@ -150,7 +150,7 @@ namespace plagiarism.Mobile.Views
 
                     var data = "{\"base64\":\"SGVsbG8gd29ybGQh\",\"filename\":\"" + fileData.FileName +
                         "\",\"properties\"" +
-                        ":{\"webhooks\":{\"status\":\"https://enkbumpblgdi.x.pipedream.net/{STATUS}/" + Global.CustomId + "\"}}}";
+                        ":{\"webhooks\":{\"status\":\"https://eni2a7hn47kg.x.pipedream.net/{STATUS}/" + Global.CustomId + "\"}}}";
                     request.Content = new StringContent(data, Encoding.UTF8, "application/json");
 
                     var response = await httpClient.SendAsync(request);

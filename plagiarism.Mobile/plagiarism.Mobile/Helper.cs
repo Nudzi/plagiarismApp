@@ -37,7 +37,7 @@ namespace plagiarism.Mobile
             {
                 using (var request = new HttpRequestMessage(new HttpMethod("POST"), requestUrl))
                 {
-                    var data = "{\"email\":\"nudzejma.kezo@gmail.com\",\"key\":\"93914651-29c4-4bf5-9278-fc1f9c05e4a2\"}";
+                    var data = "{\"email\":\"nudzejma.kezo@gmail.com\",\"key\":\"77c723d2-b27d-4353-899a-36460b3cf467\"}";
                     request.Content = new StringContent(data, Encoding.UTF8, "application/json");
 
                     var response = await httpClient.SendAsync(request);
